@@ -1,0 +1,15 @@
+#pragma once
+#include <iostream>
+#include <string>
+#include <time.h> // 임의로 시간을 재설정 해주는 라이브러리
+
+const int MAX_COUNT = 3;
+
+using namespace std;
+
+class Baseball
+{
+public:
+	Baseball() {}
+	~Baseball() {}
+};

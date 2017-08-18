@@ -1,0 +1,68 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+bool isNumber(string s)
+{
+	for (int i = 0; i < s.length(); i++)
+	{
+		if (!('0' <= s[i] && s[i] <= '9'))
+		{
+			return false;
+		}
+		return true;
+	}
+}
+
+int main()
+{
+	string s1;
+
+	cout << "수식을 입력 : ";
+	getline(cin, s1);
+
+	int pos = s1.find(" ");
+	string operandStr1 = s1.substr(0, pos); // 첫번째 정수 잘라내기
+	int operand1;
+	if (isNumber(operandStr1))
+		operand1 = stoi(operandStr1.c_str());
+	else
+		operand1 = operandStr1[0];
+	//int operand1 = stoi(operandStr1); // stoi = string -> int 변환
+	int pos2 = s1.find_first_not_of(" ", pos); // 연산자가 시작되는 위치 찾기, 공백이 아닌 첫 글자 찾기
+	string op = s1.substr(pos2, 1);
+	int pos3 = s1.find_first_not_of(" ", pos2 + 1);
+	string operandStr2 = s1.substr(pos3);
+
+	int operand2;
+	if (isNumber(operandStr2))
+		operand2 = stoi(operandStr2.c_str());
+	else
+		operand2 = operandStr2[0];
+
+	cout << operandStr1 << " " << op << " " << operandStr2;
+
+	//int num1 = stoi(operandStr1); // 문자열을 정수로 변환
+	//int num2 = stoi(operandStr2);
+
+	if (op == "+")
+	{
+		cout << " = " << operand1 + operand2 << endl;
+	}
+	else if (op == "-")
+	{
+		cout << " = " << operand1 - operand2 << endl;
+	}
+	else if (op == "*")
+	{
+		cout << " = " << operand1 * operand2 << endl;
+	}
+	else if (op == "/")
+	{
+		cout << " = " << operand1 / operand2 << endl;
+	}
+
+	system("pause");
+
+	return 0;
+}

@@ -1,0 +1,31 @@
+#pragma once
+#include <iostream>
+
+using namespace std;
+
+template <class T>
+class Queue
+{
+private:
+	T *queue;
+
+	int front;
+	int rear;
+	int capacity;
+
+public:
+	Queue(int queueCapacity = 100);
+	bool IsEmpty() const;
+	T& Front() const;
+	T& Rear() const;
+	void Push(const T& item);
+	void Pop();
+	void Show() const;
+	void init() {
+		rear = 0;
+		front = 0;
+		cout << "rear: " << rear << " front: " << front << " capacity: " << capacity << endl;
+	}
+	T& get() const;
+	~Queue();
+};

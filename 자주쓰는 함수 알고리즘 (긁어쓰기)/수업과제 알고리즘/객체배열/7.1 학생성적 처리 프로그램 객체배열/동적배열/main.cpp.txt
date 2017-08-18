@@ -1,0 +1,17 @@
+#include "Student.h"
+
+int Student::count = 0;
+
+int main()
+{
+	Student* student_list = new Student[3]; // 객체 3개
+
+	student_list[0] = Student("손우규", 20120691, 100, 100, 100);
+	student_list[1] = Student("홍길동", 20120000, 90, 90, 90);
+	student_list[2] = Student("임꺽정", 20100000, 80, 80, 80);
+
+	cout << " 모든 학생들의 평균점수중 평균 : " << Student::getAllAverage(student_list) << endl;
+	cout << " 모든 학생들의 평균점수중 최고점수 : " << Student::getAllMaxScore(student_list) << endl;
+	cout << " ----- 학생 목록 -----" << endl;
+	Student::displayStudent(student_list);
+}

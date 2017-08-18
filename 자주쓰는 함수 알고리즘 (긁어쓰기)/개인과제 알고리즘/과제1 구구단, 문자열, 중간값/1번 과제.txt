@@ -1,0 +1,144 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+// 구구단 (줄 단위 조정)
+void problem1()
+{
+	int a = 0;
+	int b = 0;
+	int c = 0;
+
+	cout << " 단을 입력하시오 : ";
+	cin >> a;
+	cout << " 곱을 입력하시오 : ";
+	cin >> b;
+	cout << " 줄 단위를 입력하시오 : ";
+	cin >> c;
+
+	for (int i = 1; i <= b; i++)
+	{
+		cout << a << " * " << i << " = " << a * i << '\t';
+
+		if (i % c == 0)
+		{
+			cout << endl;
+		}
+	}
+}
+// 문자열 찾기
+void problem2()
+{
+	int count = 0;
+	string a;
+
+	cout << " 문자를 입력하시오 : ";
+	cin >> a;
+	cout << a << endl;
+
+	cout << " 몇 번째 문자를 알고 싶습니까 ? :";
+	cin >> count;
+	cout << a[count-1] << endl;
+}
+// 중간값 찾기
+void problem3()
+{
+	int a = 0;
+	int b = 0;
+	int c = 0;
+	int mid = 0;
+
+	cout << " 숫자 3개를 입력하시오 :" << endl;
+	cout << " 첫 번째 숫자 : ";
+	cin >> a;
+	cout << " 두 번째 숫자 : ";
+	cin >> b;
+	cout << " 세 번째 숫자 : ";
+	cin >> c;
+
+	if ((a <= b && b <= c) || (a >= b && b >= c))
+	{
+		mid = b;
+	}
+	if ((b <= a && a <= c) || (b >= a && a >= c))
+	{
+		mid = a;
+	}
+	if ((b <= c && c <= a) || (b >= c && c >= a))
+	{
+		mid = c;
+	}
+
+	cout << " 중간값은 " << mid << " 입니다. " << endl;
+}
+// 순차입력 후 거꾸로 출력
+void problem4()
+{
+	int array[100];
+	int count = 0;
+
+	cout << " 입력받을 개수를 입력하시오 : ";
+	cin >> count;
+
+	cout << " 입력 : ";
+	for (int i = 0; i < count; i++)
+	{
+		cin >> array[i];
+	}
+	cout << " 정상 출력 : ";
+	for (int i = 0; i < count; i++)
+	{
+		cout << array[i] << " ";
+	}
+	cout << endl;
+	cout << " 거꾸로 출력 : ";
+	for (int i = count-1; i >= 0; i--)
+	{
+		cout << array[i] << " ";
+	}
+	cout << endl;
+}
+
+int main()
+{
+	while (1)
+	{
+		cout << endl;
+		cout << "--------   C++ 과제                     --------" << endl;
+		cout << "--------   1. 구구단 (줄 단위 조정)     --------" << endl;
+		cout << "--------   2. 문자열 찾기               --------" << endl;
+		cout << "--------   3. 중간값 찾기               --------" << endl;
+		cout << "--------   4. 순차입력 후 거꾸로 출력   --------" << endl;
+		cout << "--------   5. 프로그램 종료             --------" << endl;
+
+		int select;
+		cin >> select;
+
+		switch (select)
+		{
+		case 1:
+			// 구구단 (줄 단위 조정)
+			problem1();
+			break;
+		case 2:
+			// 문자열 찾기
+			problem2();
+			break;
+		case 3:
+			// 중간값 찾기
+			problem3();
+			break;
+		case 4:
+			// 순차입력 후 거꾸로 출력
+			problem4();
+			break;
+		case 5:
+			// 프로그램 종료
+			exit(1);
+		}
+	}
+
+	system("pause");
+
+	return 0;
+}

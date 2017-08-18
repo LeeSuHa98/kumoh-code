@@ -1,0 +1,94 @@
+#include "Match.h"
+#include "Bot.h"
+#include "Human.h"
+
+int main()
+{
+	Bot b;
+	Human h;
+	Match m;
+
+	m.botGameStart(b);
+	m.humanGameStart(h);
+	cout << endl;
+
+	cout << " 야구게임을 시작합니다 " << endl;
+	cout << " 치트모드 : 1 " << endl;
+	cout << " 건너뛰고 게임진행 : 2 " << endl;
+	cout << endl;
+
+	int select;
+	cin >> select;
+
+	switch (select)
+	{
+	case 1:
+		b.botDisplayGame();
+
+		while (1)
+		{
+			// 휴먼 정답 맞추기 함수
+			h.humanAnswerGame();
+			m.humanMatch(b, h);
+			cout << endl;
+
+			// 봇 정답 맞추기 함수
+			b.botAnswerGame();
+			m.botMatch(b, h);
+			cout << endl;
+
+			if ((m.getGameContend() == 1) || (m.getGameContend() == 2))
+			{
+				break;
+			}
+		}
+
+		// 게임의 승패를 가르고 종료시키는 함수
+		m.contendMatch(b, h);
+		cout << endl;
+
+		break;
+	case 2:
+		while (1)
+		{
+			// 휴먼 정답 맞추기 함수
+			h.humanAnswerGame();
+			m.humanMatch(b, h);
+			cout << endl;
+
+			// 봇 정답 맞추기 함수
+			b.botAnswerGame();
+			m.botMatch(b, h);
+			cout << endl;
+
+			if ((m.getGameContend() == 1) || (m.getGameContend() == 2))
+			{
+				break;
+			}
+
+			cout << " 치트 모드를 실행 하시겠습니까? " << endl;
+			cout << " 1. Yes " << endl;
+			cout << " 2. No " << endl;
+			int cheat;
+			cin >> cheat;
+			if (cheat == 1)
+			{
+				b.botDisplayGame();
+			}
+			else if (cheat == 2)
+			{
+				continue;
+			}
+		}
+
+		// 게임의 승패를 가르고 종료시키는 함수
+		m.contendMatch(b, h);
+		cout << endl;
+
+		break;
+	}
+
+	system("pause");
+
+	return 0;
+}

@@ -1,0 +1,42 @@
+#include "RadixConverter.h"
+
+int main()
+{
+	RadixConverter rc;
+
+	while (1)
+	{
+		cout << "------ 진법변환 프로그램 (2,16진수) ------" << endl;
+		cout << "------ 1. 양의 정수 입력            ------" << endl;
+		cout << "------ 2. 2진수 출력                ------" << endl;
+		cout << "------ 3. 16진수 출력                ------" << endl;
+		cout << "------ 4. 프로그램 종료             ------" << endl;
+
+		int select;
+		cin >> select;
+
+		switch (select)
+		{
+		case 1:
+			// 양의 정수 입력
+			rc.insertRadix();
+			break;
+		case 2:
+			// 진법변환 2진수
+			rc.updateBinary();
+			rc.displayBinary();
+			break;
+		case 3:
+			// 진법변환 16진수
+			rc.updateHex();
+			rc.displayHex();
+			break;
+		case 4:
+			return 0;
+		}
+	}
+
+	system("pause");
+
+	return 0;
+}

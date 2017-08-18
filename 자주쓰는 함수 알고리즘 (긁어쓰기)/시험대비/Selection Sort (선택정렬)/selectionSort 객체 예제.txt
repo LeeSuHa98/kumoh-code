@@ -1,0 +1,18 @@
+void sort(bird *a[]) 
+{
+	int max;
+	for (int i = 0; i < bird::getCount() - 1; i++) 
+	{
+		max = i;
+		for (int j = i + 1; j < bird::getCount(); j++) 
+		{
+			if (a[j]->getIndex() > a[max]->getIndex())
+			{
+				max = j;
+			}
+		}
+		int temp = a[i]->getIndex();
+		a[i]->setIndex(a[max]->getIndex());
+		a[max]->setIndex(temp);
+	}
+}

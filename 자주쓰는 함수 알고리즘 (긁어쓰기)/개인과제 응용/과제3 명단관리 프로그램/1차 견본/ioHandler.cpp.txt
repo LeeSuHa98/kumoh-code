@@ -1,0 +1,133 @@
+#include "ioHandler.h"
+
+int ioHandler::getMenu()
+{
+	putString("------ 명단관리 프로그램 ------");
+	putString("------ 1. 명단 정보 등록 ------");
+	putString("------ 2. 명단 정보 삭제 ------");
+	putString("------ 3. 명단 정보 수정 ------");
+	putString("------ 4. 명단 정보 출력 ------");
+	putString("------ 5. 프로그램 종료  ------");
+	putString("-------------------------------");
+
+	int menu = getInteger(" 선택 : ");
+	if (menu >= INSERT && menu <= EXIT)
+	{
+		return menu;
+	}
+}
+
+Faculty* ioHandler::insertFaculty()
+{
+	string id = getString(" ID : ");
+	string name = getString(" 이름 : ");
+	string department = getString(" 소속학과 : ");
+	int major = getInteger(" 전공분야 : ");
+	int degree = getInteger(" 최종학위 : ");
+
+	Faculty* f = new Faculty(id, name, department, major, degree);
+	return f;
+}
+
+Staff* ioHandler::insertStaff()
+{
+	string id = getString(" ID : ");
+	string name = getString(" 이름 : ");
+	string department = getString(" 소속부서 : ");
+	int rank = getInteger(" 직급 : ");
+	string duty = getString(" 담당업무 : ");
+
+	Staff* s = new Staff(id, name, department, rank, duty);
+	return s;
+}
+
+Undergraduate* ioHandler::insertUndergraduate()
+{
+	string id = getString(" ID : ");
+	string name = getString(" 이름 : ");
+	string department = getString(" 소속학과 : ");
+	int grade = getInteger(" 학년 : ");
+
+	Undergraduate* u = new Undergraduate(id, name, department, grade);
+	return u;
+}
+
+Graduate* ioHandler::insertGraduate()
+{
+	string id = getString(" ID : ");
+	string name = getString(" 이름 : ");
+	string department = getString(" 소속학과 : ");
+	string advisor = getString(" 지도교수 : ");
+
+	Graduate* g = new Graduate(id, name, department, advisor);
+	return g;
+}
+
+Member* ioHandler::getMember(char member_type)
+{
+	if (member_type == 'F')
+	{
+		Member* mp = insertFaculty();
+
+		return mp;
+	}
+	else if (member_type == 'S')
+	{
+		Member* mp = insertStaff();
+
+		return mp;
+	}
+	else if (member_type == 'U')
+	{
+		Member* mp = insertUndergraduate();
+		
+		return mp;
+	}
+	else if (member_type == 'G')
+	{
+		Member* mp = insertGraduate();
+
+		return mp;
+	}
+}
+
+char ioHandler::insertMemberType()
+{
+	char member_type;
+
+	while (1) 
+	{
+		cout << endl;
+		cout << "(F:교수, S:직원, U:학부생, G:대학원생) -> ";
+		cin >> member_type;
+
+		if (member_type == 'F' || member_type == 'S' || member_type == 'U' || member_type == 'G')
+		{
+			return member_type;
+		}
+		else
+		{
+			putString(" 명단을 잘못 입력하셨습니다. 다시 입력해주십시오 ");
+		}
+	}
+}
+
+int ioHandler::getInteger(string msg)
+{
+	int value;
+
+	cout << msg;
+	cin >> value;
+
+	return value;
+}
+
+string ioHandler::getString(string msg)
+{
+	string value;
+
+	cout << msg;
+	cin >> value;
+
+	return value;
+}

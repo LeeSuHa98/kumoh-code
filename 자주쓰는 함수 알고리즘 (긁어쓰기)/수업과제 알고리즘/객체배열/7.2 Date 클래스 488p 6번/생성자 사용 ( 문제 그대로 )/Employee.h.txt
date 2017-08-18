@@ -1,0 +1,14 @@
+#pragma once
+#include "Date.h"
+
+class Employee
+{
+private:
+	string name;
+	Date birthDate;
+	Date hireDate;
+public:
+	Employee() {}
+	Employee(string name, Date& birthDate, Date& hireDate) {}
+	~Employee() {}
+};

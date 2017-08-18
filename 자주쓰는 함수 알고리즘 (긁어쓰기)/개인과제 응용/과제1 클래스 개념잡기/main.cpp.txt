@@ -1,0 +1,53 @@
+#include <iostream>
+#include "Cellphone.h"
+#include "User.h"
+
+using namespace std;
+
+int main()
+{
+	// 메뉴
+	while (true)
+	{
+		cout << "-----메 뉴-----" << endl;
+		cout << "---1. 폰 ON----" << endl;
+		cout << "---2. 폰 OFF---" << endl;
+		cout << "---3. 폰 크기--" << endl;
+		cout << "---4. 폰 상태--" << endl;
+		cout << "---5. 종 료----" << endl;
+
+		int select;
+		cin >> select;
+		if (select < 1 || select > 5)
+			cout << " 다시입력하시오. " << endl;
+		User user;
+
+		// 메뉴 선택
+		switch (select)
+		{
+		case 1:
+			// 폰 ON
+			user.phoneOn();
+			break;
+		case 2:
+			// 폰 OFF
+			user.phoneOff();
+			break;
+		case 3:
+			// 폰 크기
+			user.DisplayPhoneSize();
+			break;
+		case 4:
+			// 폰 상태
+			user.DisplayPhoneState();
+			break;
+		case 5:
+			// 종료
+			cout << " 프로그램 종료 " << endl;
+		default:
+			// 예외처리
+			cout << " 잘못 입력하셨습니다 " << endl;
+			return 0;
+		}
+	}
+}

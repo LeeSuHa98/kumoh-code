@@ -1,0 +1,32 @@
+#pragma once
+#include "Baseball.h"
+#include "Human.h"
+#include "Bot.h"
+
+class Match
+{
+private:
+	int strike;
+	int ball; 
+	int out;
+	int game_contend;
+	int count;
+public:
+	Match()
+	{
+		strike = 0;
+		ball = 0;
+		out = 0;
+		game_contend = 0;
+		count = 0;
+	}
+	~Match() {}
+
+	int getGameContend() { return game_contend; }
+
+	void botMatch(Bot& b, Human& h);
+	void humanMatch(Bot& b, Human& h);
+	void contendMatch(Bot& b, Human& h);
+	void botGameStart(Bot& b);
+	void humanGameStart(Human& h);
+};

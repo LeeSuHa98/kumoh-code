@@ -1,0 +1,28 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+class bird 
+{
+protected:
+	bool isFly;
+	string name;
+	int index;
+public:
+	static int count;
+
+	bird() { }
+	bird(bool isFly, string name, int index) : isFly(isFly), name(name), index(index) { count++; }
+	virtual ~bird() { }
+
+	bool is_fly() { return isFly; }
+
+	string getName() { return name; }
+	void setName(string name) { this->name = name; }
+	int getIndex() { return index; }
+	void setIndex(int index) { this->index = index; }
+
+	static int getCount() { return count; }
+};
+
+int bird::count = 0;

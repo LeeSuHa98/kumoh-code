@@ -1,0 +1,29 @@
+#pragma once
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class Date
+{
+private:
+        string name;
+	int year;
+	int month;
+	int day;
+public:
+	Date() {}
+	Date(string name, int year, int month, int day)
+	{
+                this->name = name;
+		this->year = year;
+		this->month = month;
+		this->day = day;
+	}
+	~Date() {}
+
+	int getName() { return name; }
+	int getYear() { return year; }
+	int getMonth() { return month; }
+	int getDay() { return day; }
+};

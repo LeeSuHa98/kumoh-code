@@ -1,0 +1,33 @@
+#include "Date.h"
+#include "Employee.h"
+
+int main()
+{
+	Employee e;
+
+	while (1)
+	{
+		cout << "------ Date 프로그램 ------" << endl;
+		cout << "------ 1. 등록       ------" << endl;
+		cout << "------ 2. 출력       ------" << endl;
+		cout << "------ 3. 종료       ------" << endl;
+
+		int select;
+		cin >> select;
+
+		switch (select)
+		{
+		case 1:
+			// 1. 등록
+			e.insertEmployee();
+			break;
+		case 2:
+			// 2. 출력
+			e.displayEmployee();
+			break;
+		case 3:
+			// 3. 종료
+			return 0;
+		}
+	}
+}

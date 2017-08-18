@@ -1,0 +1,23 @@
+#pragma once
+#include "Student.h"
+
+using namespace std;
+
+class StudentList
+{
+private:
+	Student student_list[MAX_STUDENTS];
+	int count;
+public:
+	StudentList() { count = 0; }
+	~StudentList() {}
+
+	Student getStudentList(int index) { return student_list[index]; }
+	int getCount() { return count; }
+	void plusCount() { count++; }
+	void minusCount() { count--; }
+
+	void insertStudent(Student s);
+	void deleteStudent(int index);
+	void updateStudent(int index, Student s);
+};

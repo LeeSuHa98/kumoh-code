@@ -1,0 +1,45 @@
+#include <iostream>
+
+using namespace std;
+
+void get_min_max(int* arr, int count, int& min, int& max);
+
+int main()
+{
+	int arr[10];
+	int min;
+	int max;
+	int count = 0;
+
+	while (1)
+	{
+		cout << " 정수 입력 : " << endl;
+		cin >> arr[count];
+		if (arr[count] == 0)
+		{
+			break;
+		}
+		count++;
+	}
+
+	get_min_max(arr, count, min, max);
+	cout << " 최소값 : " << min << endl;
+	cout << " 최대값 : " << max << endl;
+}
+
+void get_min_max(int* arr, int count, int& min, int& max)
+{
+	min = max = arr[0];
+	
+	for (int i = 0; i < count; i++)
+	{
+		if (arr[i] < min)
+		{
+			min = arr[i];
+		}
+		else if (arr[i] > max)
+		{
+			max = arr[max];
+		}
+	}
+}

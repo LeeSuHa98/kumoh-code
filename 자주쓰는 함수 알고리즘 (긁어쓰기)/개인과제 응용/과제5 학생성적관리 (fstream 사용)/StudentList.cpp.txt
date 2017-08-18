@@ -1,0 +1,128 @@
+#include "StudentList.h"
+
+int StudentList::findStudent(string name)
+{
+	for (int i = 0; i < count; i++)
+	{
+		if (name == student_list[i].getName())
+		{
+			return i;
+		}
+	}
+}
+
+void StudentList::insertStudent()
+{
+	cout << " 학생 성적을 등록합니다 " << endl;
+
+	string name;
+	int kor;
+	int eng;
+	int math;
+
+	cout << " 이름 등록 : ";
+	cin >> name;
+	cout << " 국어 성적 등록 : ";
+	cin >> kor;
+	cout << " 영어 성적 등록 : ";
+	cin >> eng;
+	cout << " 수학 성적 등록 : ";
+	cin >> math;
+
+	Student s(name, kor, eng, math);
+	student_list[count] = s;
+	count++;
+}
+
+void StudentList::deleteStudent()
+{
+	cout << " 학생 성적을 삭제합니다 " << endl;
+	
+	string name;
+
+	cout << " 삭제할 학생의 이름을 입력하시오 : ";
+	cin >> name;
+
+	for (int i = findStudent(name); i < count; i++)
+	{
+		student_list[i + 1];
+	}
+	count--;
+}
+
+void StudentList::updateStudent()
+{
+	cout << " 학생 성적을 수정합니다 " << endl;
+
+	string name;
+	int kor;
+	int eng;
+	int math;
+
+	cout << " 수정할 학생의 이름을 입력하시오 : ";
+	cin >> name;
+
+	cout << name << " 학생의 성적을 수정합니다 " << endl;
+
+	cout << " 국어 성적 등록 : ";
+	cin >> kor;
+	cout << " 영어 성적 등록 : ";
+	cin >> eng;
+	cout << " 수학 성적 등록 : ";
+	cin >> math;
+
+	Student s(name, kor, eng, math);
+	student_list[findStudent(name)] = s;
+}
+
+void StudentList::displayStudent()
+{
+	cout << " 학생 성적을 출력합니다 " << endl;
+
+	for (int i = 0; i < count; i++)
+	{
+		cout << " 이름 : " << student_list[i].getName() << endl;
+		cout << " 국어 : " << student_list[i].getKor() << endl;
+		cout << " 영어 : " << student_list[i].getEng() << endl;
+		cout << " 수학 : " << student_list[i].getMath() << endl;
+		cout << endl;
+	}
+}
+
+void StudentList::loadStudent(string fileName) // 파일 읽기용
+{
+	ifstream fin;
+	fin.open(fileName, ios_base::in);
+
+	string name;
+	int kor;
+	int eng;
+	int math;
+
+	while (!fin.eof()) // 파일의 끝에 도달하지 않았다면 계속 반복
+	{
+		fin >> name >> kor >> eng >> math; // 파일의 값을 읽음
+		Student s(name, kor, eng, math); // Student 임시 객체 생성
+		student_list[count] = s;
+		count++;
+	}
+
+	fin.close();
+}
+
+void StudentList::saveStudent(string fileName) // 파일 쓰기용
+{
+	ofstream fout;
+	fout.open(fileName, ios_base::out);
+
+	for (int i = 0; i < count; i++)
+	{
+		fout << student_list[i].getName() << "\t";
+		fout << student_list[i].getKor() << "\t";
+		fout << student_list[i].getEng() << "\t";
+		fout << student_list[i].getMath() << "\t";
+		fout << endl;
+	}
+
+	fout.close();
+}

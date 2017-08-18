@@ -1,0 +1,37 @@
+#include "MyArray.h"
+
+int main()
+{
+	MyArray ma;
+
+	while (1)
+	{
+		cout << "정수의 동적배열" << endl;
+		cout << "1. 정수 추가   " << endl;
+		cout << "2. 정수 삭제   " << endl;
+		cout << "3. 정수 출력   " << endl;
+		cout << "4. 종료        " << endl;
+
+		int select;
+		cin >> select;
+
+		switch (select)
+		{
+		case 1:
+			// 정수 추가
+			ma.arrayAppend();
+			break;
+		case 2:
+			// 정수 삭제
+			ma.arrayDelete();
+			break;
+		case 3:
+			// 정수 출력
+			ma.arrayPrint();
+			break;
+		case 4:
+			// 종료
+			return 0;
+		}
+	}
+}

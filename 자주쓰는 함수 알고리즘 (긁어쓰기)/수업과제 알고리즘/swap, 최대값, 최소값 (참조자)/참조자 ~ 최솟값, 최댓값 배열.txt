@@ -1,0 +1,130 @@
+#include <iostream>
+
+using namespace std;
+
+void get_min_max(int* arr,int count, int& min, int& max)
+{
+	min = max = arr[0];
+
+	for (int i = 1; i < count; i++)
+	{
+		if (arr[i] < min)
+		{
+			min = arr[i];
+		}
+
+		else if (arr[i] > max)
+		{
+			max = arr[i];
+		}
+	}
+}
+
+void get_min_max(int x, int y, int& min, int& max)
+{
+	for (int i = 0; i < 3; i++)
+	{
+		min = y;
+
+		if (min > x)
+		{
+			min = x;
+		}
+
+		max = x;
+
+		if (max < y)
+		{
+			max = y;
+		}
+	}
+}
+
+void get_min_max(double x, double y, double& min, double& max)
+{
+	for (int i = 0; i < 3; i++)
+	{
+		min = y;
+
+		if (min > x)
+		{
+			min = x;
+		}
+
+		max = x;
+
+		if (max < y)
+		{
+			max = y;
+		}
+	}
+}
+
+int main()
+{
+	int select;
+
+	cout << "------ 최솟값, 최댓값 구하기 ------" << endl;
+	cout << "------ 1. 배열 최솟값, 최댓값------" << endl;
+	cout << "------ 2. 정수 최솟값, 최댓값------" << endl;
+	cout << "------ 3. 실수 최솟값, 최댓값------" << endl;
+
+	cin >> select;
+
+	if (select == 1)
+	{
+		int arr[10];
+		int x;
+		int y;
+		int min;
+		int max;
+                int count = 0;
+
+		cout << "정수들을 입력하시오 : ('0'입력시 입력 종료) ";
+		while (1)
+		{
+			cin >> arr[count];
+			if (arr[count] == 0)
+				break;
+			count++;
+		}
+
+		get_min_max(arr, count, min, max);
+		cout << " 최소값 : " << min << " 최대값 : " << max << endl;
+	}
+	else if(select == 2)
+	{
+		int x;
+		int y;
+		int min;
+		int max;
+
+		cout << " 첫번 째 값을 입력하시오 : " << endl;
+		cin >> x;
+
+		cout << " 두번 째 값을 입력하시오 : " << endl;
+		cin >> y;
+
+		get_min_max(x, y, min, max);
+		cout << " 최소값 : " << min << " 최대값 : " << max << endl;
+	}
+	else if(select == 3)
+	{
+		double x;
+		double y;
+		double min;
+		double max;
+
+		cout << " 첫번 째 값을 입력하시오 : " << endl;
+		cin >> x;
+
+		cout << " 두번 째 값을 입력하시오 : " << endl;
+		cin >> y;
+
+		get_min_max(x, y, min, max);
+		cout << " 최소값 : " << min << " 최대값 : " << max << endl;
+	}
+	system("pause");
+
+	return 0;
+}

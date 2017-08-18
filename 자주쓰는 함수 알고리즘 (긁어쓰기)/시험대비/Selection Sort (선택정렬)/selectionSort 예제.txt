@@ -1,0 +1,56 @@
+#include <iostream>
+
+using namespace std;
+
+const int MAX_SIZE = 10;
+
+void selectionSort(int* arr, int count);
+void printList(int* arr, int count);
+
+int main()
+{
+	int arr[MAX_SIZE] = { 3,2,9,7,1,4,8,0,6,5 };
+
+	// 원래의 배열 출력
+	cout << "원래의 배열" << endl;
+	printList(arr, MAX_SIZE);
+
+	selectionSort(arr, MAX_SIZE);
+
+	// 정렬된 배열 출력
+	cout << "정렬된 배열" << endl;
+	printList(arr, MAX_SIZE);
+
+	return 0;
+}
+
+void selectionSort(int* arr, int count)
+{
+	int temp;
+	int min;
+	
+	for (int i = 0; i < count; i++)
+	{
+		min = arr[i]; // 배열에 할당된 값이 count에 따라서 순차적으로 min에 할당된다.
+		for (int j = i + 1; j < count; j++) // 최소값 탐색
+		{
+			if (arr[min] > arr[j])
+			{
+				min = j;
+			}
+			// i번째 원소와 min위치의 원소를 swap
+			temp = arr[i];
+			arr[i] = arr[min];
+			arr[min] = temp;
+		}
+	}
+}
+
+void printList(int* arr, int count)
+{
+	for (int i = 0; i < count; i++)
+	{
+		cout << arr[i] << " ";
+	}
+	cout << endl;
+}

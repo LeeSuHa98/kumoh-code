@@ -1,0 +1,96 @@
+#pragma once
+#include <iostream>
+
+using namespace std;
+
+class Vector
+{
+	friend ostream& operator << (ostream& os, const Vector& v);
+	friend istream& operator >> (istream& is, Vector& v);
+private:
+	double x;
+	double y;
+public:
+	Vector() {}
+	Vector(double x, double y)
+	{
+		this->x = x;
+		this->y = y;
+	}
+	~Vector() {}
+
+	void print()
+	{
+		cout << " x : " << x << endl;
+		cout << " y : " << y << endl;
+	}
+
+	//friend Vector operator+(const Vector& v1, const Vector&v2)
+	//{
+	//	Vector v(0.0, 0.0);
+	//	v.x = v1.x + v2.x;
+	//	v.y = v1.y + v2.y;
+
+	//	return v;
+	//}
+
+	//friend Vector operator-(const Vector& v1, const Vector&v2)
+	//{
+	//	Vector v(0.0, 0.0);
+	//	v.x = v1.x - v2.x;
+	//	v.y = v1.y - v2.y;
+
+	//	return v;
+	//}
+
+	Vector operator+(const Vector& v2) const
+	{
+		Vector v(0.0, 0.0);
+		v.x = this->x + v2.x;
+		v.y = this->y + v2.y;
+
+		return v;
+	}
+
+	Vector operator-(const Vector& v2) const
+	{
+		Vector v(0.0, 0.0);
+		v.x = this->x - v2.x;
+		v.y = this->y - v2.y;
+
+		return v;
+	}
+
+	Vector& operator=(const Vector& v2)
+	{
+		this->x = x;
+		this->y = y;
+
+		return *this;
+	}
+
+	friend bool operator==(const Vector& v1, const Vector& v2)
+	{
+		return v1.x == v2.x && v1.y == v2.y;
+	}
+
+	friend bool operator!=(const Vector& v1, const Vector& v2)
+	{
+		return !(v1 == v2); // 오버로딩 된 == 연산자를 이용
+	}
+
+	friend ostream& operator << (ostream& os, const Vector& v)
+	{
+		os << " x : " << v.x << endl;
+		os << " y : " << v.y << endl;
+
+		return os;
+	}
+	friend istream& operator >> (istream& is, Vector& v)
+	{
+		is >> v.x;
+		is >> v.y;
+
+		return is;
+	}
+};

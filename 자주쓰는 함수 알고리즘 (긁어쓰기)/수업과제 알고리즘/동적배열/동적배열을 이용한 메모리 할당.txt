@@ -1,0 +1,38 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	int arr;
+
+	cout << " 학생 수를 입력하시오 : " << endl;
+
+	cin >> arr;
+
+	int* StudentList = new int[arr];
+
+	for (int i = 0; i < arr; i++)
+	{
+		cout << i << " 번째 성적 : " << endl;
+		cin >> StudentList[i];
+	}
+
+	double avg;
+	int sum = 0;
+
+	for (int i = 0; i < arr; i++)
+	{
+		sum = sum + StudentList[i];
+	}
+
+	avg = ((double)sum) / arr;
+
+	cout << " 평균 : " << avg << endl;
+
+	delete[] StudentList;
+
+	system("pause");
+
+	return 0;
+}

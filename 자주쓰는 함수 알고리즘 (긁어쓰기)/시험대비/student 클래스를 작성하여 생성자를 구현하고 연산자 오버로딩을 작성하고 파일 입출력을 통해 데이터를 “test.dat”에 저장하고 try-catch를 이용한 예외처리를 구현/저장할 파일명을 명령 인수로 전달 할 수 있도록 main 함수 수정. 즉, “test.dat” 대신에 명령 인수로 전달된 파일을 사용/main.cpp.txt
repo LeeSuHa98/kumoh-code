@@ -1,0 +1,55 @@
+void save(student st[], string fileName);
+
+int main(int argc, char* argv[]) 
+{
+	if (argc != 2) 
+	{
+		cout << "형식에 맞지않습니다" << endl;
+		exit(1);
+	}
+	string fileName = argv[1];	// 명령인수로 받아오기
+	student s[2] = { student("won",100,100,50), student("jong",50,60,20) }, tmp;
+
+	cout << s[0] << endl;  // OK
+						   // 총점 기준
+	if (s[0] > s[1])
+		cout << s[0].getName() << " is higher than " << s[1].getName() << endl;
+	else
+		cout << s[1].getName() << " is higher than " << s[0].getName() << endl;
+
+	tmp = s[0] + s[1];
+
+	cout << tmp.getEverage() << endl;
+
+	try 
+	{
+		save(s, fileName);
+
+	}
+	catch (ExceptionNotFound e) 
+	{
+		exit(1);
+	}
+	return 0;
+}
+
+void save(student st[], string fileName) 
+{
+	ofstream os;
+	try 
+	{
+		os.open(fileName, ifstream::binary);
+		if (os.fail())
+			throw ExceptionNotFound(-1);
+		for (int i = 0; i < 2; i++) 
+		{
+			os.write((char*)& st[i], sizeof(student));
+			os.close();
+		}
+	}
+	catch (ExceptionNotFound e) 
+	{
+		cout << "없는 파일입니다" << endl;
+		throw e;
+	}
+}

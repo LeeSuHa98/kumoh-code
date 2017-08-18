@@ -1,0 +1,37 @@
+#include "Rectangle.h"
+
+bool Rectangle::isoverlap(Rectangle r)
+{
+	if (origin_x == r.getOrigin() && origin_y == r.getOrigin() && width == r.getWidth() && height == r.getHeight())
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+
+bool Rectangle::isSquare(Rectangle r)
+{
+	cout << " 원점 x를 입력하시오 : ";
+	cin >> origin_x;
+
+	cout << " 원점 y를 입력하시오 : ";
+	cin >> origin_y;
+
+	cout << " 너비를 입력하시오 : ";
+	cin >> width;
+
+	cout << " 높이를 입력하시오 : ";
+	cin >> height;
+
+	if (origin_x == r.getOrigin() && origin_y == r.getOrigin() && width == r.getWidth() && height == r.getHeight())
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}

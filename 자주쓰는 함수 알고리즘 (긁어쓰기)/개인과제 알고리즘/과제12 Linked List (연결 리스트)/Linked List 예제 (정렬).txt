@@ -1,0 +1,123 @@
+#pragma once
+
+template <class T>
+class Chain;
+
+
+
+/* Node Class */
+template <class T>
+class Node
+{
+
+	friend class Chain<T>;
+
+public:
+
+	Node()
+	{
+		link = NULL;
+	}
+
+	Node(T theData, Node<T>* theLink)
+	{
+		data = theData;
+		link = theLink;
+	}
+
+	~Node() {}
+
+	void setLink(Node<T>* theLink) { link = theLink; }
+	//void setData(Node<T>* theLink) {}
+
+	T getData()
+	{
+		return data;
+	}
+
+	Node<T>* getLink()
+	{
+		if (this == NULL)
+		{
+			return NULL;
+		}
+		return link;
+	}
+
+
+private:
+
+	T data;
+	Node<T>* link;
+
+};
+
+
+
+/* Chain Class */
+template <class T>
+class Chain
+{
+public:
+
+	Chain()
+	{
+		first = NULL;
+	}
+
+	void insertNode(T theData);
+	Node<T>* getNode() { return first; }
+	void setFirst(Node<T>* node) { first = node; }
+private:
+	Node<T>* first;
+
+
+};
+
+template <class T>
+void Chain<T>::insertNode(T theData)
+{
+
+	Node<T>* curLink = first;
+	Node<T>* tempNode;
+
+
+	if (first == NULL)
+	{
+		first = new Node<T>(theData, NULL);
+	}
+
+	else
+	{
+
+		//first 데이터보다 theData가 작으면
+		if (curLink->data < theData)
+		{
+			tempNode = new Node<T>(theData, curLink);
+			first = tempNode;
+			return;
+		}
+
+		while (curLink != NULL)
+		{
+
+
+			if (curLink->link == NULL && curLink->data > theData)
+			{
+				tempNode = new Node<T>(theData, NULL);
+				curLink->link = tempNode;
+				return;
+			}
+
+			else if (curLink->getData() > theData && theData > curLink->link->data)
+			{
+				tempNode = new Node<T>(theData, curLink->link);
+				curLink->link = tempNode;
+				return;
+			}
+
+
+			curLink = curLink->link;
+		}
+	}
+}

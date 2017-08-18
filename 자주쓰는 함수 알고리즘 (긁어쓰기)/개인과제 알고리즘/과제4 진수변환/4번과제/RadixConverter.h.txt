@@ -1,0 +1,51 @@
+#pragma once
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class RadixConverter
+{
+private:
+	// 2진수
+	int bin[32];
+	// 16진수
+	/*string hex;*/
+	char hex[8];
+	// 카운트
+	int count;
+	// 양의 정수
+	int num;
+public:
+	RadixConverter() 
+	{ 
+		count = 0; 
+
+		for (int i = 0; i <= 32; i++)
+		{
+			bin[i] = 0;
+		}
+
+		for (int j = 0; j<= 7; j++)
+		{
+			hex[j] = 48; // ASCII코드 48 = '0'
+		}
+		/*hex = "0123456789ABCDEFGHIJKLNMOPQRSTUVWXYZ";*/
+	}
+	RadixConverter(int num)
+	{
+		this->num = num;
+	}
+	~RadixConverter() {}
+
+	// 양의 정수 입력
+	void insertRadix();
+	// 2진법 변환
+	void updateBinary();
+	// 16진법 변환
+	void updateHex();
+	// 2진법 출력
+	void displayBinary();
+	// 16진법 출력
+	void displayHex();
+};

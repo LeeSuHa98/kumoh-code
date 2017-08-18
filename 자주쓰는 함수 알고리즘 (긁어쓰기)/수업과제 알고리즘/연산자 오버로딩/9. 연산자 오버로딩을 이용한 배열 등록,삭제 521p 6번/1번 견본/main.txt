@@ -1,0 +1,96 @@
+#include "Set.h"
+
+
+void main()
+{
+	Set s1;
+	Set s2;
+	int num;
+	while (1)
+	{
+		cout << "C++ 20161102 Operator 과제" << endl;
+		cout << "20121437 홍태원" << endl;
+		cout << "010-7415-8285" << endl;
+		cout << "=====================" << endl;
+		cout << " 1. 원소추가(s1)" << endl;
+		cout << " 2. 원소추가(s2)" << endl;
+		cout << " 3. 원소삭제(s1)" << endl;
+		cout << " 4. 원소삭제(s2)" << endl;
+		cout << " 5. 합집합" << endl;
+		cout << " 6. 교집합" << endl;
+		cout << " 7. 집합 동일 확인" << endl;
+		cout << " 8. 원소확인(s1)" << endl;
+		cout << " 9. 원소확인(s2)" << endl;
+		cout << "10. 원소추가(cin>>s1)" << endl;
+		cout << "11. 원소추가(cin>>s2)" << endl;
+		cout << "=====================" << endl;
+
+		cout << "메뉴선택 : ";
+		cin >> num;
+
+		switch (num)
+		{
+		case 1: 
+			int insert_num;
+			cout << "insert num : ";
+			cin >> insert_num;
+			s1 + insert_num;
+			break;
+		case 2:
+			cout << "insert num : ";
+			cin >> insert_num;
+			s2 + insert_num;
+			break;
+
+		case 3:
+			int delete_num;
+			cout << "delete num : ";
+			cin >> delete_num;
+			s1 - delete_num;
+			break;
+
+		case 4:
+			cout << "delete num : ";
+			cin >> delete_num;
+			s2 - delete_num;
+			break;
+			
+		case 5:
+			s1 | s2;
+			break;
+
+		case 6:
+			s1 & s2;
+			break;
+
+		case 7:
+			if (s1 == s2)
+				cout << "같은 집합입니다." << endl;
+			else
+				cout << "다른 집합입니다." << endl;
+			break;
+
+		case 8:
+			cout << s1;
+			break;
+
+		case 9:
+			cout << s2;
+			break;
+
+		case 10:
+			cin >> s1;
+			break;
+
+		case 11:
+			cin >> s2;
+			break;
+
+		default:
+			break;
+		}
+
+		system("pause");
+		system("cls");
+	}
+}

@@ -1,0 +1,85 @@
+void PersonList::loadFile()
+{
+	ifstream fin;
+	int num = 0;
+	string fileName;
+	cout << " > Input LoadFilename ";
+	cin >> fileName;
+	cin.ignore();	//fflush 버퍼 없애기.
+
+	fin.open(fileName);
+
+	if (!fin)
+	{
+		cout << "Failed to open file" << endl;
+		return;
+	}
+
+	while (1)
+	{
+		if (personNum == 10)
+		{
+			cout << "10명이 되어 더 이상 받을 수 없습니다." << endl;
+			break;
+		}
+
+		string text;
+		string name;	int kor;	int eng;	int math;
+
+		getline(fin, text);
+
+		if (fin.fail())
+			break;
+
+		math = stoi(text.substr(text.find_last_of(',') + 1, text.length()));
+		text = text.substr(0, text.find_last_of(','));
+
+		eng = stoi(text.substr(text.find_last_of(',') + 1, text.length()));
+		text = text.substr(0, text.find_last_of(','));
+
+		kor = stoi(text.substr(text.find_last_of(',') + 1, text.length()));
+		text = text.substr(0, text.find_last_of(','));
+
+		text = text.substr(0, text.find_last_not_of(' ') + 1);	// 이름 뒤에 공백 제거
+
+		text = text.substr(text.find_first_not_of(' '), text.length());		// 이름 앞에 공백 제거
+		name = text;
+
+		p[personNum++] = Person(name, kor, eng, math);
+	}
+	fin.close();
+}
+
+void PersonList::saveFile()
+{
+	string fileName;
+	cout << " > Input SaveFilename ";
+	cin >> fileName;
+
+	ofstream fout;
+	fout.open(fileName);
+	if (!fout)
+	{
+		cout << "Failed to open file" << endl;
+		return;
+	}
+
+	for (int i = 0; i < personNum; i++)
+	{
+		string text;
+
+		int kor = p[i].getKor();
+		int eng = p[i].getEng();
+		int math = p[i].getMath();
+		string name = p[i].getName();
+
+		string korScore = to_string(kor);
+		string engScore = to_string(eng);
+		string mathScore = to_string(math);
+
+		text = name + " , " + korScore + " , " + engScore + " , " + mathScore;
+
+		fout << text << endl;
+	}
+
+}

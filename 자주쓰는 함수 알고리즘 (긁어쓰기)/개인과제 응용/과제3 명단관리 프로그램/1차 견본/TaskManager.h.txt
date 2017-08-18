@@ -1,0 +1,14 @@
+#pragma once
+#include "MemberList.h"
+
+class TaskManager
+{
+public:
+	TaskManager() {};
+	~TaskManager() {};
+	
+	void registerMember(MemberList& m_list);
+	void unregisterMember(MemberList& m_list);
+	void changeMember(MemberList& m_list);
+	void displayMember(MemberList& m_list);
+};

@@ -1,0 +1,66 @@
+#include "TaskManager.h"
+#include "ioHandler.h"
+
+int TaskManager::findStudent(StudentList& s_list, int id)
+{
+	// 학생 정보 검색
+	for (int i = 0; i < s_list.getCount(); i++)
+	{
+		if (id == s_list.getStudentList(i).getId()) // id에 저장된 값(입력 값) == 출력된 값
+		{
+			return i; // 검색해서 찾은 값을 반환
+		}
+	}
+}
+
+void TaskManager::registerStudent(StudentList& s_list)
+{
+	ioHandler ioh;
+
+	ioh.putString(" 학생 정보를 등록합니다 ");
+
+	Student s = ioh.getStudent();
+	s_list.insertStudent(s); // 생성자의 내용을 배열 함수에 삽입
+	s_list.plusCount(); // 다음 공간에 삽입할 수 있게 증가
+}
+
+void TaskManager::unregisterStudent(StudentList& s_list)
+{
+	ioHandler ioh;
+
+	ioh.putString(" 학생 정보를 삭제합니다 ");
+
+	int id = ioh.getInteger(" 삭제할 학생의 학번을 입력하시오 : ");
+
+	for (int i = findStudent(s_list, id); i < s_list.getCount(); i++)
+	{
+		s_list.deleteStudent(i); // 전의 공간에 다음 공간을 덮어 씌워주는 배열 함수를 호출
+	}
+	s_list.minusCount(); // 다음 공간에 삽입할 수 있게 증가된 공간이 비어있기 때문에 입력된 내용까지만 보여주기 위해 감소
+}
+
+void TaskManager::changeStudent(StudentList& s_list)
+{
+	ioHandler ioh;
+
+	ioh.putString(" 학생 정보를 수정합니다 ");
+
+	int id = ioh.getInteger(" 수정할 학생의 학번을 입력하시오 : ");
+	ioh.putString(" 다음 학생의 정보를 수정합니다 ");
+
+	Student s = ioh.getStudent();
+	s_list.updateStudent(findStudent(s_list, id), s); // 검색 후 지정된 id의 정보를 기준으로 생성자를 삽입하는 함수를 호출
+}
+
+void TaskManager::displayStudent(StudentList s_list)
+{
+	ioHandler ioh;
+
+	ioh.putString(" 학생 정보를 출력합니다 ");
+
+	for (int i = 0; i < s_list.getCount(); i++) // 출력을 계속 해주기 위해 반복
+	{
+		Student s = s_list.getStudentList(i);
+		ioh.putStudent(s);
+	}
+}

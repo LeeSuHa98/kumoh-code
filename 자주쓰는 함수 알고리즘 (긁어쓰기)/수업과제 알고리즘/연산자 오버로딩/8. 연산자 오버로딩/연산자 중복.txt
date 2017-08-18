@@ -1,0 +1,73 @@
+#include <iostream>
+
+using namespace std;
+
+class Fraction
+{
+private :
+   int numer; //분자
+   int denom; //분모
+
+public :
+   Fraction()
+   {
+      numer = 0;
+      denom = 1;
+   }
+   Fraction(int n, int d)
+   {
+      numer = n;
+      denom = d;
+   }
+
+   Fraction operator+(Fraction &f2)
+   {
+      Fraction f3;
+      if (denom == f2.denom)
+      {
+         f3.numer = numer + f2.numer;
+         f3.denom = denom;
+         return f3;
+      }
+      else
+      {
+         f3.numer = (numer * f2.denom) + (f2.numer * denom);   
+         f3.denom = denom * f2.denom;
+         return f3;
+      }
+   }
+
+   Fraction operator+(int n)
+   {
+      Fraction f3;
+      f3.numer = numer + denom * n;
+      f3.denom = denom;
+      return f3;
+   }
+
+   Fraction operator-(int n)
+   {
+      Fraction f3;
+      f3.numer = numer - (denom * n);
+      f3.denom = denom;
+      return f3;
+   }
+
+   void display()
+   {
+      cout << "분자 = " << numer << " 분모 = " << denom << endl;
+   }
+
+};
+
+void main()
+{
+   Fraction a(3, 8);
+   Fraction b(1, 2);
+   Fraction c;
+
+   c = a - 2;
+
+   c.display();
+
+}

@@ -1,0 +1,102 @@
+// p649 3번
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+const int StackSize = 5;
+
+class StackException
+{
+private:
+	int code;
+	string description;
+public:
+	StackException() {}
+	StackException(int code)
+	{
+		this->code = code;
+		switch (code)
+		{
+		case 1:
+			description = "스택 오버플로우 오류";
+			break;
+		case 2:
+			description = "스택 언더플로우 오류";
+			break;
+		}
+	}
+	~StackException() {}
+
+	int getCode() { return code; }
+	string getDescription() { return description; }
+};
+
+class Stack
+{
+private:
+	int arr[StackSize];
+	int pos;
+public:
+	Stack() { pos = -1; }
+	~Stack() {}
+
+	void push(int data)
+	{
+		if (pos == StackSize-1) throw StackException(1); // 오버플로우
+		else
+		{
+			pos++;
+			arr[pos] = data;
+		}
+	}
+	int pop()
+	{
+		if (pos == -1) throw StackException(2); // 언더플로우
+		else
+		{
+			int data = arr[pos];
+			pos--;
+			return data;
+		}
+	}
+};
+
+int main()
+{
+	/*bool isfull = false;*/
+	bool isempty = false;
+	int data;
+	Stack myStack;
+	do
+	{
+		cout << "데이터 : ";
+		cin >> data;
+		try
+		{
+			//myStack.push(data);
+			data = myStack.pop();
+			cout << data << endl;
+		}
+		//catch (StackException e)
+		//{
+		//	if (e.getCode() == 2)
+		//	{
+		//		cout << e.getCode() << " : " << e.getDescription() << endl;
+		//		isfull = true;
+		//	}
+		//}
+		catch (StackException e)
+		{
+			if (e.getCode() == 1)
+			{
+				cout << e.getCode() << " : " << e.getDescription() << endl;
+				isempty = true;
+			}
+		}
+
+	} while (isempty != true); /* while (isfull != true);*/
+
+	return 0;
+}

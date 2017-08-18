@@ -1,0 +1,72 @@
+#include <iostream>
+
+using namespace std;
+
+int arr = 0;
+int* StudentList;
+int* TempList;
+
+void insertStudnetList()
+{
+	TempList = new int[arr];
+	for (int i = 0; i < arr; i++)
+	{
+		TempList[i] = StudentList[i];
+	}
+
+	StudentList = new int[arr++];
+	for (int i = 0; i < arr-1; i++)
+	{
+		StudentList[i] = TempList[i];
+	}
+	delete[] TempList;
+
+	cout << arr << " 번째 성적 : " << endl;
+	cin >> StudentList[arr-1];
+}
+
+void printStudentList()
+{
+	cout << " 학생의 성적을 출력합니다 " << endl;
+
+	for (int i = 0; i < arr; i++)
+	{
+		cout << i+1 << " 번째 성적 : ";
+		cout << StudentList[i] << endl;
+	}
+}
+
+int main()
+{
+	while (1)
+	{
+		cout << "------ 학생성적 출력 프로그램 ------" << endl;
+		cout << "------ 1. 학생 성적 삽입      ------" << endl;
+		cout << "------ 2. 학생 성적 출력      ------" << endl;
+		cout << "------ 3. 프로그램 종료       ------" << endl;
+
+		int select;
+		cin >> select;
+
+		switch (select)
+		{
+		case 1:
+			// 1. 학생 성적 삽입
+			insertStudnetList();
+
+			break;
+		case 2:
+			// 2. 학생 성적 출력
+			printStudentList();
+
+			break;
+		case 3:
+			// 3. 프로그램 종료
+			exit(1);
+		}
+	}
+
+	system("pause");
+
+	return 0;
+}

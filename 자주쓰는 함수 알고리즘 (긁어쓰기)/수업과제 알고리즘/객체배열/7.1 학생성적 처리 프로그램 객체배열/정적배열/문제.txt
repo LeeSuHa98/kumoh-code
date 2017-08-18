@@ -1,0 +1,59 @@
+#pragma once
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class Student
+{
+private:
+	string name;
+	int id;
+	int kor;
+	int eng;
+	int math;
+	static int numofStudents;
+public:
+	Student(string name = "", int id = -1)
+	{
+		kor = 0; eng = 0; math = 0;
+		numofStudents++;
+	}
+
+	//Access Method
+	void setKor(int kor) { this->kor = kor; }
+	void setEng(int eng) { this->eng = eng; }
+	void setMath(int math) { this->math = math; }
+	int getKor() { return kor; }
+	int getEng() { return eng; }
+	int getMath() { return math; }
+	int getSum() { return kor + eng + math; }
+
+	double getAvgOfKor(Student[])
+	{
+		int sum = 0;
+		for (int i = 0; i < Student::getNumOfStudents(); i++)
+		{
+			sum = sum + student[i].getKor();
+		}
+		return ((double)sum) / Student::getNumOfStudents();
+	}
+	static int getNumOfStudents() {}
+};
+
+int main()
+{
+	Student students[3] = { Student("aaa",1),Student("bbb") };
+
+	student[0].setKor(76);
+}
+
+// ÀÏ¹ÝÇÔ¼ö
+
+double korAvg = getAvgOfKor(students);
+double korAvg = getAvgOfKor(students);
+double korAvg = getAvgOfKor(students);
+double korAvg = getAvgOfKor(students);
+
+cout << "ÀüÃ¼ Æò±Õ : " << totalAvg << endl;
+cout << "±¹¾î Æò±Õ : " << korAvg << ", " << "¿µ¾î Æò±Õ : ";

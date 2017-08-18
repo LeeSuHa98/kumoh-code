@@ -1,0 +1,44 @@
+#include <iostream>
+#include "Member.h"
+#include "MemberList.h"
+#include "ioHandler.h"
+#include "TaskManager.h"
+
+using namespace std;
+
+int main()
+{
+	MemberList m_list;
+	ioHandler ioh;
+	TaskManager tm;
+
+	while (true)
+	{
+		int menu = ioh.getMenu();
+		if (menu == EXIT) break;
+
+		// 종료
+		switch (menu)
+		{
+		case INSERT:
+			// 등록
+			tm.registerMember(m_list);
+			break;
+		case DELETE:
+			// 삭제
+			tm.unregisterMember(m_list);
+			break;
+		case UPDATE:
+			// 수정
+			tm.changeMember(m_list);
+			break;
+		case DISPLAY:
+			// 출력
+			tm.displayMember(m_list);
+			break;
+		default:
+			cout << " 잘못 입력하셨습니다 " << endl;
+			return 0;
+		}
+	}
+}

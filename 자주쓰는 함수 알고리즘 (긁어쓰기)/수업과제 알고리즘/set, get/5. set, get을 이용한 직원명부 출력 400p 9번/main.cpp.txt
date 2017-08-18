@@ -1,0 +1,53 @@
+#include "Employee.h"
+
+int main()
+{
+	Employee e;
+
+	while (1)
+	{
+		/*cout << " 직원명부 프로그램 " << endl;
+		cout << " 1. 직원 등록    " << endl;
+		cout << " 2. 직원 출력    " << endl;
+		cout << " 3. 프로그램 종료  " << endl;*/
+
+		/*int select;
+		cin >> select;*/
+
+		//switch (select)
+		//{
+		//case 1:
+		//	// 직원등록
+		//	/*e.insertEmployee();*/
+		//	break;
+		//case 2:
+		//	/*e.diplayEmployee();*/
+		//	// 직원출력
+		//	break;
+		//case 3:
+		//	exit(1);
+		//}
+		cout << " 직원명부 프로그램 " << endl;
+		cout << " 1. 직원 출력    " << endl;
+		cout << " 2. 프로그램 종료  " << endl;
+
+		int select;
+		cin >> select;
+
+		switch (select)
+		{
+		case 1:
+			e.setName("홍길동");
+			cout << "직원의 이름 : " << e.getName() << endl;
+			e.setAge(26);
+			cout << "직원의 나이 : " << e.getAge() << endl;
+			e.setSalary(1000000);
+			cout << "직원의 급여 : " << e.getSalary() << endl;
+			e.setYears(1);
+			cout << "직원의 근무년수 : " << e.getYears() << endl;
+			break;
+		case 2:
+			exit(1);
+		}
+	}
+}

@@ -1,0 +1,7 @@
+class canary : public bird 
+{
+public:
+	canary() : bird() { }
+	canary(string name, int index) : bird(true, name, index) { }
+	~canary() { }
+};

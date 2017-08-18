@@ -1,0 +1,41 @@
+#include <iostream>
+
+using namespace std;
+
+void get_min_max(int x, int y, int& min, int& max)
+{
+	min = x;
+
+	if (y < min)
+	{
+		min = y;
+	}
+
+	max = x;
+
+	if (y > max)
+	{
+		max = y;
+	}
+}
+
+int main()
+{
+	int x;
+	int y;
+	int min;
+	int max;
+
+	cout << " 첫번 째 값을 입력하시오 : " << endl;
+	cin >> x;
+
+	cout << " 두번 째 값을 입력하시오 : " << endl;
+	cin >> y;
+
+	get_min_max(x, y, min, max);
+	cout << " 최소값 : " << min << " 최대값 : " << max << endl;
+
+	system("pause");
+
+	return 0;
+}

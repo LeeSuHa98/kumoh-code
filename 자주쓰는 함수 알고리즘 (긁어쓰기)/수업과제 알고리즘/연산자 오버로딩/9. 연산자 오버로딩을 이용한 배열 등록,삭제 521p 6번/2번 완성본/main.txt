@@ -1,0 +1,90 @@
+#include "Set.h"
+
+int main()
+{
+	Set s1;
+	Set s2;
+
+	while (1)
+	{
+		cout << "--------  집합을 나타내는 클래스 set       --------" << endl;
+		cout << "--------  1. 집합 원소추가 s1 (+ 연산자)   --------" << endl;
+		cout << "--------  2. 집합 원소추가 s2 (+ 연산자)   --------" << endl;
+		cout << "--------  3. 집합 원소삭제 s1 (- 연산자)   --------" << endl;
+		cout << "--------  4. 집합 원소삭제 s2 (- 연산자)   --------" << endl;
+		cout << "--------  5. 합집합 (| 연산자)             --------" << endl;
+		cout << "--------  6. 교집합 (& 연산자)             --------" << endl;
+		cout << "--------  7. 두 집합이 동일 (== 연산자)    --------" << endl;
+		cout << "--------  8. 입출력 (<< 연산자)            --------" << endl;
+		cout << "--------  9. 입출력 (<< 연산자)            --------" << endl;
+		cout << "--------  10. 입출력 (>> 연산자)           --------" << endl;
+		cout << "--------  11. 입출력 (>> 연산자)           --------" << endl;
+		cout << "--------  12. 프로그램 종료                --------" << endl;
+
+		int select;
+		cin >> select;
+
+		switch (select)
+		{
+		case 1:
+			// 1. 집합 원소추가 s1 (+ 연산자)
+			int insert_num;
+			cout << "insert_num : ";
+			cin >> insert_num;
+			s1 + insert_num;
+			break;
+		case 2:
+			// 2. 집합 원소추가 s2 (+ 연산자) 
+			cout << "insert_num : ";
+			cin >> insert_num;
+			s2 + insert_num;
+			break;
+		case 3:
+			// 3. 집합 원소삭제 s1 (- 연산자)
+			int delete_num;
+			cout << "delete_num : ";
+			cin >> delete_num;
+			s1 - delete_num;
+			break;
+		case 4:
+			// 4. 집합 원소삭제 s2 (- 연산자)
+			cout << "delete_num : ";
+			cin >> delete_num;
+			s2 - delete_num;
+			break;
+		case 5:
+			// 5. 합집합 (| 연산자)
+			s1 | s2;
+			break;
+		case 6:
+			// 6. 교집합 (& 연산자)
+			s1 & s2;
+			break;
+		case 7:
+			// 7. 두 집합이 동일 (== 연산자)
+			if (s1 == s2)
+				cout << "같은 집합입니다." << endl;
+			else
+				cout << "다른 집합입니다." << endl;
+			break;
+		case 8:
+			// 8. 입출력 (<< 연산자) 
+			cout << s1;
+			break;
+		case 9:
+			// 9. 입출력 (<< 연산자)
+			cout << s2;
+			break;
+		case 10:
+			// 10. 입출력 (>> 연산자) 
+			cin >> s1;
+			break;
+		case 11:
+			// 11. 입출력 (>> 연산자)
+			cin >> s2;
+			break;
+		case 12:
+			return 0;
+		}
+	}
+}

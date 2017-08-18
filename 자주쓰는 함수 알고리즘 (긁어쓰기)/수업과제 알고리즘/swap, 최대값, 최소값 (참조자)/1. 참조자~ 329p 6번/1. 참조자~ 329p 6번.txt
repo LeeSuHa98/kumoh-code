@@ -1,0 +1,31 @@
+#include <iostream>
+
+using namespace std;
+
+void add_tax(double& salary, double rate)
+{
+	salary = salary + (salary * rate);
+}
+
+void add_tax(double& salary, double rate = 0.2);
+
+int main()
+{
+	double salary;
+
+	cout << " 월급 : ";
+	cin >> salary;
+
+	add_tax(salary, 10);
+	cout << " 세금 포함 월급 : " << salary << endl;
+
+	cout << " 월급 : ";
+	cin >> salary;
+
+	add_tax(salary);
+	cout << " 세금 포함 월급 : " << salary << endl;
+
+	system("pause");
+
+	return 0;
+}

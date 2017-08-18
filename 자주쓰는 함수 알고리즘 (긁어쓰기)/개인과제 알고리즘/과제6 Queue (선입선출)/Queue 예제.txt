@@ -1,0 +1,66 @@
+#include <iostream>
+
+using namespace std;
+
+const int MAX_QUEUE_SIZE = 10;
+
+template<typename T>
+class Queue
+{
+private:
+	T* queue;
+	int front;
+	int rear;
+
+public:
+	Queue() {}
+	Queue()
+	{
+		queue = new T[MAX_QUEUE_SIZE];
+		front = -1;
+		rear = -1;
+	}
+	~Queue() { delete[] queue; }
+
+	void enqueue(T val)
+	{
+		if (isFull())
+		{
+			throw "OverFlow";
+		}
+		else
+		{
+			queue[++rear] = val;
+		}
+	}
+
+	void dequeue()
+	{
+		if (isEmpty())
+		{
+			throw "UnderFlow";
+		}
+		else
+		{
+			front++;
+			return queue[front];
+		}
+	}
+
+	bool isFull()
+	{
+		return rear == MAX_QUEUE_SIZE - 1;
+	}
+
+	bool isEmpty()
+	{
+		return front == rear;
+	}
+};
+
+int main()
+{
+	Queue<int> q;
+
+	return 0;
+}

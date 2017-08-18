@@ -1,0 +1,61 @@
+#include "Student.h"
+
+// 한 학생의 평균점수
+int Student::getAverage()
+{
+	return (kor + eng + math) / 3;
+}
+// 한 학생의 최대점수
+int Student::getMaxScore()
+{
+	int max = kor;
+
+	if (max < eng)
+	{
+		max = eng;
+	}
+
+	if (max < math)
+	{
+		max = math;
+	}
+
+	return max;
+}
+// 모든 학생의 평균점수중 평균
+int Student::getAllAverage(Student* student_list)
+{
+	int sum = 0;
+	for (int i = 0; i < count; i++)
+	{
+		sum += student_list[i].getAverage();
+	}
+
+	return sum / count;
+}
+// 모든 학생의 평균점수중 최고점수
+int Student::getAllMaxScore(Student* student_list)
+{
+	int maxAvg = 0;
+	for (int i = 0; i < count; i++)
+	{
+		if (maxAvg < student_list[i].getAverage())
+		{
+			maxAvg = student_list[i].getAverage();
+		}
+	}
+
+	return maxAvg;
+}
+
+void Student::displayStudent(Student* student_list)
+{
+	for (int i = 0; i < count; i++)
+	{
+		cout << " 이름 : " << student_list[i].name << endl;
+		cout << " 학번 : " << student_list[i].id << endl;
+		cout << " 국어점수 : " << student_list[i].kor << endl;
+		cout << " 영어점수 : " << student_list[i].eng << endl;
+		cout << " 수학점수 : " << student_list[i].math << endl;
+	}
+}

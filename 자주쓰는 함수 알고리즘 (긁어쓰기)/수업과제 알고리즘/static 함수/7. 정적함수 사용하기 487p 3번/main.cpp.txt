@@ -1,0 +1,11 @@
+#include "MyMetric.h"
+
+int main()
+{
+	MyMetric mm;
+
+	cout << " 킬로미터 -> 마일 " << mm.killoToMile() << endl;
+	cout << " 마일 -> 킬로미터 " << mm.mileToKillo() << endl;
+
+	return 0;
+}

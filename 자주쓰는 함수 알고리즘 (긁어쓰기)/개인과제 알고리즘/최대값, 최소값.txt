@@ -1,0 +1,41 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	int data; // 데이터를 저장할 변수
+	int sum = 0;
+	double avg = 0;
+	// 최대점수를 100점이라고 가정
+	// 0점 ~ 100점이라고 가정했을 때
+	int max = -1;
+	int min = 101;
+	int count = 0;
+
+	while (1)
+	{
+		cout << "데이터를 입력하시오(음수이면 종료) : ";
+		cin >> data;
+
+		if (data < 0)
+		{
+			break;
+		}
+		if (data > max)
+		{
+			max = data;
+		}
+		if (data < min)
+		{
+			min = data;
+		}
+		sum += data;
+		count++;
+	}
+
+	cout << "평균은 " << (double)sum / count << "입니다." << endl;
+	cout << "최소값은 " << min << "입니다." << endl;
+	cout << "최대값은 " << max << "입니다." << endl;
+
+	return 0;
+}

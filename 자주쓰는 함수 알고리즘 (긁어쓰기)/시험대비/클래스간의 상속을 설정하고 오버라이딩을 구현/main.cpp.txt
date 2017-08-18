@@ -1,0 +1,55 @@
+void sort(bird *a[]);
+
+int main() 
+{
+
+	bird *a[10];
+	canary *c;
+	penguin *p;
+
+	c = new canary("la1", 30);
+	a[0] = c;
+	c = new canary("la2", 40);
+	a[1] = c;
+	p = new penguin("pa1", 34);
+	a[2] = p;
+	p = new penguin("pa2", 55);
+	a[3] = p;
+	c = new canary("la3", 66);
+	a[4] = c;
+
+	int fcount = 0;
+
+	for (int i = 0; i < 5; i++)
+		if (a[i]->is_fly())
+			fcount++;
+
+	cout << "Fly Count : " << fcount << endl;
+
+	sort(a);
+
+	for (int i = 0; i < 5; i++)
+		cout << a[i]->getName() << " " << a[i]->getIndex() << endl;
+
+	return 0;
+}
+
+void sort(bird *a[]) 
+{
+	int max;
+	for (int i = 0; i < bird::getCount() - 1; i++)
+	{
+		max = i;
+
+
+
+		for (int j = i + 1; j < bird::getCount(); j++) 
+		{
+			if (a[j]->getIndex() > a[max]->getIndex())
+				max = j;
+		}
+		int temp = a[i]->getIndex();
+		a[i]->setIndex(a[max]->getIndex());
+		a[max]->setIndex(temp);
+	}
+}

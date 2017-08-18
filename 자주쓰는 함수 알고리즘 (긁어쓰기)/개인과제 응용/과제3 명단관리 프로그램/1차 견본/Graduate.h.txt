@@ -1,0 +1,20 @@
+#pragma once
+#include "Member.h"
+
+class Graduate : public Member
+{
+	string advisor; // 지도교수
+public:
+	Graduate() {}
+	Graduate(string id, string name, string department, string advisor) : Member(id, name, department)
+	{
+		this->advisor = advisor;
+	}
+	virtual ~Graduate() {}
+
+	string getAdvisor() { return advisor; }
+	void putMember()
+	{
+		cout << endl << "ID: " << id << endl << "성명 : " << name << endl << "소속학과 : " << department << endl << "지도교수 : " << advisor << endl;
+	}
+};

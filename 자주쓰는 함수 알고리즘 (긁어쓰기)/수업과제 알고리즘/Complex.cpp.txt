@@ -1,0 +1,28 @@
+#include "Complex.h"
+
+Complex Complex::add(Complex c)
+{
+	Complex result;
+
+	result.setReal(real + c.getReal());
+	result.setImage(image + c.getImage());
+
+	return result;
+}
+
+Complex Complex::subtract(Complex c)
+{
+	Complex result;
+
+	result.setReal(real - c.getReal());
+	result.setImage(image - c.getImage());
+
+	return result;
+}
+
+void Complex::print()
+{
+	cout << real << "+" << image << "=" << real + image << endl;
+
+        cout << real << "-" << image << "=" << real - image << endl;
+}

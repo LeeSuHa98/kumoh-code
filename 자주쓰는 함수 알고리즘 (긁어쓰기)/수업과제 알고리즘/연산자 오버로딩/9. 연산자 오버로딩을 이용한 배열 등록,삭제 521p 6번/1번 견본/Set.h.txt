@@ -1,0 +1,25 @@
+#pragma once
+#include <iostream>
+#include <algorithm>
+
+using namespace std;
+
+const int MAX_ARR_NUM = 30;
+
+class Set
+{
+	friend ostream& operator<<(ostream& os, const Set& s);
+	friend istream& operator>>(istream& is, Set& s);
+private:
+	int* arr;
+	int count;
+public:
+	Set();
+	~Set();
+
+	Set operator+(int num);
+	Set operator-(int num);
+	bool operator==(const Set s);
+	Set operator | (const Set& s); //합집합
+	Set operator & (const Set& s); //교집합
+};

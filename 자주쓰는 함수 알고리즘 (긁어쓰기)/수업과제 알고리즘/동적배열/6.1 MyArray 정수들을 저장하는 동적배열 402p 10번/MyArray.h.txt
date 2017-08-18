@@ -1,0 +1,28 @@
+#pragma once
+#include <iostream>
+
+using namespace std;
+
+class MyArray
+{
+private:
+	int* ptr; // 정수들이 저장된 메모리를 가르키는 변수
+	int size; // 배열의 크기
+public:
+	MyArray()
+	{
+		ptr = NULL;
+	}
+	~MyArray() {
+		cout << ptr << endl;
+		delete[] ptr;
+		ptr = NULL;
+	}
+
+	// 정수 추가
+	void arrayAppend();
+	// 정수 삭제
+	void arrayDelete();
+	// 정수 출력
+	void arrayPrint();
+};

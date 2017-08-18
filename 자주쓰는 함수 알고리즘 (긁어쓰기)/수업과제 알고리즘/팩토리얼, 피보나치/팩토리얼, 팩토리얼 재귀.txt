@@ -1,0 +1,66 @@
+#include <iostream>
+
+using namespace std;
+
+int factorial(int num)
+{
+	int result = 1;
+
+	for (int i = 1; i <= num; i++)
+	{
+		result = result *i;
+	}
+
+	return result;
+}
+
+int Factorial(int num)
+{
+	if (num == 2)
+	{
+		return 2;
+	}
+
+	return Factorial(num-1) * num;
+}
+
+int main()
+{
+	int num = 0;
+
+	while (1)
+	{
+		cout << " -------------- MENU --------------" << endl;
+		cout << " ------ 1. Factorial         ------" << endl;
+		cout << " ------ 2. Return Factorial  ------" << endl;
+		cout << " ------ 3. Exit              ------" << endl;
+
+		int select;
+
+		cin >> select;
+
+		switch (select)
+		{
+
+		case 1: // 팩토리얼 함수
+			cout << " 숫자를 입력하시오 : ";
+			cin >> num;
+			cout << " Factorial " << factorial(num) << endl;
+
+			break;
+		case 2: // 재귀 팩토리얼 함수
+			cout << " 숫자를 입력하시오 : ";
+			cin >> num;
+			cout << " Factorial " << Factorial(num) << endl;
+
+			break;
+		case 3: // 프로그램 종료
+			exit(1);
+
+		}
+	}
+
+	system("pause");
+
+	return 0;
+}

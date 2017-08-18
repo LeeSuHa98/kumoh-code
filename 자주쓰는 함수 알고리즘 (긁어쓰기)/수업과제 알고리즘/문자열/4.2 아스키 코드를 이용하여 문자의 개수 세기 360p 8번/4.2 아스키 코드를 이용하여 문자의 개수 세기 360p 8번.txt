@@ -1,0 +1,41 @@
+// 사용자로부터 받은 문자열에서 알파벳 글자의 개수, 숫자의 개수, 공백 문자의 개수를 계산하는 프로그램을 작성하라.
+// 예를 들어서 사용자가 "transformer 2"를 입력하면 알파벳 글자의 개수는 11개, 숫자의 개수는 1개, 공백 문자의 개수도 1이라고 출력한다.
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+	string a;
+	int countAlpha = 0;
+	int countNumber = 0;
+	int countGap = 0;
+
+	cout << " 문자를 입력하시오 : ";
+	getline(cin, a);
+
+	for (int i = 0; i < a.length(); i++)
+	{
+		if (65 <= a[i] && a[i] <= 122)
+		{
+			countAlpha++;
+		}
+		else if (48 <= a[i] && a[i] <= 57)
+		{
+			countNumber++;
+		}
+		else
+		{
+			countGap++;
+		}
+	}
+	cout << "알파벳 카운트 : " << countAlpha << endl;
+	cout << "숫자 카운트 : " << countNumber << endl;
+	cout << "공백 카운트 : " << countGap << endl;
+
+	system("pause");
+
+	return 0;
+}

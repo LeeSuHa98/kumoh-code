@@ -1,0 +1,45 @@
+#pragma once
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class Student
+{
+private:
+	string name;
+	int id;
+	int kor;
+	int eng;
+	int math;
+	static int count;
+public:
+	Student() {}
+	Student(string name, int id, int kor, int eng, int math)
+	{
+		this->name = name;
+		this->id = id;
+		this->kor = kor;
+		this->eng = eng;
+		this->math = math;
+		count++;
+	}
+	~Student() {}
+
+	string getName() { return name; }
+	int getId() { return id; }
+	int getKor() { return kor; }
+	int getEng() { return eng; }
+	int getMath() { return math; }
+
+	// 한 학생의 평균점수
+	int getAverage();
+	// 한 학생의 최대점수
+	int getMaxScore();
+	// 모든 학생의 평균점수중 평균
+	static int getAllAverage(Student* student_list);
+	// 모든 학생의 평균점수중 최고점수
+	static int getAllMaxScore(Student* student_list);
+	// 출력
+	static void displayStudent(Student* student_list);
+};

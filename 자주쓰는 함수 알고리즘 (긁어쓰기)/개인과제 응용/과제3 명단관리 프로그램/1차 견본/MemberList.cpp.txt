@@ -1,0 +1,32 @@
+#include "MemberList.h"
+#include "ioHandler.h"
+
+int MemberList::findMember(string id)
+{
+	for (int i = 0; i < count; i++)
+	{
+		if (id == member_list[i]->getId())
+		{
+			return i;
+		}
+	}
+}
+
+void MemberList::insertMember(Member* mp)
+{
+	member_list[count] = mp;
+	
+	count++;
+}
+
+void MemberList::deleteMember(int index)
+{
+	member_list[index] = member_list[index + 1];
+	
+	count--;
+}
+
+void MemberList::updateMember(int index, Member* mp)
+{
+	member_list[index] = mp;
+}

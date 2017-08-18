@@ -1,0 +1,21 @@
+#pragma once
+#include "Member.h"
+
+class MemberList
+{
+private:
+	Member* member_list[MAX_MEMBERS]; // 명단을 담을 명단부
+	int count;
+public:
+	MemberList() { count = 0; }
+	~MemberList() {}
+
+	Member* getMemberList(int index) { return member_list[index]; }
+	int getCount() { return count; }
+
+
+	int findMember(string id);
+	void insertMember(Member* mp);
+	void deleteMember(int index);
+	void updateMember(int index, Member* mp);
+};

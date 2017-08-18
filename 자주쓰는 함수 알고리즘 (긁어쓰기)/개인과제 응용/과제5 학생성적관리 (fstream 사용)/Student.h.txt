@@ -1,0 +1,32 @@
+#pragma once/
+#include <iostream>
+#include <fstream>
+#include <string>
+
+const int MAX_STUDENT = 100;
+
+using namespace std;
+
+class Student
+{
+private:
+	string name; // 이름
+	int kor; // 국어
+	int eng; // 영어
+	int math; // 수학
+public:
+	Student() {}
+	Student(string name, int kor, int eng, int math)
+	{
+		this->name = name;
+		this->kor = kor;
+		this->eng = eng;
+		this->math = math;
+	}
+	~Student() {}
+
+	string getName() { return name; }
+	int getKor() { return kor; }
+	int getEng() { return eng; }
+	int getMath() { return math; }
+};

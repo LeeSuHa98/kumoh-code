@@ -1,0 +1,22 @@
+#pragma once
+#include "Student.h"
+
+class StudentList
+{
+private:
+	Student student_list[MAX_STUDENT]; // 학생 100명의 명단부
+	int count;
+public:
+	StudentList() { count = 0; }
+	~StudentList() {}
+
+	int findStudent(string name); // 학생검색
+	void insertStudent(); // 학생성적 등록
+	void deleteStudent(); // 학생성적 삭제
+	void updateStudent(); // 학생성적 수정
+	void displayStudent(); // 학생성적 출력
+
+	// fstream 파일 입출력
+	void loadStudent(string fileName); // ifstream
+	void saveStudent(string fileName); // ofstream
+};

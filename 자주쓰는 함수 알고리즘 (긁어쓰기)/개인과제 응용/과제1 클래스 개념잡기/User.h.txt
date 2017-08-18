@@ -1,0 +1,22 @@
+#pragma once
+#include <string>
+#include "Cellphone.h"
+
+using namespace std;
+
+class User
+{
+private:
+	string name;
+	int age;
+	Cellphone cp;
+
+public:
+	User() {}
+	~User() {}
+
+	void phoneOn();
+	void phoneOff();
+	void DisplayPhoneSize();
+	void DisplayPhoneState();
+};

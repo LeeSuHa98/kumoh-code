@@ -1,0 +1,19 @@
+Rectangle t1, t2, t3;
+
+t1.setOrigin(3,3); // 원점
+t1.setWidth(10); // 너비
+t1.setHeight(10); // 높이
+cout << " 면적은 " << t1.getArea() << " 입니다 " << endl;
+
+t2.setOrigin(5,5);
+t2.setWidth(3);
+t2.setHeight(5);
+
+if (t1.isoverlap(t2)) cout << "겹칩니다." << endl;
+else cout << "겹치지 않습니다." << endl;
+
+t3.setOrigin(20,20);
+t3.setWidth(7);
+t3.setHeight(7);
+if (t3.isSquare()) cout << "정사각형입니다" << endl;
+else cout << " 정사각형이 아닙니다. " << endl;

@@ -1,0 +1,49 @@
+// 물품번호를 맞추는 프로그램
+// 물품번호의 크기는 6인 문자열로 되어있음
+// 앞의 2개의 알파벳 문자는 물건의 종류, 뒤의 4개의 숫자는 모델번호
+// EX) TV1523
+// 문자열의 길이, 앞의 두개의 문자가 알파벳인지, 나머지 문자가 숫자인지를 검사하라
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+	string model;
+
+	while (1)
+	{
+		cout << " 모델명 ? : ";
+		cin >> model;
+
+		if (model.size() < 6)
+		{
+			cout << " 자리수 오류(6자 이상이어야 함)" << endl;
+
+			break;
+		}
+
+		if (!isalpha(model[0]) || !isalpha(model[1]))
+		{
+			cout << " 모델 종류 오류(앞의 2개의 문자가 알파벳이어야함)" << endl;
+
+			break;
+		}
+
+		if (!isdigit(model[2]) || !isdigit(model[3]) || !isdigit(model[4]) || !isdigit(model[5]))
+		{
+			cout << " 모델 종류 오류 (뒤의 4개의 문자가 숫자여야함)" << endl;
+
+			break;
+		}
+		else
+		{
+			return 0;
+		}
+	}
+
+	system("pause");
+	return 0;
+}

@@ -1,0 +1,55 @@
+#include "Employee.h"
+
+void Employee::insertEmployee()
+{
+	cout << " 직원의 정보를 등록합니다 " << endl;
+	
+	string name;
+	int year;
+	int month;
+	int day;
+
+	cout << " 직원의 이름을 입력하시오 : ";
+	cin >> name;
+	this->name = name;
+
+	cout << name << " 직원의 생일을 등록합니다 " << endl;
+
+	cout << " 년도 : ";
+	cin >> year;
+	cout << " 월 : ";
+	cin >> month;
+	cout << " 날짜 : ";
+	cin >> day;
+
+	this->birthDate = Date(year, month, day);
+
+
+	cout << name << " 직원의 입사일을 등록합니다 " << endl;
+
+	cout << " 년도 : ";
+	cin >> year;
+	cout << " 월 : ";
+	cin >> month;
+	cout << " 날짜 : ";
+	cin >> day;
+
+	this->hireDate = Date(year, month, day);
+}
+
+void Employee::displayEmployee()
+{
+	cout << " 직원의 정보를 출력합니다 " << endl;
+
+	cout << " 이름 : " << name << endl;
+
+	cout << name << " 직원의 생일 " << endl;
+	cout << " 년도 : " << birthDate.getYear() << endl;
+	cout << " 월 : " << birthDate.getMonth() << endl;
+	cout << " 날짜 : " << birthDate.getDay() << endl;
+
+	cout << name << " 직원의 입사일 " << endl;
+	cout << " 년도 : " << hireDate.getYear() << endl;
+	cout << " 월 : " << hireDate.getMonth() << endl;
+	cout << " 날짜 : " << hireDate.getDay() << endl;
+}

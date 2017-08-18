@@ -1,0 +1,617 @@
+#include <iostream>
+
+using namespace std;
+// 1. 배열 입/출력 프로그램
+void problem1();
+void inputArray(char myStr[], int MAX_STR, int& strLength);
+void printReverse(char myStr[], int strLength);
+// 2. 최대값, 최소값, 평균 구하기
+void problem2();
+void inputArray(int arr[], int MAX_SIZE, int& len);
+void findMinMaxAvg(int arr[], int& len, int& min, int& max, double& avg);
+// 3. 모음/자음 개수 판별 프로그램
+void problem3();
+void checkCharCount(char myStr[], int& strLength, int& upperCnt, int& lowerCnt, int& vowelCnt);
+// 4. ww 또는 wcw 형태의 문자열
+void problem4();
+bool isWWStr(char myStr[], int strLength);
+// 5. 2차원 배열에 값 채우기
+void problem5();
+void getRowColumn(int SIZE, int& row, int& column);
+void inputArray(int arr[][100], int& row, int& column);
+void printArray(int arr[][100], int& row, int& column);
+// 6. 2차원 정방행렬 합 구하기
+void problem6();
+void getMatrixAdd(int matrix1[][100], int matrix2[][100], int resMatrix[][100], int& row, int& column);
+// 7. 삼각행렬 구하기
+void problem7();
+void makeTrianglarArray(int matrix[][100], int& size);
+void inputArray(int arr[][100], int& size);
+void printArray(int resMatrix[][100], int& size);
+// 8. 정방행렬 곱 구하기
+void problem8();
+void getMatrixMulti(int matrix1[][100], int matrix2[][100], int resMatrix[][100], int& size);
+// 9. 글자 개수 세기
+void problem9();
+void countChar(char myStr[], int& strLength, int bigCharCnt[], int smallCharCnt[]);
+void printCharCnt(int bigCharCnt[], int smallCharCnt[]);
+void countChar(char myStr[], int& strLength, int charCnt[][2]);
+void printCharCnt(int charCnt[][2]);
+
+int main()
+{
+	while (1)
+	{
+		cout << "----------      C++ 과제                        ----------" << endl;
+		cout << "----------      1. 배열 입/출력 프로그램        ----------" << endl;
+		cout << "----------      2. 최대값, 최소값, 평균 구하기  ----------" << endl;
+		cout << "----------      3. 모음/자음 개수 판별 프로그램 ----------" << endl;
+		cout << "----------      4. ww 또는 wcw 형태의 문자열    ----------" << endl;
+		cout << "----------      5. 2차원 배열에 값 채우기       ----------" << endl;
+		cout << "----------      6. 2차원 정방행렬 합 구하기     ----------" << endl;
+		cout << "----------      7. 삼각행렬 구하기              ----------" << endl;
+		cout << "----------      8. 정방행렬 곱 구하기           ----------" << endl;
+		cout << "----------      9. 글자 개수 세기               ----------" << endl;
+		cout << "----------      10. 프로그램 종료               ----------" << endl;
+
+		int select;
+		cin >> select;
+
+		switch (select)
+		{
+		case 1:
+			// 1. 배열 입/출력 프로그램
+			problem1();
+			break;
+		case 2:
+			// 2. 최대값, 최소값, 평균 구하기
+			problem2();
+			break;
+		case 3:
+			// 3. 모음/자음 개수 판별 프로그램
+			problem3();
+			break;
+		case 4:
+			// 4. ww 또는 wcw 형태의 문자열
+			problem4();
+			break;
+		case 5:
+			// 5. 2차원 배열에 값 채우기
+			problem5();
+			break;
+		case 6:
+			// 6. 2차원 정방행렬 합 구하기
+			problem6();
+			break;
+		case 7:
+			// 7. 삼각행렬 구하기
+			problem7();
+			break;
+		case 8:
+			// 8. 정방행렬 곱 구하기
+			problem8();
+			break;
+		case 9:
+			// 9. 글자 개수 세기
+			problem9();
+			break;
+		case 10:
+			// 10. 프로그램 종료
+			exit(1);
+		}
+
+	}
+}
+
+// 1. 배열 입/출력 프로그램
+void problem1()
+{
+	const int MAX_STR = 100;
+	char myStr[MAX_STR];
+	int strLength;
+
+	while (1)
+	{
+		cout << " 문자열 입력 : ";
+		inputArray(myStr, MAX_STR, strLength);
+
+		if (strLength == 0)
+		{
+			break;
+		}
+
+		cout << " 거꾸로 출력 : ";
+		printReverse(myStr, strLength);
+	}
+}
+
+void inputArray(char myStr[], int MAX_STR, int& strLength)
+{
+	strLength = 0;
+
+	while (1)
+	{
+		cin >> myStr[strLength];
+
+		if (strLength == MAX_STR)
+		{
+			cout << " Excess Number " << endl;
+
+			break;
+		}
+
+		if (myStr[strLength] == '.')
+		{
+			break;
+		}
+
+		strLength++;
+	}
+}
+
+void printReverse(char myStr[], int strLength)
+{
+	for (int i = strLength - 1; i >= 0; i--)
+	{
+		cout << myStr[i];
+	}
+	cout << endl;
+}
+// 2. 최대값, 최소값, 평균 구하기
+void problem2()
+{
+	const int MAX_SIZE = 100;
+	int arr[MAX_SIZE];
+	int len;
+	int max;
+	int min;
+	double avg;
+
+	while (1)
+	{
+		cout << MAX_SIZE << "개 이하의 자연수 입력 : ";
+		inputArray(arr, MAX_SIZE, len);
+
+		if (len == 0)
+		{
+			break;
+		}
+
+		findMinMaxAvg(arr, len, min, max, avg);
+		cout << "최대값은" << max << ", 최소값은" << min << ", 평균은" << avg << endl << endl;
+	}
+}
+
+void inputArray(int arr[], int MAX_SIZE, int& len)
+{
+	len = 0;
+
+	while (1)
+	{
+		cin >> arr[len];
+
+		if (len == MAX_SIZE)
+		{
+			cout << " Excess Number " << endl;
+
+			break;
+		}
+
+		if (arr[len] <= 0)
+		{
+			break;
+		}
+
+		len++;
+	}
+}
+
+void findMinMaxAvg(int arr[], int& len, int& min, int& max, double& avg)
+{
+	max = arr[0];
+	min = arr[0];
+
+	for (int i = 0; i < len; i++)
+	{
+		if (arr[i] > max)
+		{
+			max = arr[i];
+		}
+		if (arr[i] < min)
+		{
+			min = arr[i];
+		}
+	}
+
+	avg = double(max + min) / 2;
+}
+// 3. 모음/자음 개수 판별 프로그램
+void problem3()
+{
+	const int MAX_STR = 100;
+	char myStr[MAX_STR];
+	int strLength, vowelCnt = 0, upperCnt = 0, lowerCnt = 0;
+
+	while (1)
+	{
+		cout << "문자열 입력 : ";
+		inputArray(myStr, MAX_STR, strLength);
+
+		if (strLength == 0)
+		{
+			break;
+		}
+
+		checkCharCount(myStr, strLength, upperCnt, lowerCnt, vowelCnt);
+		cout << "대문자개수는: " << upperCnt << endl;
+		cout << "소문자개수는: " << lowerCnt << endl;
+		cout << "모음의개수는: " << vowelCnt << endl << endl;
+	}
+}
+
+void checkCharCount(char myStr[], int& strLength, int& upperCnt, int& lowerCnt, int& vowelCnt)
+{
+	upperCnt = 0;
+	lowerCnt = 0;
+	vowelCnt = 0;
+
+	for (int i = 0; i < strLength; i++)
+	{
+		if (myStr[i] >= 'A' && myStr[i] <= 'Z')
+		{
+			upperCnt++;
+		}
+		else if (myStr[i] >= 'a' && myStr[i] <= 'z')
+		{
+			lowerCnt++;
+		}
+		if (myStr[i] == 'a' || myStr[i] == 'e' || myStr[i] == 'i' || myStr[i] == 'o' || myStr[i] == 'u'
+			|| myStr[i] == 'A' || myStr[i] == 'E' || myStr[i] == 'I' || myStr[i] == 'O' || myStr[i] == 'U')
+		{
+			vowelCnt++;
+		}
+	}
+}
+// 4. ww 또는 wcw 형태의 문자열
+void problem4()
+{
+	const int MAX_STR = 100;
+	char myStr[MAX_STR];
+	int strLength;
+	bool isWWFlag;
+
+	while (1)
+	{
+		cout << "문자열 입력: ";
+		inputArray(myStr, MAX_STR, strLength);
+
+		if (strLength == 0)
+		{
+			break;
+		}
+
+		isWWFlag = isWWStr(myStr, strLength);
+		if (isWWFlag)
+		{
+			cout << "WW 또는 WcW 형태를 만족합니다." << endl << endl;
+		}
+		else
+		{
+			cout << "WW 또는 WCW 형태를 만족하지 않습니다." << endl << endl;
+		}
+	}
+}
+
+bool isWWStr(char myStr[], int strLength)
+{
+	int count = 0;
+
+	// 홀수인 경우
+	if (strLength % 2 == 1)
+	{
+		for (int i = 0; i < strLength / 2; i++)
+		{
+			if (myStr[i] == myStr[i+ (strLength / 2) + 1]) // 문자와 문자가 일치하는지 맞추기
+			{
+				count++;
+			}
+		}
+		if ((strLength / 2) == count) // 문자와 문자가 맞는 경우
+		{
+			return 1;
+		}
+		else // 문자와 문자가 맞지 않는 경우
+		{
+			return 0;
+		}
+	}
+	// 짝수인 경우
+	else
+	{
+		for (int i = 0; i < strLength / 2; i++)
+		{
+			if (myStr[i] == myStr[i + (strLength / 2)]) // 문자와 문자가 일치하는지 맞추기
+			{
+				count++;
+			}
+		}
+		if ((strLength / 2) == count) // 문자와 문자가 맞는 경우
+		{
+			return 1;
+		}
+		else // 문자와 문자가 맞지 않는 경우
+		{
+			return 0;
+		}
+	}
+}
+// 5. 2차원 배열에 값 채우기
+void problem5()
+{
+	const int SIZE = 100;
+	int arr[SIZE][SIZE], row, column;
+
+	while (1)
+	{
+		getRowColumn(SIZE, row, column);
+		if (row == 0)
+		{
+			break;
+		}
+
+		inputArray(arr, row, column);
+		printArray(arr, row, column);
+	}
+}
+
+void getRowColumn(int SIZE, int& row, int& column)
+{
+	while (1)
+	{
+		cout << " 행 개수를 입력하세요 (0~100사이. 0은 종료) : ";
+		cin >> row;
+
+		if (row > SIZE || row < 0)
+		{
+			continue;
+		}
+		else if (row == 0)
+		{
+			break;
+		}
+
+		while (1)
+		{
+			cout << " 열 개수를 입력하세요 (1~100사이) : ";
+			cin >> column;
+
+			if (column > SIZE || column <= 0)
+			{
+				continue;
+			}
+			else
+			{
+				break;
+			}
+		}
+		break;
+	}
+}
+
+void inputArray(int arr[][100], int& row, int& column)
+{
+	cout << row * column << "개의 값을 입력하세요 : " << endl;
+
+	for (int i = 0; i < row; i++)
+	{
+		for (int j = 0; j < column; j++)
+		{
+			cin >> arr[i][j];
+		}
+	}
+}
+
+void printArray(int arr[][100], int& row, int& column)
+{
+	for (int i = 0; i < row; i++)
+	{
+		cout << "|";
+		for (int j = 0; j < column; j++)
+		{
+			cout.fill();
+			cout.width(5);
+			cout << arr[i][j];
+		}
+		cout << "|" << endl;
+	}
+}
+// 6. 2차원 정방행렬 합 구하기
+void problem6()
+{
+	const int SIZE = 100;
+	int matrix1[SIZE][SIZE], matrix2[SIZE][SIZE];
+	int resMatrix[SIZE][SIZE];
+	int row, column;
+
+	while (1)
+	{
+		getRowColumn(SIZE, row, column);
+		if (row == 0)
+		{
+			break;
+		}
+
+		cout << "첫번째행렬값입력" << endl;
+		inputArray(matrix1, row, column);
+
+		cout << "두번째행렬값입력" << endl;
+		inputArray(matrix2, row, column);
+
+		getMatrixAdd(matrix1, matrix2, resMatrix, row, column);
+
+		cout << "행렬합결과" << endl;
+		printArray(resMatrix, row, column);
+	}
+}
+
+void getMatrixAdd(int matrix1[][100],int matrix2[][100],int resMatrix[][100],int& row,int& column)
+{
+	for (int i = 0; i < row; i++)
+	{
+		for (int j = 0; j < column; j++)
+		{
+			resMatrix[i][j] = matrix1[i][j] + matrix2[i][j];
+		}
+	}
+}
+// 7. 삼각행렬 구하기
+void problem7()
+{
+	const int SIZE = 100;
+	int matrix[SIZE][SIZE], size;
+
+	while (1)
+	{
+		cout << "몇 차 행렬을 사용하시겠습니까? : ";
+		cin >> size;
+
+		if (size == 0)
+		{
+			break;
+		}
+
+		inputArray(matrix, size);
+		printArray(matrix, size);
+
+		makeTrianglarArray(matrix, size);
+		cout << endl << "삼각행렬로 변환 후: " << endl;
+		printArray(matrix, size);
+	}
+}
+void makeTrianglarArray(int matrix[][100], int& size)
+{
+	for (int i = 0; i < size; i++)
+	{
+		for (int j = 0; j < size; j++)
+		{
+			if (i >= j)
+			{
+				matrix[i][j] = NULL;
+			}
+		}
+	}
+}
+
+void inputArray(int arr[][100], int& size)
+{
+	cout << size * size << "개의 값을 입력하세요 : ";
+
+	for (int i = 0; i < size; i++)
+	{
+		for (int j = 0; j < size; j++)
+		{
+			cin >> arr[i][j];
+		}
+	}
+}
+
+void printArray(int resMatrix[][100], int& size)
+{
+	for (int i = 0; i < size; i++)
+	{
+		cout << "|";
+		for (int j = 0; j < size; j++)
+		{
+			cout.fill();
+			cout.width(5);
+			cout << resMatrix[i][j];
+		}
+		cout << "|" << endl;
+	}
+}
+// 8. 정방행렬 곱 구하기
+void problem8()
+{
+	const int MAX_SIZE = 100;
+	int matrix1[MAX_SIZE][MAX_SIZE], matrix2[MAX_SIZE][MAX_SIZE];
+	int resMatrix[MAX_SIZE][MAX_SIZE];
+	int size;
+
+	while (1)
+	{
+		cout << "몇 차 행렬의 곱을 구하시겠습니까? ";
+		cin >> size;
+
+		if (size == 0)
+		{
+			break;
+		}
+
+		cout << "첫 번째 행렬 값 입력" << endl;
+		inputArray(matrix1, size);
+
+		cout << "두 번째 행렬 값 입력" << endl;
+		inputArray(matrix2, size);
+
+		getMatrixMulti(matrix1, matrix2, resMatrix, size);
+
+		cout << "행렬 곱 결과" << endl;
+		printArray(resMatrix, size);
+	}
+}
+
+void getMatrixMulti(int matrix1[][100],int matrix2[][100],int resMatrix[][100], int& size)
+{
+	for (int i = 0; i < size; i++)
+	{
+		for (int j = 0; j < size; j++)
+		{
+			resMatrix[i][j] = 0;
+			for (int k = 0; k < size; k++)
+			{
+				resMatrix[i][j] = resMatrix[i][j] + matrix1[i][k] * matrix2[k][j];
+			}
+		}
+	}
+}
+// 9. 글자 개수 세기
+void problem9()
+{
+	const int CHAR_CNT = 26;
+	int bigCharCnt[CHAR_CNT] = {0}, smallCharCnt[CHAR_CNT] = {0};
+	int charCnt[CHAR_CNT][2] = {0}; //[][0]은 대문자. [][1]은 소문자
+	
+	const int MAX_STR = 100;
+	char myStr[MAX_STR];
+	int strLength;
+
+	inputArray(myStr, MAX_STR, strLength);
+
+	cout << "1차원 배열 두 개 사용" << endl;
+	countChar(myStr, strLength, bigCharCnt, smallCharCnt);
+	printCharCnt(bigCharCnt, smallCharCnt);
+
+	cout << endl << "2차원 배열 한 개 사용" << endl;
+	countChar(myStr, strLength, charCnt);
+	printCharCnt(charCnt);
+}
+
+void countChar(char myStr[], int& strLength, int bigCharCnt[], int smallCharCnt[])
+{
+
+}
+
+void printCharCnt(int bigCharCnt[], int smallCharCnt[])
+{
+
+}
+
+void countChar(char myStr[], int& strLength, int charCnt[][2])
+{
+
+}
+
+void printCharCnt(int charCnt[][2])
+{
+
+}

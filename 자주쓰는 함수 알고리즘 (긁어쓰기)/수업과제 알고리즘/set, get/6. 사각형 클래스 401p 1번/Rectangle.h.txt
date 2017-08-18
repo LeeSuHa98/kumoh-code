@@ -1,0 +1,38 @@
+#pragma once
+#include <iostream>
+
+using namespace std;
+
+class Rectangle
+{
+private:
+	int width; // 너비
+	int height; // 높이
+	int origin_x; // 원점 x
+	int origin_y; // 원점 y
+	int area; // 면적
+public:
+	Rectangle() {}
+	~Rectangle() {}
+
+	void setWidth(int width) { this->width = width; }
+	void setHeight(int height) { this->height = height; }
+	void setOrigin(int origin_x, int origin_y) 
+	{
+		this->origin_x = origin_x;
+		this->origin_y = origin_y;
+	}
+	void setArea(int area) { this->area = area; }
+
+	int getWidth() { return width; }
+	int getHeight() { return height; }
+	int getArea() { return area = width * height; }
+	int getOrigin()
+	{
+		return origin_x;
+		return origin_y;
+	}
+
+	bool isoverlap(Rectangle r);
+	bool isSquare(Rectangle r);
+};

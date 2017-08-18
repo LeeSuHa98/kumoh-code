@@ -1,0 +1,79 @@
+야구게임 샘버젼 review
+
+- 랜덤값 잡기
+srand((size_t)time(NULL));  == srand((unsigned int)time(NULL))   //unsigned int 를 size_t 로 쓸수있다
+
+while(true)
+{
+com[0] = rand()%10;
+if (com[0] == 0) continue;
+
+com[1] = rand()%10;
+if(com[1] == com[0]) continue;
+
+com[2] = rand() % 10;
+if(com[2] == com[0] || com[2] == com[1]) contine;
+
+break;
+}
+
+나는 컴퓨터 변수를 잡고, 인수를 셔플로 돌려서 만들었다. 하지만 선생님은 컴퓨터 변수 1 2 3 을  순서대로 랜덤값을 잡았다. 
+단 if 를써서 전값과 겹치면 다시 위로 가가게 하는 continue 를 써서 중복되지 않는 인수를 3개 만들었다.
+
+- 유저의 입력값 부분
+
+선생님은 나와 다르게 무한반복 while(true)문을 사용했다
+유저가 입력해야 하는 값의 범위는 0~9 인데 만약 0~9 외에 값을 입력하면 기회를 다시주는 코드를 사용했다
+
+while(true)
+{
+cout<<"첫번째 수 : ";
+cin>> user[0];
+if(user[0]<0 || user[0]>9) continue;    //바로 이부분 이 잘못된 값을 넣었을때 무효화 해주는 코드
+
+break;
+}
+
+- 스트라이크 볼 카운트 증가
+
+선생님은 전부 if로 넣어버렸다. 내가 생각 못했던 표현은
+
+  if(com[0] == user[0]) strikeCount++;  //strikeCount++ 바로 이부분 이런식으로 증가해줄수 있는걸 생각치 못하고 난 
+  if(com[0] == user[1]) ballCount++;    // 또 새로운 변수를 잡았었다.  기억하자 이 표현 방식
+  if(com[0] == user[2]) ballCount++;
+  if(com[1] == user[0]) ballCount++;
+  if(com[1] == user[1]) strikeCount++;
+  if(com[1] == user[2]) ballCount++;
+  if(com[2] == user[0]) ballCount++;
+  if(com[2] == user[1]) ballCount++;
+  if(com[2] == user[2]) strikeCount++;
+
+
+이뒤에 화면출력은 if를 사용해서 보여주는부분은 비슷하다
+
+
+str 함수 맛보기
+
+strlen() : 문자열의 길이를 리턴하는 문자열함수
+sizeof() : 문자열의 크기를 리턴하는 함수
+
+char str[] = "abc\0de";  
+
+//str[0] =a, str[1] =b, str[2] =c, str[3] =\0, str[4] =d, str[5] =e
+//각각의 변수에 문자가 하나씩 들어있게된다
+
+Quiz.1!!
+char str[] = "abc\0de"; 
+cout<<"str의 메모리 크기 : "<<sizeof(str);  ??? ==  7      //a,b,c,\0,d,e 와 안보이는 \0 까지 총7
+cout<<"str의 문자열 길이 : "<<strlen(str);   ??? ==  3       // \0을 만나면 읽지 않으니 abc까지 총3
+
+Quiz.2!!
+char str2[] = " i am a student";
+cout<<"str2의 문자열 거꾸로 출력 : "<< endl;
+
+for(int i = strlen(str2)-1; i>=0; i--)  //-1 을 해준이유는 맨뒤에 널문자 까지 strlen 이 읽으니까. 
+                                        //또한 상수값은 숫자보다 변수로 주는  것이좋다
+{
+cout<< str2[i];
+}
+[출처] 3월2일 c++복습[야구게임?,strlen]|작성자 커피맛

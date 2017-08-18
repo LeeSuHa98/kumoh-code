@@ -1,0 +1,37 @@
+#include "Student.h"
+
+const int Student::numofStudents = 3;
+
+int main()
+{
+	Student student_list[3] = { Student("aaa",1,90,80,70),Student("bbb",2,80,70,60), Student("ccc",3,70,80,90) };
+
+	Student s;
+
+	cout << "ID : " << student_list[0].getId() << endl;
+	cout << "이름 : " << student_list[0].getName() << endl;
+	cout << "국어점수 : " << student_list[0].getKor() << endl;
+	cout << "영어점수 : " << student_list[0].getEng() << endl;
+	cout << "수학점수 : " << student_list[0].getMath() << endl;
+	cout << endl;
+
+	cout << "ID : " << student_list[1].getId() << endl;
+	cout << "이름 : " << student_list[1].getName() << endl;
+	cout << "국어점수 : " << student_list[1].getKor() << endl;
+	cout << "영어점수 : " << student_list[1].getEng() << endl;
+	cout << "수학점수 : " << student_list[1].getMath() << endl;
+	cout << endl;
+
+	cout << "ID : " << student_list[2].getId() << endl;
+	cout << "이름 : " << student_list[2].getName() << endl;
+	cout << "국어점수 : " << student_list[2].getKor() << endl;
+	cout << "영어점수 : " << student_list[2].getEng() << endl;
+	cout << "수학점수 : " << student_list[2].getMath() << endl;
+	cout << endl;
+
+	cout << " 총 학생 국어점수 평균 : " << s.getAvgOfKor(student_list) << endl;
+	cout << " 총 학생 영어점수 평균 : " << s.getAvgOfEng(student_list) << endl;
+	cout << " 총 학생 수학점수 평균 : " << s.getAvgOfMath(student_list) << endl;
+
+	return 0;
+}

@@ -1,0 +1,55 @@
+#include <iostream>
+
+using namespace std;
+
+void swap(int& a, int& b);
+void findMinMax(int value[], int size, int& min_idx, int& max_idx);
+
+int main()
+{
+	int value[10], min_idx, max_idx;
+
+	for (int k = 0; k < 10; k++)
+	{
+		value[k] = k;
+	}
+
+	swap(value[0], value[3]);
+	swap(value[9], value[5]);
+	findMinMax(value, 10, min_idx, max_idx);
+	cout << "최소값은 " << min_idx + 1 << "번째 원소입니다." << endl;
+	cout << "최대값은 " << max_idx + 1 << "번째 원소입니다." << endl;
+
+	system("pause");
+
+	return 0;
+}
+
+void swap(int& a, int& b)
+{
+	int temp = 0;
+
+	temp = a;
+	a = b;
+	b = temp;
+}
+
+void findMinMax(int value[], int size, int& min_idx, int& max_idx)
+{
+	int min = 10;
+	int max = 0;
+
+	for (int i = 0; i < size; i++)
+	{
+		if (min >= value[i])
+		{
+			min = value[i];
+			min_idx = i;
+		}
+		if (max <= value[i])
+		{
+			max = value[i];
+			max_idx = i;
+		}
+	}
+}

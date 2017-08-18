@@ -1,0 +1,26 @@
+#pragma once
+#include "Member.h"
+#include "Faculty.h"
+#include "Staff.h"
+#include "Undergraduate.h"
+#include "Graduate.h"
+
+class ioHandler
+{
+public:
+	ioHandler() {}
+	~ioHandler() {}
+
+	int getMenu();
+	void putString(string msg) { cout << msg.c_str() << endl; }
+
+	Faculty* insertFaculty();
+	Staff* insertStaff();
+	Graduate* insertGraduate();
+	Undergraduate* insertUndergraduate();
+	Member* getMember(char member_type);
+
+	char insertMemberType();
+	int getInteger(string msg);
+	string getString(string msg);
+};

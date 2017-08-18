@@ -1,0 +1,85 @@
+#include<iostream>
+using namespace std;
+
+int main()
+{
+	const int oneyear = 365;
+	const int uoneyear = 366;
+	const int Feb = 28;
+	const int uFeb = 29;
+	const int month = 31;
+	const int month2 = 30;
+
+	int y, m, d;
+	int dcnt = 0;
+
+	cout << "현재 날짜를 입력하세요" << endl;
+
+	cout << "년: ";
+	cin >> y;
+	cout << "월: ";
+	cin >> m;
+	cout << "일: ";
+	cin >> d;
+
+	for (int i = 1; i < y; i++)
+	{
+		if (i % 4 == 0 && i % 100 != 0 || i % 400 == 0)
+		{
+			dcnt += uoneyear;                                     //윤년
+		}
+
+		else
+		{
+			dcnt += oneyear;                                      //윤년이 아닌년도
+		}
+
+	}
+
+	for (int i = 1; i <= m - 1; i++)
+	{
+		if (i == 1 || i == 3 || i == 5 || i == 7 || i == 8 || i == 10 || i == 12)
+		{
+			dcnt += month;
+
+		}
+		else if (i == 2)                                              //2월의 일수 계산
+		{
+			if (y % 4 == 0 && y % 100 != 00 || y % 400 == 0)
+			{
+				dcnt += uFeb;                                        //윤년일때 2월 한달의 수
+			}
+
+			else
+			{
+				dcnt += Feb;                                       //윤년이 아닌 평범한 달의 2월 한달의 수
+
+			}
+
+		}
+
+		else
+		{
+			dcnt += month2; //한달이 30일일때
+		}
+	}
+
+	dcnt += d ;  // 1일부터 시작하니까 1를 빼줌
+
+	int result = (dcnt % 7)+1;
+
+	switch (result)
+	{
+        case 1: cout << "그날은 일요일입니다." << endl; break;
+	case 2: cout << "그날은 월요일입니다." << endl; break;
+	case 3: cout << "그날은 화요일입니다." << endl; break;
+	case 4: cout << "그날은 수요일입니다." << endl; break;
+	case 5: cout << "그날은 목요일입니다." << endl; break;
+	case 6: cout << "그날은 금요일입니다." << endl; break;
+	case 7: cout << "그날은 토요일입니다." << endl; break;
+	}
+
+
+
+	return 0;
+}

@@ -1,0 +1,52 @@
+#include "Student.h"
+#include "StudentList.h"
+
+int main()
+{
+	StudentList s_list;
+
+	// load from file.
+	s_list.loadStudent("student.dat");
+
+	while (1)
+	{
+		cout << "------ 학생성적 프로그램 ------" << endl;
+		cout << "------ 1. 학생성적 등록  ------" << endl;
+		cout << "------ 2. 학생성적 삭제  ------" << endl;
+		cout << "------ 3. 학생성적 수정  ------" << endl;
+		cout << "------ 4. 학생성적 출력  ------" << endl;
+		cout << "------ 5. 프로그램 종료  ------" << endl;
+
+		int select;
+		cin >> select;
+
+		switch (select)
+		{
+		case 1:
+			// 1. 학생성적 등록
+			s_list.insertStudent();
+			break;
+		case 2:
+			// 2. 학생성적 삭제
+			s_list.deleteStudent();
+			break;
+		case 3:
+			// 3. 학생성적 수정
+			s_list.updateStudent();
+			break;
+		case 4:
+			// 4. 학생성적 출력
+			s_list.displayStudent();
+			break;
+		case 5:
+			// save to file.
+			s_list.saveStudent("student.dat");
+			// 프로그램 종료
+			return 0;
+		}
+	}
+
+	system("pause");
+
+	return 0;
+}

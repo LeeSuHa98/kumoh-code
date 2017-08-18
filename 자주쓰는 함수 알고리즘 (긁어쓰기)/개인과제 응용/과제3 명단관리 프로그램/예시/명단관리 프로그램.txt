@@ -1,0 +1,55 @@
+1. main() 함수는 다음의 골격을 참고하라.
+
+int main(void)
+{
+	declare objects;
+	load data from "member.dat";
+	while (1) {
+		select menu;
+		if (menu == EXIT) break;
+
+		switch(menu) {
+		case INSERT:	...
+		case DELETE:	...
+		case UPDATE:	...
+		case DISPLAY:	...
+		}
+	}
+	save data to "member.dat";
+}
+
+2. 기능
+
+1) 등록
+2) 삭제
+3) 수정
+4) 출력
+5) 종료
+
+3. 구성원의 종류
+
+Class Faculty(교수), 직원(Staff), 학부생(Undergraduate), 대학원생(Graduate)
+
+Class Faculty
+
+id,name,department(소속학과),major(전공분야),degree(최종학위)
+
+Class Staff
+
+id,name,department(소속부서),rank(직급),duty(담당업무)
+
+Class Undergraduate
+
+id,name,department(소속학과),grade(학년),advisor(지도교수)
+
+Class Graduate
+
+id,name,department(소속학과),degree(학위과정),major(전공분야),advisor(지도교수)
+
+4. 구성원의 상위 Class Member를 이용하여 구성원들을 상속할 것
+
+* 구성원 명단을 담을 포인터 배열 Class MemberList를 참고
+* 포인터를 이용할 것
+* 상속과 Virtual 함수를 이해할 것
+* Entity Class, Boundary Class, Control Class 의 구조로 설계 할 것
+ 

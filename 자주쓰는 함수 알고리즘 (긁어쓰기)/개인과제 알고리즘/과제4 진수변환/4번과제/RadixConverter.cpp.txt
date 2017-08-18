@@ -1,0 +1,71 @@
+#include "RadixConverter.h"
+
+void RadixConverter::insertRadix()
+{
+	cout << "양의 정수 입력 : ";
+	cin >> num;
+}
+
+void RadixConverter::updateBinary()
+{
+	while (1)
+	{
+		bin[count] = num % 2;
+		num = num / 2;
+		count++;
+
+		if (num == 0)
+		{
+			break;
+		}
+	}
+}
+
+void RadixConverter::updateHex()
+{
+	while (1)
+	{
+		hex[count] = num % 16 + 48;
+		num = num / 16;
+		count++;
+
+		if (num == 0)
+		{
+			break;
+		}
+	}
+}
+
+void RadixConverter::displayBinary()
+{
+	// 2진수 출력
+	cout << "Binary Number: ";
+
+	for (int i = 31; i >= 0; i--)
+	{
+		cout << bin[i];
+
+		if (i % 4 == 0)
+		{
+			cout << " ";
+		}
+	}
+	cout << endl;
+}
+
+void RadixConverter::displayHex()
+{
+	// 16진수 출력
+	cout << "Hex Number: ";
+
+	for (int j = 7; j >= 0; j--)
+	{
+		cout << hex[j];
+
+		if (j % 2 == 0)
+		{
+			cout << " ";
+		}
+	}
+	cout << endl;
+}

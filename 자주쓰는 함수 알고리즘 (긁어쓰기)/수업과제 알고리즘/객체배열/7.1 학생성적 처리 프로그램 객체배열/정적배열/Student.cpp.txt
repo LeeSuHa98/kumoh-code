@@ -1,0 +1,29 @@
+#include "Student.h"
+
+double Student::getAvgOfKor(Student student_list[])
+{
+	int sum = 0;
+	for (int i = 0; i < numofStudents; i++)
+	{
+		sum = sum + student_list[i].getKor();
+	}
+	return ((double)sum) / (double)numofStudents;
+}
+double Student::getAvgOfEng(Student student_list[])
+{
+	int sum = 0;
+	for (int i = 0; i < numofStudents; i++)
+	{
+		sum = sum + student_list[i].getEng();
+	}
+	return ((double)sum) / (double)numofStudents;
+}
+double Student::getAvgOfMath(Student student_list[])
+{
+	int sum = 0;
+	for (int i = 0; i < numofStudents; i++)
+	{
+		sum = sum + student_list[i].getMath();
+	}
+	return ((double)sum) / (double)numofStudents;
+}

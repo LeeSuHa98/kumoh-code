@@ -1,0 +1,55 @@
+#include "Employee.h"
+
+//void Employee::insertEmployee()
+//{
+//	cout << "직원의 이름을 입력하시오 : ";
+//	cin >> name;
+//	cout << "직원의 나이를 입력하시오 : ";
+//	cin >> age;
+//	cout << "직원의 급여를 입력하시오 : ";
+//	cin >> salary;
+//	cout << "직원의 근무년수를 입력하시오 : ";
+//	cin >> years;
+//}
+//
+//void Employee::diplayEmployee()
+//{
+//	cout << "직원의 이름 : " << name << endl;
+//	cout << "직원의 나이 : " << age << endl;
+//	cout << "직원의 급여 : " << salary << endl;
+//	cout << "직원의 근무년수 : " << years << endl;
+//}
+
+void Employee::setName(string name)
+{
+	this->name = name;
+}
+void Employee::setAge(int age)
+{
+	this->age = age;
+}
+void Employee::setSalary(int salary)
+{
+	this->salary = salary;
+}
+void Employee::setYears(int years)
+{
+	this->years = years;
+}
+
+string Employee::getName()
+{
+	return name;
+}
+int Employee::getAge()
+{
+	return age;
+}
+int Employee::getSalary()
+{
+	return salary;
+}
+int Employee::getYears()
+{
+	return years;
+}

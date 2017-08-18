@@ -1,0 +1,7 @@
+class penguin : public bird
+{
+public:
+	penguin() : bird() { }
+	penguin(string name, int index) : bird(false, name, index) { }
+	~penguin() { }
+};

@@ -1,0 +1,37 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+	string str;
+	int point = 0;
+
+	cout << " °ýÈ£¹®ÀÚ¿­ : ";
+	cin >> str;
+
+	for (int i = 0; i < str.length(); i++)
+	{
+		if (str[i] == '(')
+		{
+			point += 1;
+		}
+
+		if (str[i] == ')')
+		{
+			point -= 1;
+		}
+	}
+
+	if (point == 0)
+	{
+		cout << " °ýÈ£ÀÇ Â¦ÀÌ ¸Â½À´Ï´Ù. " << endl;
+	}
+	else
+	{
+		cout << " °ýÈ£ÀÇ Â¦ÀÌ ¸ÂÁö ¾Ê½À´Ï´Ù. " << endl;
+	}
+
+	system("pause");
+}

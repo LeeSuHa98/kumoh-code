@@ -1,0 +1,98 @@
+#include "Match.h"
+
+void Match::botMatch(Bot& b, Human& h) // 사람이 설정한 숫자에 봇이 임의로 입력한 숫자를 매치하는 함수
+{
+	int i, j;
+
+	for (i = 0; i < 3; i++)
+	{
+		for (int j = 0; j < 3; j++)
+		{
+			if (h.getHumanSetting(i) == b.getBotAnswer(j)) // 사람이 설정한 숫자 == 봇이 임의로 입력한 숫자
+			{
+				if (i == j) { (strike)++; } // 사람이 설정한 숫자와 봇이 입력한 숫자가 같으면 Strike
+
+				else { (ball)++; } // 나머지는 Ball
+
+				if (strike == 3) // All Strike일 때 봇의 승리
+				{
+					cout << " 봇의 승리입니다 " << endl;
+					game_contend = 2;
+					break;
+				}
+			}
+		}
+	}
+	int total = 3; // 총 숫자를 3으로 잡아준다
+	out = total - strike - ball; // 총 숫자에서 strike를 뺀 수에 ball은 뺀 수는 나머지 Out이 된다
+	cout << " strike : " << strike << " ball : " << ball << " out : " << out << endl;
+
+	// 변수에 설정된 숫자가 그대로 담아져 있으므로 초기화 해준다
+	strike = ball = out = 0;
+	count++;
+}
+
+void Match::humanMatch(Bot& b, Human& h) // 봇이 임의로 설정한 숫자에 사람이 입력한 숫자를 매치하는 함수
+{
+	int i, j;
+
+	for (i = 0; i < 3; i++)
+	{
+		for (j = 0; j < 3; j++)
+		{
+			if (b.getBotSetting(i) == h.getHumanAnswer(j)) // 봇이 임의로 설정한 숫자 == 사람이 입력한 숫자
+			{
+				if (i == j) { (strike)++; } // 봇이 임의로 설정한 숫자와 사람이 입력한 숫자가 같으면 Strike
+
+				else { (ball)++; } // 나머지는 Ball
+
+				if (strike == 3) // All Strike일 때 사람의 승리
+				{
+					cout << " 플레이어의 승리입니다 " << endl;
+					game_contend = 1;
+					break;
+				}
+			}
+		}
+	}
+	int total = 3; // 총 숫자를 3으로 잡아준다
+	out = total - strike - ball; // 총 숫자에서 strike를 뺀 수에 ball을 뺀 수는 나머지 Out이 된다
+	cout << " strike : " << strike << " ball : " << ball << " out : " << out << endl;
+
+	// 변수에 설정된 숫자가 그대로 담아져 있으므로 초기화 해준다
+	strike = ball = out = 0;
+	count++;
+}
+
+void Match::contendMatch(Bot& b, Human& h)
+{
+	count = count / 2;
+
+	if (getGameContend() == 1)
+	{
+		cout << "플레이어의 승리입니다." << endl;
+		cout << count << "번 만의 승리!" << endl;
+	}	
+	else
+	{
+		cout << "bot의 승리입니다." << endl;
+		cout << count << "번 만의 승리!" << endl;
+	}
+}
+
+void Match::botGameStart(Bot &b)
+{
+	cout << " The bot game is setting " << endl;
+	cout << endl;
+
+	b.botSettingGame();
+}
+
+void Match::humanGameStart(Human& h)
+{
+	cout << " The player game is setting " << endl;
+	cout << endl;
+
+	h.humanSettingGame();
+	h.humanDisplayGame();
+}

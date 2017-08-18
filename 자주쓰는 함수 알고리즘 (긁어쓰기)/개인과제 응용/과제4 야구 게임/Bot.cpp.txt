@@ -1,0 +1,61 @@
+#include "Bot.h"
+
+void Bot::botSettingGame() // 봇의 숫자를 임의로 셋팅
+{
+	srand(time(NULL)); // 랜덤함수를 위한 시간 재정의 함수
+
+	while(1)
+	{
+		bot_setting[0] = rand() % 9 + 1; // 임의의 숫자를 지정해주는 랜덤함수
+
+		bot_setting[1] = rand() % 9 + 1;
+		if (bot_setting[1] == bot_setting[0]) continue;
+
+		bot_setting[2] = rand() % 9 + 1;
+		if (bot_setting[2] == bot_setting[0] || bot_setting[2] == bot_setting[1]) continue;
+
+		if (bot_setting[0] != bot_setting[1] && bot_setting[0] != bot_setting[2] && bot_setting[1] != bot_setting[2])
+		{
+			break;
+		}
+	}
+}
+
+void Bot::botDisplayGame() // 봇이 임의로 설정한 숫자를 보여주는 함수
+{
+	cout << " 봇이 설정한 숫자 " << bot_setting[0] << " " << bot_setting[1] << " " << bot_setting[2] << endl;
+	cout << endl;
+}
+
+void Bot::botAnswerGame() // 사람이 셋팅한 숫자에 대조하기 위한 함수
+{
+	cout << " 봇의 차례입니다 " << endl;
+
+	srand(time(NULL));
+
+	while (1)
+	{
+		bot_answer[0] = rand() % 9 + 1;
+
+		bot_answer[1] = rand() % 9 + 1;
+
+		bot_answer[2] = rand() % 9 + 1;
+
+		if (bot_answer[0] != bot_answer[1] && bot_answer[0] != bot_answer[2] && bot_answer[1] != bot_answer[2])
+		{
+			break;
+		}
+	}
+}
+
+//void Bot::cheatMatch()
+//{
+//	// 어떤 숫자를 입력 하였을 때 봇의 숫자를 보여주는 코드
+//	int select;
+//	cin >> select;
+//
+//	if (select == 0)
+//	{
+//		botDisplayGame();
+//	}
+//}

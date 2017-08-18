@@ -1,0 +1,62 @@
+#include <iostream>
+
+using namespace std;
+
+template<typename T>
+T* resize(T*& arr, int& capacity);
+
+int main()
+{
+	int capacity = 3;
+	int* arr = new int[capacity];
+	int count = 0;
+
+	cout << "데이터를 입력하시오. (-1 입력시 종료) : ";
+	while (1)
+	{
+		cin >> arr[count++];
+
+		if (count > capacity-1)
+		{
+			cout << "OverFlow" << endl;
+
+			
+			cout << "----- 1. resize -----" << endl;
+			cout << "----- 2. exit  -----" << endl;
+			int select;
+			cin >> select;
+			switch (select)
+			{
+			case 1:
+				// 사이즈 늘린다
+				resize(arr, capacity);
+				break;
+			case 2:
+				// 정지
+				return 0;
+			}
+		}
+		else if (arr[count-1] == -1)
+		{
+			break;
+		}
+	}
+
+	return 0;
+}
+
+template<typename T>
+T* resize(T*& arr, int& capacity)
+{
+	T* temp = new T[capacity * 2]; // 기존의 배열보다 2배 더 큰 배열을 temp에 할당
+	for (int i = 0; i < capacity; i++)
+	{
+		temp[i] = arr[i]; // 기존의 배열 내용을 2배 더 큰 배열에 복사 할당
+	}
+	// 기존의 배열 값은 유지되면서 크기가 늘어남
+
+	capacity *= 2; // capacity의 크기를 2배로 만들어준다. 
+	delete[] arr; // arr에 동적할당된 주소의 공간을 삭제
+	arr = temp; // arr에 새로만든 temp의 주소를 할당
+	return arr;
+}

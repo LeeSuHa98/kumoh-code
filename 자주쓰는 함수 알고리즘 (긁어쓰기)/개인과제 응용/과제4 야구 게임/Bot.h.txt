@@ -1,0 +1,19 @@
+#pragma once
+#include "Baseball.h"
+
+class Bot
+{
+	int bot_setting[MAX_COUNT];
+	int bot_answer[MAX_COUNT];
+public:
+	Bot() {}
+	~Bot() {}
+
+	int getBotSetting(int index) { return bot_setting[index]; }
+	int getBotAnswer(int index) { return bot_answer[index]; }
+
+	void botSettingGame();
+	void botDisplayGame();
+	void botAnswerGame();
+	/*void cheatMatch();*/
+};

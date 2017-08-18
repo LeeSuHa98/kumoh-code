@@ -1,0 +1,43 @@
+#pragma once
+#include <iostream>
+#include <string>
+
+const int MAX_MEMBERS = 100;
+
+enum menus {INSERT = 1, DELETE, UPDATE, DISPLAY, EXIT};
+
+using namespace std;
+
+class Member
+{
+protected:
+	string id; // ID
+	string name; // 성명
+	string department; // 부서
+public:
+	Member() {}
+	Member(string id, string name, string department)
+	{
+		this->id = id;
+		this->name = name;
+		this->department = department;
+	}
+	virtual ~Member() {}
+
+	string getId() { return id; }
+	string getName() { return name; }
+	string getDepartment() { return department; }
+
+	// Faculty
+	virtual int getMajor() { return 0; }
+	virtual int getDegree() { return 0; }
+	// Staff
+	virtual int getRank() { return 0; }
+	virtual string getDuty() { return 0; }
+	// Graduate
+	virtual string getAdvisor() { return 0; }
+	// Undergraduate
+	virtual int getGrade() { return 0; }
+
+	virtual void putMember() {}
+};

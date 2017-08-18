@@ -1,0 +1,42 @@
+#include <iostream>
+
+using namespace std;
+
+int main() 
+{
+	int i, j;
+
+	for (i = 4; i < 10; i += 2) 
+	{
+		for (j = 0; j <= (10 - i); j++)
+		{ 
+			cout << " ";
+		}
+		for (j = 0; j <= i * 2; j++) 
+		{ 
+			cout << "*";
+		}
+		for (j = 0; j <= (10 - i) * 2; j++) 
+		{ 
+			cout << " ";
+		}
+		for (j = 0; j <= i * 2; j++)
+		{ 
+			cout << "*";
+		}
+		cout << endl;
+	}
+	for (i = 20; i >= 0; i -= 2) 
+	{
+		for (j = 0; j <= 20 - i; j++) 
+		{ 
+			cout << " ";
+		}
+		for (j = 0; j <= i * 2; j++) 
+		{ 
+			cout << "*";
+		}
+		cout << endl;
+	}
+	return 0;
+}

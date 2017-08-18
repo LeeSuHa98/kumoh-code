@@ -1,0 +1,25 @@
+#pragma once
+class Cellphone
+{
+private:
+	int size;
+	int height;
+	int width;
+	bool state;
+
+public:
+	Cellphone() {}
+	~Cellphone() {}
+	
+	void setSize(int size) { this->size = size; }
+	void setHeight(int height) { this->height = height; }
+	void setWidth(int width) { this->width = width; }
+	void setState(bool state) { this->state = state; }
+
+	int getSize() { return size; }
+	int getHeight() { return height; }
+	int getWidth() { return width; }
+	bool getState() { return state; }
+
+
+};

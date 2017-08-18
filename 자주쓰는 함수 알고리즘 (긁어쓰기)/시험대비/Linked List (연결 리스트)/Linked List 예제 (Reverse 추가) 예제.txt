@@ -1,0 +1,145 @@
+#pragma once
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+template <class T>
+class Chain;
+
+/* Node Class */
+template <class T>
+class Node
+{
+	friend class Chain<T>;
+private:
+	T data;
+	Node<T>* previous; // 이전 링크
+	Node<T>* link; // 다음 링크
+public:
+	Node()
+	{
+		previous = NULL;
+		link = NULL;
+	}
+	Node(T theData, Node<T>* thePrevious, Node<T>* theLink)
+	{
+		data = theData;
+		previous = thePrevious;
+		link = theLink;
+	}
+	~Node() {}
+
+	void setPrevious(Node<T>* thePrevious) { previous = thePrevious; }
+	void setLink(Node<T>* theLink) { link = theLink; }
+
+	T getData()
+	{
+		return data;
+	}
+
+	Node<T>* getPrevious()
+	{
+		if (this == NULL)
+		{
+			return NULL;
+		}
+		return previous;
+	}
+
+	Node<T>* getLink()
+	{
+		if (this == NULL)
+		{
+			return NULL;
+		}
+		return link;
+	}
+};
+
+/* Chain Class */
+template <class T>
+class Chain
+{
+private:
+	Node<T>* first;
+	Node<T>* last;
+public:
+	Chain()
+	{
+		first = NULL;
+		last = NULL;
+	}
+	void insertNode(T theData);
+	Node<T>* getNode() { return first; }
+	void setFirst(Node<T>* node) { first = node; }
+	void printChain();
+	void printReverse();
+};
+
+template <class T>
+void Chain<T>::insertNode(T theData)
+{
+	Node<T>* tempNode = new Node<T>(theData, NULL, NULL); // 빈공간의 노드에 데이터를 할당해준다.
+
+	if (!first) // 리스트 첫번째 배열에 값이 없으면
+	{
+		first = tempNode; // 첫번째 배열에 data에 할당된 값을 넣어준다.
+		first->previous = nullptr;
+		return;
+	}
+
+	Node<T>* curNode = first; // 첫번째 배열의 값을 루프에 넣어준다.
+
+	while (curNode->link) // 루프가 다음값을 가르킬때까지 반복
+	{
+		curNode = curNode->getLink(); // 루프의 다음값을 가르킨다.
+	}
+
+	curNode->link = tempNode; // 루프의 다음값에 새로운 값을 할당한다.
+	tempNode->previous = curNode; // 들어간 값의 이전공간에 루프의 값이 들어간다.
+	last = tempNode; // 마지막공간에 할당된 데이터값이 할당된다.
+}
+
+template <class T>
+void Chain<T>::printReverse()
+{
+	Node<T>* curNode = last; // 루프에 마지막값이 들어간다.
+
+	while (curNode)
+	{
+		cout << curNode->getData() << " -> "; // 루프가 우선 삽입된 데이터를 가르켜서 출력
+		curNode = curNode->getPrevious(); // 루프가 이전 데이터를 가르켜서 루프에 할당
+	}
+}
+
+template <class T>
+void Chain<T>::printChain()
+{
+	Node<T>* curNode = first;
+
+	while (curNode)
+	{
+		cout << curNode->getData() << " -> ";
+		curNode = curNode->getLink();
+	}
+}
+
+int main()
+{
+	Chain<string>* rainbow = new Chain<string>();
+
+	rainbow->insertNode("빨강");
+	rainbow->insertNode("주황");
+	rainbow->insertNode("노랑");
+	rainbow->insertNode("초록");
+	rainbow->insertNode("파랑");
+	rainbow->insertNode("남색");
+	rainbow->insertNode("보라");
+
+	rainbow->printChain();
+	cout << endl;
+	rainbow->printReverse();
+
+	return 0;
+}

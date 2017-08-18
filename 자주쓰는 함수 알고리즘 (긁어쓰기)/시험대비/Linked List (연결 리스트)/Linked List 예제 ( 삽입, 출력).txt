@@ -1,0 +1,113 @@
+#pragma once
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+template <class T>
+class Chain;
+
+/* Node Class */
+template <class T>
+class Node
+{
+	friend class Chain<T>;
+private:
+	T data;
+	Node<T>* previous;
+	Node<T>* link;
+public:
+	Node()
+	{
+		link = NULL;
+	}
+	Node(T theData, Node<T>* theLink)
+	{
+		data = theData;
+		link = theLink;
+	}
+	~Node() {}
+
+	void setLink(Node<T>* theLink) { link = theLink; }
+
+	T getData()
+	{
+		return data;
+	}
+
+	Node<T>* getLink()
+	{
+		if (this == NULL)
+		{
+			return NULL;
+		}
+		return link;
+	}
+};
+
+/* Chain Class */
+template <class T>
+class Chain
+{
+private:
+	Node<T>* first;
+public:
+	Chain()
+	{
+		first = NULL;
+	}
+	void insertNode(T theData);
+	Node<T>* getNode() { return first; }
+	void setFirst(Node<T>* node) { first = node; }
+	void printChain();
+};
+
+template <class T>
+void Chain<T>::insertNode(T theData)
+{
+	Node<T>* tempNode = new Node<T>(theData, NULL);
+
+	if (!first)
+	{
+		first = tempNode;
+		return;
+	}
+
+	Node<T>* curNode = first;
+
+	while (curNode->link)
+	{
+		curNode = curNode->getLink();
+	}
+
+	curNode->link = tempNode;
+	tempNode->previous = curNode;
+}
+
+template <class T>
+void Chain<T>::printChain()
+{
+	Node<T>* curNode = first;
+
+	while (curNode)
+	{
+		cout << curNode->getData() << " -> ";
+		curNode = curNode->getLink();
+	}
+}
+int main()
+{
+	Chain<string>* rainbow = new Chain<string>();
+
+	rainbow->insertNode("»¡°­");
+	rainbow->insertNode("ÁÖÈ²");
+	rainbow->insertNode("³ë¶û");
+	rainbow->insertNode("ÃÊ·Ï");
+	rainbow->insertNode("ÆÄ¶û");
+	rainbow->insertNode("³²»ö");
+	rainbow->insertNode("º¸¶ó");
+
+	rainbow->printChain();
+
+	return 0;
+}

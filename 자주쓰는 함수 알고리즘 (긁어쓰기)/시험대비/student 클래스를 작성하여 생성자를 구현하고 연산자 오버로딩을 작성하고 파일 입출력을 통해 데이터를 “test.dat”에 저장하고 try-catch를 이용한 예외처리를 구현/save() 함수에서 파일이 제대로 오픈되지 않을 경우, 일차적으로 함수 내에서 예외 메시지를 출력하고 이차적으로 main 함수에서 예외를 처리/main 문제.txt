@@ -1,0 +1,18 @@
+int main()
+{
+	student s[2] = { student(“jhon, 30, 40, 50”), student(“mary”, 50, 60, 20) }, tmp;
+
+	cout << s[0] << endl; // s[0]에 대한 모든 정보 출력(5점)
+
+	if (s[0]>s[1]) // (5점)
+		cout << s[0].get_name() << “ is higher than ” << s[1].get_name() << “\n”;
+	else
+		cout << s[1].get_name() << “ is higher than ” << s[0].get_name() << “\n”;
+
+	tmp = s[0] + s[1]; // (5점)
+	cout << tmp.get_avg() << “\n”;
+
+	save(s, “test.dat”); // 배열 내용을 test.dat 파일에 저장 (5점)
+
+	return 0;
+}

@@ -1,0 +1,6 @@
+c1 pepsiCoke 600 10
+c2 sevenStarCider 600 10
+c3 orangeJuice 500 10
+c4 water 400 10
+c5 mountinDew 600 10
+c6 lemonaide 500 10

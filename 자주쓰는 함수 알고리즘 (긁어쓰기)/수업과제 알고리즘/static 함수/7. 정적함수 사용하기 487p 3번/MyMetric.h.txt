@@ -1,0 +1,19 @@
+#pragma once
+#include <iostream>
+
+using namespace std;
+
+class MyMetric
+{
+private:
+	static const double killo;
+	static const double mile;
+public:
+	MyMetric() {}
+	~MyMetric() {}
+	static const double killoToMile() { return killo * 0.621371; }
+	static const double mileToKillo() { return mile * 1.609344; }
+};
+
+const double MyMetric::killo = 1;
+const double MyMetric::mile = 1;

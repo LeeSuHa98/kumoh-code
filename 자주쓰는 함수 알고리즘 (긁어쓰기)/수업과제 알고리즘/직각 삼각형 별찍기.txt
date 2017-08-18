@@ -1,0 +1,24 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	int count = 0;
+
+	for (int i = 0; i < 5; i++)
+	{
+		for (int k = 0; k < count; k++)
+		{
+			cout << " ";
+		}
+		for (int j = count; j < 5; j++)
+		{
+			cout << "*";
+		}
+		cout << endl;
+		count++;
+	}
+
+	system("pause");
+}

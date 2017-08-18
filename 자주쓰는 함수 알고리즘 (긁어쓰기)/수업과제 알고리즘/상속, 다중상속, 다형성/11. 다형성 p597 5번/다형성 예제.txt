@@ -1,0 +1,24 @@
+int main()
+{
+	Shape s;
+	Rectangle r;
+	Circle c;
+
+	Shape* arr[6];
+	arr[0] = new Elipse(...);
+	arr[1] = new Rectangle(...);
+	arr[2] = new Triangle(...);
+	arr[3] = new Shpere(...);
+	arr[4] = new Cube(...);
+	arr[5] = new Cylinder(...);
+
+	double area;
+
+	for (int i = 0; i < 6; i++)
+	{
+		area = arr[i]->getArea();
+		cout << area << endl;
+	}
+
+	return 0;
+}

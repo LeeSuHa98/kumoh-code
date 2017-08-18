@@ -1,0 +1,24 @@
+#pragma once
+#include "Date.h"
+
+const int MaxEmployee = 100;
+
+class Employee
+{
+private:
+	Date birthDate;
+	Date hireDate;
+	Date employee_list[MaxEmployee];
+	int count;
+public:
+	Employee() { count = 0; }
+	Employee(string name, Date& birthDate, Date& hireDate) 
+	{
+		this->birthDate = birthDate;
+		this->hireDate = hireDate;
+	}
+	~Employee() {}
+
+	void insertEmployee();
+	void displayEmployee();
+};

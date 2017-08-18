@@ -1,0 +1,23 @@
+#pragma once
+#include "Member.h"
+
+class Staff : public Member
+{
+	int rank; // 직급
+	string duty; // 담당업무
+public:
+	Staff() {}
+	Staff(string id, string name, string department,int rank, string duty) : Member(id, name, department)
+	{
+		this->rank = rank;
+		this->duty = duty;
+	}
+	virtual ~Staff() {}
+
+	int getRank() { return rank; }
+	string getDuty() { return duty;}
+	void putMember()
+	{
+		cout << endl << "ID: " << id << endl << "성명 : " << name << endl << "소속부서 : " << department << endl << "직급 : " << rank << endl << "담당업무 : " << duty << endl;
+	}
+};

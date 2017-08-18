@@ -1,0 +1,18 @@
+#pragma once
+#include "Baseball.h"
+
+class Human
+{
+	int human_setting[MAX_COUNT];
+	int human_answer[MAX_COUNT];
+public:
+	Human() {}
+	~Human() {}
+
+	int getHumanSetting(int index) { return human_setting[index]; }
+	int getHumanAnswer(int index) { return human_answer[index]; }
+
+	void humanSettingGame();
+	void humanDisplayGame();
+	void humanAnswerGame();
+};

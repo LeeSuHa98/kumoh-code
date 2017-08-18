@@ -1,0 +1,53 @@
+#include <iostream>
+
+using namespace std;
+
+int binary_search(int* arr, int count, int value);
+
+int main()
+{
+	int value;
+	int count;
+	cout << "배열의 크기를 입력하시오 :";
+	cin >> count;
+
+	int* arr = new int[count];
+
+	cout << " 정수를 입력하시오 : ";
+	for (int i = 0; i < count; i++)
+	{
+		cin >> arr[i];
+	}
+
+	cout << "탐색할 값을 입력하시오 : ";
+	cin >> value;
+	cout << "탐색 결과 = " << binary_search(arr, count, value) << endl;
+
+	return 0;
+}
+
+int binary_search(int* arr, int count, int value)
+{
+	int low = 0;
+	int high = count - 1;
+	int mid;
+
+	while (low <= high) // 아직 숫자들이 남아있으면
+	{
+		mid = (low + high) / 2; // 중간 요소 결정
+		if (value == arr[mid]) // 일치하면 탐색 성공
+		{
+			return mid;
+		}
+		else if (value > arr[mid]) // 중간 원소보다 크다면
+		{
+			low = mid + 1; // 새로운 값으로 low 설정
+		}
+		else if (value < arr[mid]) // 중간 원소보다 작으면
+		{
+			high = mid - 1; // 새로운 값으로 high 설정
+		}
+	}
+
+	return -1; // 데이터를 찾지 못하면 -1을 반환
+}

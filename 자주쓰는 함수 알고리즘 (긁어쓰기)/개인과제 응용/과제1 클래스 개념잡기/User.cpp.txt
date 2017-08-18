@@ -1,0 +1,50 @@
+#include <iostream>
+#include "User.h"
+
+using namespace std;
+
+void User::phoneOn()
+{
+	cout << " 폰이 켜졌습니다 " << endl;
+
+	cp.setState(true);
+}
+
+void User::phoneOff()
+{
+	cout << " 폰이 꺼졌습니다 " << endl;
+
+	cp.setState(false);
+}
+
+void User::DisplayPhoneSize()
+{
+	int heightsize;
+	int widthsize;
+
+	cout << " 폰의 세로 길이를 입력하세요 " << endl;
+
+	cin >> heightsize;
+
+	cout << " 폰의 가로 길이를 입력하세요 " << endl;
+
+	cin >> widthsize;
+
+	cp.setHeight(heightsize);
+	cp.setWidth(widthsize);
+
+	cout << " 폰의 세로 길이는 " << cp.getHeight()  << " 입니다 " << endl;
+	cout << " 폰의 가로 길이는 " << cp.getWidth() << " 입니다 " << endl;
+}
+
+void User::DisplayPhoneState()
+{
+	if (cp.getState() == true)
+	{
+		cout << " 폰이 켜진 상태입니다 " << endl;
+	}
+	else
+	{
+		cout << " 폰이 꺼진 상태입니다 " << endl;
+	}
+}

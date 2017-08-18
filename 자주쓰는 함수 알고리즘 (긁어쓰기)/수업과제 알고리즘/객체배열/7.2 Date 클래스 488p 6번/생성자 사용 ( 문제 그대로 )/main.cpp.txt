@@ -1,0 +1,49 @@
+#include "Date.h"
+#include "Employee.h"
+
+int main()
+{
+	string name;
+	int year;
+	int month;
+	int day;
+
+	cout << " 직원의 정보를 등록합니다 " << endl;
+	cout << " 직원의 이름 : " << endl;
+	cin >> name;
+
+	cout << " 직원의 생일을 등록합니다 " << endl;
+	cout << " 년도 : " << endl;
+	cin >> year;
+	cout << " 월 : " << endl;
+	cin >> month;
+	cout << " 날짜 : " << endl;
+	cin >> day;
+	Date birthDate = Date(year, month, day);
+
+	cout << " 직원의 입사일을 등록합니다 " << endl;
+	cout << " 년도 : " << endl;
+	cin >> year;
+	cout << " 월 : " << endl;
+	cin >> month;
+	cout << " 날짜 : " << endl;
+	cin >> day;
+	Date hireDate = Date(year, month, day);
+
+	Employee(name, birthDate, hireDate);
+
+	cout << " 직원의 정보를 출력합니다 " << endl;
+	cout << " 직원의 이름 : " << name << endl;
+
+	cout << name << " 직원의 생일을 출력합니다 " << endl;
+	cout << " 년도 : " << birthDate.getYear() << endl;
+	cout << " 월 : " << birthDate.getMonth() << endl;
+	cout << " 날짜 : " << birthDate.getDay() << endl;
+
+	cout << name << " 직원의 입사일을 출력합니다 " << endl;
+	cout << " 년도 : " << hireDate.getYear() << endl;
+	cout << " 월 : " << hireDate.getMonth() << endl;
+	cout << " 날짜 : " << hireDate.getDay() << endl;
+
+	return 0;
+}
