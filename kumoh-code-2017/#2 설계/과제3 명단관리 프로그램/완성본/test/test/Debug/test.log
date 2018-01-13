@@ -1,0 +1,11 @@
+﻿  ioHandler.cpp
+  TaskManager.cpp
+  MemberList.cpp
+  코드를 생성하고 있습니다...
+c:\users\7a\documents\visual studio 2015\projects\test\test\taskmanager.cpp(12): warning C4715: 'TaskManager::findMember': 모든 제어 경로에서 값을 반환하지는 않습니다.
+c:\users\7a\documents\visual studio 2015\projects\test\test\iohandler.cpp(18): warning C4715: 'ioHandler::getMenu': 모든 제어 경로에서 값을 반환하지는 않습니다.
+c:\users\7a\documents\visual studio 2015\projects\test\test\iohandler.cpp(144): warning C4715: 'ioHandler::getMember': 모든 제어 경로에서 값을 반환하지는 않습니다.
+  건너뛰고 있습니다... (관련된 변경 내용 없음)
+  main.cpp
+  test.vcxproj -> C:\Users\7a\documents\visual studio 2015\Projects\test\Debug\test.exe
+  test.vcxproj -> C:\Users\7a\documents\visual studio 2015\Projects\test\Debug\test.pdb (Partial PDB)

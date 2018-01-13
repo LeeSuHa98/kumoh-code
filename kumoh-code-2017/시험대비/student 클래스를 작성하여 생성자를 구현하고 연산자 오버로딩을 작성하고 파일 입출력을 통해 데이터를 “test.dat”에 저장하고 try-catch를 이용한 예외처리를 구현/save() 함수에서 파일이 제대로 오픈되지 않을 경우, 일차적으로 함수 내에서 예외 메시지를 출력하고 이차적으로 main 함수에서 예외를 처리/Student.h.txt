@@ -1,0 +1,69 @@
+#include<iostream>
+#include<string>
+#include<fstream>
+using namespace std;
+
+class ExceptionNotFound 
+{
+private:
+	int size;
+public:
+	ExceptionNotFound() { }
+	ExceptionNotFound(int size) { this->size = size; }
+	~ExceptionNotFound() { }
+
+	int getSize() { return size; }
+};
+
+class student 
+{
+	friend ostream& operator<<(ostream& os, const student& st);
+private:
+	string name;
+	double korean, math, english;
+public:
+	string getName() { return name; }
+	double getKorean() { return korean; }
+	double getMath() { return math; }
+	double getEnglish() { return english; }
+
+	void setName(string name) { this->name = name; }
+	void setKorean(int korean) { this->korean = korean; }
+	void setMath(int math) { this->math = math; }
+	void setEnglish(int english) { this->english = english; }
+
+	bool operator>(const student& tmp) 
+	{
+		if ((korean + math + english) > (tmp.korean + tmp.math + tmp.english))
+			return true;
+		else
+			return false;
+	}
+	bool operator<(const student& tmp) 
+	{
+		if ((korean + math + english) < (tmp.korean + tmp.math + tmp.english))
+			return true;
+		else
+			return false;
+	}
+	student operator+(const student& st) 
+	{	 // const int a
+		return student("", korean + st.korean, math + st.math, english + st.english);	 // A(x+a)
+	}
+	student() { }
+	student(string name, double korean, double math, double english)
+		: name(name), korean(korean), math(math), english(english) { }
+	double getEverage();
+};
+
+double student::getEverage() 
+{
+	return ((korean + math + english) / 3);
+}
+
+ostream& operator<<(ostream& os, const student& st) 
+{
+	os << "이름 : " << st.name << endl;
+	os << "국어/수학/영어 - " << st.korean << "/" << st.math << "/" << st.english << endl;
+	return os;
+}

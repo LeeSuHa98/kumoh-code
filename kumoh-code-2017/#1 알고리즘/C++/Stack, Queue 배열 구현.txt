@@ -1,0 +1,42 @@
+#include<iostream>
+using namespace std;
+
+int queue[1000000];		// queue
+int stack[1000000];
+
+int front, rear;	// 초기값이 0으로 설정.
+
+int top;	// 초기값이 0으로 설정.
+
+
+void push(const int item)
+{
+	queue[rear++] = item;
+}
+
+int pop()
+{
+	return queue[front++];
+}
+
+bool empty()
+{
+	return front == rear;
+}
+/////////	queue
+
+void push(const int item)
+{
+	stack[top++] = item;
+}
+
+int pop()
+{
+	return stack[--top];
+}
+
+bool empty()
+{
+	return (top == 0);
+}
+/////////// stack
