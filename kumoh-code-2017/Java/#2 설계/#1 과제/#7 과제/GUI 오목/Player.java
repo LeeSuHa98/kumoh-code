@@ -1,0 +1,48 @@
+package 오목;
+
+import java.util.Scanner;
+
+public class Player
+{
+	protected int id;	// 사용자 id
+	protected String name;	// 플레이어 이름
+	protected int order;	// 게임순서 (1 또는 2)
+	protected int playerType;	// 플레이어 타입 (1 : 사람, 2 : 사이버)
+	protected double winningRate;	// 승률
+	protected StoneType stoneType;
+	
+	public Player() {}	// 기본 생성자
+	// 데이터 멤버를 초기화
+	public Player(int id, String name, int order, double winningRate)
+	{
+		this.id = id;
+		this.name = name;
+		this.order = order;
+		this.winningRate = winningRate;
+	}
+	
+	public int getId() {return id;}	// id를 반환
+	public int getOrder() {return order;}	// order를 반환
+	public int getPlayerType() {return playerType;}	// playerType를 반환
+	public String getName() {return name;}	// name을 반환
+	
+	public Position play(OmokBoard board)
+	{
+		if(id == 1)
+		{
+			System.out.println("[player1]");
+		}
+		else
+		{
+			System.out.println("[player2]");	
+		}
+		System.out.println(name + "님 착수 할 위치를 입력하세요");
+		Scanner sc = new Scanner(System.in);
+		System.out.print("(x y) : ");
+		int x = sc.nextInt();
+		int y = sc.nextInt();
+		
+		Position p = new Position(x,y);
+		return p;
+	}
+}

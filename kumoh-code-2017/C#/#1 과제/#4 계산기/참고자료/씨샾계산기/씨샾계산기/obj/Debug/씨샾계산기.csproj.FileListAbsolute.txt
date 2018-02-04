@@ -1,0 +1,27 @@
+C:\Users\Administrator\Desktop\씨샾 코드 정리\씨샾계산기\씨샾계산기\bin\Debug\씨샾계산기.exe.config
+C:\Users\Administrator\Desktop\씨샾 코드 정리\씨샾계산기\씨샾계산기\bin\Debug\씨샾계산기.exe
+C:\Users\Administrator\Desktop\씨샾 코드 정리\씨샾계산기\씨샾계산기\bin\Debug\씨샾계산기.pdb
+C:\Users\Administrator\Desktop\씨샾 코드 정리\씨샾계산기\씨샾계산기\obj\Debug\씨샾계산기.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\씨샾 코드 정리\씨샾계산기\씨샾계산기\obj\Debug\씨샾계산기.Form1.resources
+C:\Users\Administrator\Desktop\씨샾 코드 정리\씨샾계산기\씨샾계산기\obj\Debug\씨샾계산기.Properties.Resources.resources
+C:\Users\Administrator\Desktop\씨샾 코드 정리\씨샾계산기\씨샾계산기\obj\Debug\씨샾계산기.csproj.GenerateResource.Cache
+C:\Users\Administrator\Desktop\씨샾 코드 정리\씨샾계산기\씨샾계산기\obj\Debug\씨샾계산기.exe
+C:\Users\Administrator\Desktop\씨샾 코드 정리\씨샾계산기\씨샾계산기\obj\Debug\씨샾계산기.pdb
+C:\Users\swk31\Desktop\전공\2017 2학년 (2017)\2학기\C#\시험대비\#2 GUI\#10 계산기\씨샾계산기\씨샾계산기\bin\Debug\씨샾계산기.exe.config
+C:\Users\swk31\Desktop\전공\2017 2학년 (2017)\2학기\C#\시험대비\#2 GUI\#10 계산기\씨샾계산기\씨샾계산기\obj\Debug\씨샾계산기.exe
+C:\Users\swk31\Desktop\전공\2017 2학년 (2017)\2학기\C#\시험대비\#2 GUI\#10 계산기\씨샾계산기\씨샾계산기\obj\Debug\씨샾계산기.pdb
+C:\Users\swk31\Desktop\전공\2017 2학년 (2017)\2학기\C#\시험대비\#2 GUI\#10 계산기\씨샾계산기\씨샾계산기\bin\Debug\씨샾계산기.exe
+C:\Users\swk31\Desktop\전공\2017 2학년 (2017)\2학기\C#\시험대비\#2 GUI\#10 계산기\씨샾계산기\씨샾계산기\bin\Debug\씨샾계산기.pdb
+C:\Users\swk31\Desktop\전공\2017 2학년 (2017)\2학기\C#\시험대비\#2 GUI\#10 계산기\씨샾계산기\씨샾계산기\obj\Debug\씨샾계산기.csprojResolveAssemblyReference.cache
+C:\Users\swk31\Desktop\전공\2017 2학년 (2017)\2학기\C#\시험대비\#2 GUI\#10 계산기\씨샾계산기\씨샾계산기\obj\Debug\씨샾계산기.Form1.resources
+C:\Users\swk31\Desktop\전공\2017 2학년 (2017)\2학기\C#\시험대비\#2 GUI\#10 계산기\씨샾계산기\씨샾계산기\obj\Debug\씨샾계산기.Properties.Resources.resources
+C:\Users\swk31\Desktop\전공\2017 2학년 (2017)\2학기\C#\시험대비\#2 GUI\#10 계산기\씨샾계산기\씨샾계산기\obj\Debug\씨샾계산기.csproj.GenerateResource.Cache
+C:\Users\swk31\Desktop\전공\2017 2학년 (2017)\2학기\C#\과제\#4 계산기\제출\#10 계산기\씨샾계산기\씨샾계산기\bin\Debug\씨샾계산기.exe.config
+C:\Users\swk31\Desktop\전공\2017 2학년 (2017)\2학기\C#\과제\#4 계산기\제출\#10 계산기\씨샾계산기\씨샾계산기\obj\Debug\씨샾계산기.exe
+C:\Users\swk31\Desktop\전공\2017 2학년 (2017)\2학기\C#\과제\#4 계산기\제출\#10 계산기\씨샾계산기\씨샾계산기\obj\Debug\씨샾계산기.pdb
+C:\Users\swk31\Desktop\전공\2017 2학년 (2017)\2학기\C#\과제\#4 계산기\제출\#10 계산기\씨샾계산기\씨샾계산기\bin\Debug\씨샾계산기.exe
+C:\Users\swk31\Desktop\전공\2017 2학년 (2017)\2학기\C#\과제\#4 계산기\제출\#10 계산기\씨샾계산기\씨샾계산기\bin\Debug\씨샾계산기.pdb
+C:\Users\swk31\Desktop\전공\2017 2학년 (2017)\2학기\C#\과제\#4 계산기\제출\#10 계산기\씨샾계산기\씨샾계산기\obj\Debug\씨샾계산기.csprojResolveAssemblyReference.cache
+C:\Users\swk31\Desktop\전공\2017 2학년 (2017)\2학기\C#\과제\#4 계산기\제출\#10 계산기\씨샾계산기\씨샾계산기\obj\Debug\씨샾계산기.Form1.resources
+C:\Users\swk31\Desktop\전공\2017 2학년 (2017)\2학기\C#\과제\#4 계산기\제출\#10 계산기\씨샾계산기\씨샾계산기\obj\Debug\씨샾계산기.Properties.Resources.resources
+C:\Users\swk31\Desktop\전공\2017 2학년 (2017)\2학기\C#\과제\#4 계산기\제출\#10 계산기\씨샾계산기\씨샾계산기\obj\Debug\씨샾계산기.csproj.GenerateResource.Cache

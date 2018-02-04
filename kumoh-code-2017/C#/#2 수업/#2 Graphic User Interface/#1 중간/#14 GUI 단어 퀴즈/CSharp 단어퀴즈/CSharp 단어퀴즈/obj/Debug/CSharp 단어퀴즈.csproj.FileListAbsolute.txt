@@ -1,0 +1,18 @@
+c:\users\a\documents\visual studio 2015\Projects\CSharp 단어퀴즈\CSharp 단어퀴즈\bin\Debug\CSharp 단어퀴즈.exe.config
+c:\users\a\documents\visual studio 2015\Projects\CSharp 단어퀴즈\CSharp 단어퀴즈\bin\Debug\CSharp 단어퀴즈.exe
+c:\users\a\documents\visual studio 2015\Projects\CSharp 단어퀴즈\CSharp 단어퀴즈\bin\Debug\CSharp 단어퀴즈.pdb
+c:\users\a\documents\visual studio 2015\Projects\CSharp 단어퀴즈\CSharp 단어퀴즈\obj\Debug\CSharp 단어퀴즈.csprojResolveAssemblyReference.cache
+c:\users\a\documents\visual studio 2015\Projects\CSharp 단어퀴즈\CSharp 단어퀴즈\obj\Debug\CSharp_단어퀴즈.Form1.resources
+c:\users\a\documents\visual studio 2015\Projects\CSharp 단어퀴즈\CSharp 단어퀴즈\obj\Debug\CSharp_단어퀴즈.Properties.Resources.resources
+c:\users\a\documents\visual studio 2015\Projects\CSharp 단어퀴즈\CSharp 단어퀴즈\obj\Debug\CSharp 단어퀴즈.csproj.GenerateResource.Cache
+c:\users\a\documents\visual studio 2015\Projects\CSharp 단어퀴즈\CSharp 단어퀴즈\obj\Debug\CSharp 단어퀴즈.exe
+c:\users\a\documents\visual studio 2015\Projects\CSharp 단어퀴즈\CSharp 단어퀴즈\obj\Debug\CSharp 단어퀴즈.pdb
+C:\Users\swk31\Desktop\전공\2017 2학년 (2017)\2학기\C#\수업\#2 Graphic User Interface\#14 (미완성) GUI 단어 퀴즈\CSharp 단어퀴즈\CSharp 단어퀴즈\bin\Debug\CSharp 단어퀴즈.exe.config
+C:\Users\swk31\Desktop\전공\2017 2학년 (2017)\2학기\C#\수업\#2 Graphic User Interface\#14 (미완성) GUI 단어 퀴즈\CSharp 단어퀴즈\CSharp 단어퀴즈\obj\Debug\CSharp 단어퀴즈.exe
+C:\Users\swk31\Desktop\전공\2017 2학년 (2017)\2학기\C#\수업\#2 Graphic User Interface\#14 (미완성) GUI 단어 퀴즈\CSharp 단어퀴즈\CSharp 단어퀴즈\obj\Debug\CSharp 단어퀴즈.pdb
+C:\Users\swk31\Desktop\전공\2017 2학년 (2017)\2학기\C#\수업\#2 Graphic User Interface\#14 (미완성) GUI 단어 퀴즈\CSharp 단어퀴즈\CSharp 단어퀴즈\bin\Debug\CSharp 단어퀴즈.exe
+C:\Users\swk31\Desktop\전공\2017 2학년 (2017)\2학기\C#\수업\#2 Graphic User Interface\#14 (미완성) GUI 단어 퀴즈\CSharp 단어퀴즈\CSharp 단어퀴즈\bin\Debug\CSharp 단어퀴즈.pdb
+C:\Users\swk31\Desktop\전공\2017 2학년 (2017)\2학기\C#\수업\#2 Graphic User Interface\#14 (미완성) GUI 단어 퀴즈\CSharp 단어퀴즈\CSharp 단어퀴즈\obj\Debug\CSharp 단어퀴즈.csprojResolveAssemblyReference.cache
+C:\Users\swk31\Desktop\전공\2017 2학년 (2017)\2학기\C#\수업\#2 Graphic User Interface\#14 (미완성) GUI 단어 퀴즈\CSharp 단어퀴즈\CSharp 단어퀴즈\obj\Debug\CSharp_단어퀴즈.Form1.resources
+C:\Users\swk31\Desktop\전공\2017 2학년 (2017)\2학기\C#\수업\#2 Graphic User Interface\#14 (미완성) GUI 단어 퀴즈\CSharp 단어퀴즈\CSharp 단어퀴즈\obj\Debug\CSharp_단어퀴즈.Properties.Resources.resources
+C:\Users\swk31\Desktop\전공\2017 2학년 (2017)\2학기\C#\수업\#2 Graphic User Interface\#14 (미완성) GUI 단어 퀴즈\CSharp 단어퀴즈\CSharp 단어퀴즈\obj\Debug\CSharp 단어퀴즈.csproj.GenerateResource.Cache

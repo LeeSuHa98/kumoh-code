@@ -1,0 +1,115 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace 키보드_정보_출력
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            label2.Text = "Alt: " + (e.Alt ? "Yes" : "No") + '\n'
+                + "Shift : " + (e.Shift ? "Yes" : "No") + '\n' +
+                "Ctrl : " + (e.Control ? "Yes" : "No") + '\n' +
+                "KeyCode : " + e.KeyCode + '\n' +
+                "KeyData :" + e.KeyData + '\n' +
+                "KeyValue : " + e.KeyValue;
+        }
+
+        private void Form1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+        }
+
+        private void Form1_KeyUp(object sender, KeyEventArgs e)
+        {
+        }
+
+        private void problem_TextChanged(object sender, EventArgs e)
+        {
+            word.Text = "";
+            String a = problem.Text;
+            for(int i=0; i<a.Length; i++)
+            {
+                word.Text = word.Text + "_";
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("단어가 설정되었습니다.");
+            problem.Enabled = false;
+            correct.MaxLength = problem.Text.Length;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            bool check = false;
+            String wordPiace = "";
+
+            if(problem.Text.Equals(correct.Text))
+            {
+                MessageBox.Show("정답입니다!");
+                problem.Enabled = true;
+                word.Text = correct.Text;
+                problem.Text = "";
+            } else if (correct.Text.Length == 1 || correct.Text.Length == word.Text.Length)
+            {
+                for(int i=0; i<problem.Text.Length; i++)
+                {
+                    if (word.Text[i] == '_')
+                    {
+                        if (correct.Text[0] == problem.Text[i])
+                        {
+                            wordPiace = wordPiace + correct.Text[0];
+                            check = true;
+                        }
+                        else
+                        {
+                            wordPiace = wordPiace + "_";
+                        }
+                    } else
+                    {
+                        wordPiace = wordPiace + problem.Text[i];
+                    }   
+                }
+                word.Text = wordPiace;
+
+                if(check)
+                {
+                    MessageBox.Show(correct.Text + "단어를 찾았습니다.");
+                    correct.Text = "";
+                } else
+                {
+                    MessageBox.Show(correct.Text + "단어를 찾지 못했습니다.");
+                    correct.Text = "";
+                }
+
+                if (problem.Text.Equals(word.Text))
+                {
+                    MessageBox.Show("정답입니다!");
+                    problem.Enabled = true;
+                    problem.Text = "";
+                }
+            } else
+            {
+                MessageBox.Show("틀렸습니다!");
+            }                  
+        }
+    }
+}

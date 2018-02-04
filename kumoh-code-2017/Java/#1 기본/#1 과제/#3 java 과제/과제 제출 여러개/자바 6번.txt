@@ -1,0 +1,41 @@
+package project;
+
+import java.lang.Object;
+
+class ClassX implements Cloneable
+{
+	
+	private Account a;
+	int x; char c;
+	//생성자랑 print함수 만들어야함
+	protected Object clone(){
+		try
+		{
+			ClassX s = (ClassX)super.clone();
+			s.a = (Account)a.clone();
+			return s;
+		}
+		catch (CloneNotSupportedException e)
+		{
+            System.out.println("예외 발생");
+            return this;
+		}
+	}
+	
+ }
+
+
+
+
+
+
+//이거를 Account 클래스에 넣어야 함(Account 클래스도 implements Cloneable 해줘야함)
+//public class Account implements Cloneable <-이렇게
+
+public Account clone() throws CloneNotSupportedException{
+   Account account = (Account) super.clone();
+   account.money = this.money;
+   account.예금주 = this.예금주;
+   
+   return account;
+}

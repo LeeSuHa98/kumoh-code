@@ -1,0 +1,9 @@
+c:\users\samsung\documents\visual studio 2017\Projects\MyClock\MyClock\bin\Debug\MyClock.pdb
+c:\users\samsung\documents\visual studio 2017\Projects\MyClock\MyClock\obj\Debug\MyClock.MyClock.resources
+c:\users\samsung\documents\visual studio 2017\Projects\MyClock\MyClock\obj\Debug\MyClock.Properties.Resources.resources
+c:\users\samsung\documents\visual studio 2017\Projects\MyClock\MyClock\obj\Debug\MyClock.csproj.GenerateResource.Cache
+c:\users\samsung\documents\visual studio 2017\Projects\MyClock\MyClock\obj\Debug\MyClock.pdb
+c:\users\samsung\documents\visual studio 2017\Projects\MyClock\MyClock\obj\Debug\MyClock.csprojResolveAssemblyReference.cache
+c:\users\samsung\documents\visual studio 2017\Projects\MyClock\MyClock\bin\Debug\MyClock.dll.config
+c:\users\samsung\documents\visual studio 2017\Projects\MyClock\MyClock\bin\Debug\MyClock.dll
+c:\users\samsung\documents\visual studio 2017\Projects\MyClock\MyClock\obj\Debug\MyClock.dll

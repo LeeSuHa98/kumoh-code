@@ -1,0 +1,9 @@
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication26\WindowsFormsApplication26\bin\Debug\WindowsFormsApplication26.exe.config
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication26\WindowsFormsApplication26\obj\Debug\WindowsFormsApplication26.csprojResolveAssemblyReference.cache
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication26\WindowsFormsApplication26\obj\Debug\WindowsFormsApplication26.Form1.resources
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication26\WindowsFormsApplication26\obj\Debug\WindowsFormsApplication26.Properties.Resources.resources
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication26\WindowsFormsApplication26\obj\Debug\WindowsFormsApplication26.csproj.GenerateResource.Cache
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication26\WindowsFormsApplication26\bin\Debug\WindowsFormsApplication26.exe
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication26\WindowsFormsApplication26\bin\Debug\WindowsFormsApplication26.pdb
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication26\WindowsFormsApplication26\obj\Debug\WindowsFormsApplication26.exe
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication26\WindowsFormsApplication26\obj\Debug\WindowsFormsApplication26.pdb

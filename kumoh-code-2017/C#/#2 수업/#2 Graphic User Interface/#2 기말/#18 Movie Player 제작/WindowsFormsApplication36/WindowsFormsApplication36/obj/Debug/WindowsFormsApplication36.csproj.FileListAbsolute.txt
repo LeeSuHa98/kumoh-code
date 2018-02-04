@@ -1,0 +1,13 @@
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication36\WindowsFormsApplication36\bin\Debug\WindowsFormsApplication36.exe.config
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication36\WindowsFormsApplication36\bin\Debug\WindowsFormsApplication36.exe
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication36\WindowsFormsApplication36\bin\Debug\WindowsFormsApplication36.pdb
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication36\WindowsFormsApplication36\bin\Debug\Interop.WMPLib.dll
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication36\WindowsFormsApplication36\bin\Debug\AxInterop.WMPLib.dll
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication36\WindowsFormsApplication36\obj\Debug\Interop.WMPLib.dll
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication36\WindowsFormsApplication36\obj\Debug\AxInterop.WMPLib.dll
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication36\WindowsFormsApplication36\obj\Debug\WindowsFormsApplication36.csproj.ResolveComReference.cache
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication36\WindowsFormsApplication36\obj\Debug\WindowsFormsApplication36.Form1.resources
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication36\WindowsFormsApplication36\obj\Debug\WindowsFormsApplication36.Properties.Resources.resources
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication36\WindowsFormsApplication36\obj\Debug\WindowsFormsApplication36.csproj.GenerateResource.Cache
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication36\WindowsFormsApplication36\obj\Debug\WindowsFormsApplication36.exe
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication36\WindowsFormsApplication36\obj\Debug\WindowsFormsApplication36.pdb

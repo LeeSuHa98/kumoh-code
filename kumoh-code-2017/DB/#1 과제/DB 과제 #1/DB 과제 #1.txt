@@ -1,0 +1,44 @@
+DB 프로그래밍 과제 #1
+
+컴퓨터소프트웨어공학과 20120691 손우규
+
+[발표] 2017.5.7 10:00. D329
+[문제] 다음 문제에 대한 SQL문을 작성하라. (각 5점)
+
+1. 목표가 10,000원을 넘는 사무소에 근무하는 사원에 대해서 도시, 사원이름, 할당액, 2017년 1월에서 4월까지의 수준금액을 검색하라. 단, 도시는 해당 사무소의 코드순으로 정렬할 것.
+
+select city, name, quota, amount
+from offices, salesreps, orders
+where rep_office = office and rep = empl_num and target > 10000 and (order_date >= 2017.01.01 and order_date <= 2017.04.30) order by office asc
+
+2. 신입사원이 입사한 날에 접수된 주문 중에서 주문금액이 5,000원 이상인 주문의 주문번호, 고객이름, 주문일, 주문금액, 영업사원이름을 검색하라.
+
+select order_num, company, order_date, amount, name
+from salesreps, customers, orders
+where rep = empl_num and cust = cust_num and amount >= 5000 and exists (select * from salesreps where hire_date = order_date)
+
+3. 매출액이 할당액 이상인 영업사원의 사원이름, 할당액, 매출액, 초과금액(=매출액-할당액), 관리자 이름을 검색하라. 단, 초과금액의 내림차순으로 정렬할 것.
+
+select e.name, e.quota, e.sales, e.sales - quota, m.name
+from selesreps e, salesreps m
+where e.sales - quota >= 0 and e.manager = m.empl_num 
+order by e.sale - quota desc
+
+4. 주문금액이 250원 이상인 주문을 1건 이상 수주한 영업사원의 이름, 입사일을 검색하라.
+
+select name, hire_date
+from salesreps
+where rep = empl_num and exists (select * from salesreps where amount >= 250)
+
+5. 사무소에 소속된 사원 모두가 사무소 목표금액의 50%를 넘는 매출실적을 기록한 사무소의 이름과 목표금액을 검색하라. 단, 목표금액이 큰 사무소부터 나열할 것.
+
+select city, target
+from offices
+where (0.5 * target) < all(select sales from salesreps where rep_office = office) 
+order by target decs
+
+6. 신용한도가 50,000원 미만인 고객 중에서 주문총액이 50,000원 이상인 고객의 이름, 신용한도, 주문총액을 검색하라.
+
+select company, credit_limit, sum(amount)
+from customers, orders
+where cust = cust_num and exists (select * from customers where credit_limit < 50000 group by cust_num having sum(amount) >= 50000)

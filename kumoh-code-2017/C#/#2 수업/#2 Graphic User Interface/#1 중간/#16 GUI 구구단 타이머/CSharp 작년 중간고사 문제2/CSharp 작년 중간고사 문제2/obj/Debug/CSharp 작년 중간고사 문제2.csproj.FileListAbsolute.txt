@@ -1,0 +1,9 @@
+c:\users\a\documents\visual studio 2015\Projects\CSharp 작년 중간고사 문제2\CSharp 작년 중간고사 문제2\bin\Debug\CSharp 작년 중간고사 문제2.exe.config
+c:\users\a\documents\visual studio 2015\Projects\CSharp 작년 중간고사 문제2\CSharp 작년 중간고사 문제2\bin\Debug\CSharp 작년 중간고사 문제2.exe
+c:\users\a\documents\visual studio 2015\Projects\CSharp 작년 중간고사 문제2\CSharp 작년 중간고사 문제2\bin\Debug\CSharp 작년 중간고사 문제2.pdb
+c:\users\a\documents\visual studio 2015\Projects\CSharp 작년 중간고사 문제2\CSharp 작년 중간고사 문제2\obj\Debug\CSharp 작년 중간고사 문제2.csprojResolveAssemblyReference.cache
+c:\users\a\documents\visual studio 2015\Projects\CSharp 작년 중간고사 문제2\CSharp 작년 중간고사 문제2\obj\Debug\CSharp_작년_중간고사_문제2.Form1.resources
+c:\users\a\documents\visual studio 2015\Projects\CSharp 작년 중간고사 문제2\CSharp 작년 중간고사 문제2\obj\Debug\CSharp_작년_중간고사_문제2.Properties.Resources.resources
+c:\users\a\documents\visual studio 2015\Projects\CSharp 작년 중간고사 문제2\CSharp 작년 중간고사 문제2\obj\Debug\CSharp 작년 중간고사 문제2.csproj.GenerateResource.Cache
+c:\users\a\documents\visual studio 2015\Projects\CSharp 작년 중간고사 문제2\CSharp 작년 중간고사 문제2\obj\Debug\CSharp 작년 중간고사 문제2.exe
+c:\users\a\documents\visual studio 2015\Projects\CSharp 작년 중간고사 문제2\CSharp 작년 중간고사 문제2\obj\Debug\CSharp 작년 중간고사 문제2.pdb

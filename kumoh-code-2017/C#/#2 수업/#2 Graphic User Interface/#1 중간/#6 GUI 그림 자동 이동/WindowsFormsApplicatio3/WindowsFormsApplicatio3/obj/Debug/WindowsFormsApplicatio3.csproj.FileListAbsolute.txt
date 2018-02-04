@@ -1,0 +1,8 @@
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplicatio3\WindowsFormsApplicatio3\bin\Debug\WindowsFormsApplicatio3.exe.config
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplicatio3\WindowsFormsApplicatio3\bin\Debug\WindowsFormsApplicatio3.exe
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplicatio3\WindowsFormsApplicatio3\bin\Debug\WindowsFormsApplicatio3.pdb
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplicatio3\WindowsFormsApplicatio3\obj\Debug\WindowsFormsApplicatio3.Form1.resources
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplicatio3\WindowsFormsApplicatio3\obj\Debug\WindowsFormsApplicatio3.Properties.Resources.resources
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplicatio3\WindowsFormsApplicatio3\obj\Debug\WindowsFormsApplicatio3.csproj.GenerateResource.Cache
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplicatio3\WindowsFormsApplicatio3\obj\Debug\WindowsFormsApplicatio3.exe
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplicatio3\WindowsFormsApplicatio3\obj\Debug\WindowsFormsApplicatio3.pdb

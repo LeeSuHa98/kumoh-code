@@ -1,0 +1,353 @@
+상속과 관련된것
+
+package practice;
+
+public class A { // public클래스는 1파일에 1개만 생성 가능
+	public static void main(String []args) {
+		AA app = new AA();
+		app.test();
+	}
+}
+
+class AA{
+	private int a = 1; 
+	int b = 5; // default;
+	protected int c = 10;
+	public int d = 15;
+	
+	void test() {
+	}
+		
+}
+
+class B extends AA{ // 같은패키지 내의 하위클래스(상속을 받는 클래스)
+	
+	void test() {
+		//System.out.println(a); 이때 하위클래스이지만 private는 접근이 불가능 하다는것을 알 수 있다.
+		System.out.println(b);
+		System.out.println(c);
+		System.out.println(d);
+
+	}
+}
+
+class C{
+	void test() {
+		
+		AA ob = new AA();
+		//System.out.println(ob.a)); 같은 패키지라고하면 상,하위관계가 없어도 접근이 가능하지만 private는 접근이 불가능하다
+		System.out.println(ob.b);
+		System.out.println(ob.c);
+		System.out.println(ob.d);
+
+	}
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+생성자 설명
+
+package practice;
+
+public class A { // public클래스는 1파일에 1개만 생성 가능
+	public static void main(String []args) {
+		Rectangle r = new Rectangle(); // 상위클래스의 무인생성자부터 호출이 된후의 본인의 생성자가 호출이 된다. C++에서는 자식의 소멸자 호출후 부모의 소멸자가 호출이 되지만 java에서는 언제 호출될지 모른다.
+	}
+}
+
+class Shape{
+	private int x,y;
+	public Shape(int x,int y) {
+		this.x = x;
+		this.y= y;
+	}
+	public Shape() {
+		System.out.println("shape 생성자");
+	}
+	public void finalize() {
+		System.out.println("Shape 소멸자");
+	}
+		
+}
+
+class Rectangle extends Shape{
+	private int width,height;
+	
+	public Rectangle(int x,int y,int w,int h) {
+		super(x,y);
+		width = w;
+		height = h;
+	}
+	public Rectangle() {
+		this(0,0,0,0); //같은 클래스의 있는 생성자 정의시 this를 통해 초기화
+		System.out.println("Rectangle 생성자");
+	}
+	public void finalize() {
+		System.out.println("Rectangle 소멸자");
+	}
+}
+
+------------------------------------------------------------------------------------------------------------------------------------
+다중상속
+
+인터페이스란? 
+
+클래스이지만, 구현이 되지않은 메소드로만 이루어져있는 클래스
+
+package practice;
+
+public interface IShape {
+	//int x; 인터페이스의 경우 객체를 생성할수 없기 때문에 일반 데이터 변수들을 선언할 수 없다. 단지 상수(final)은 허용이 된다.
+	final int x = 0;
+	public double area();
+	public double volume();
+	public String getName(); // 메소드 들만 선언
+}
+
+class MyShape implements IShape{
+
+	@Override
+	public double area() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public double volume() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public String getName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+}
+package practice;
+
+public class A { // public클래스는 1파일에 1개만 생성 가능
+	public static void main(String []args) {
+		Rectangle r = new Rectangle(); // 상위클래스의 무인생성자부터 호출이 된후의 본인의 생성자가 호출이 된다. C++에서는 자식의 소멸자 호출후 부모의 소멸자가 호출이 되지만 java에서는 언제 호출될지 모른다.
+	}
+}
+
+
+class Shape{
+	private int x,y;
+	public Shape(int x,int y) {
+		this.x = x;
+		this.y= y;
+	}
+	public Shape() {
+		System.out.println("shape 생성자");
+	}
+	public void finalize() {
+		System.out.println("Shape 소멸자");
+	}
+		
+}
+
+class Rectangle extends Shape{
+	private int width,height;
+	
+	public Rectangle(int x,int y,int w,int h) {
+		super(x,y);
+		width = w;
+		height = h;
+	}
+	public Rectangle() {
+		this(0,0,0,0); //같은 클래스의 있는 생성자 정의시 this를 통해 초기화
+		System.out.println("Rectangle 생성자");
+	}
+	public void finalize() {
+		System.out.println("Rectangle 소멸자");
+	}
+}
+
+-------------------------------------------------------------------------
+
+
+package practice;
+
+public class A { // public클래스는 1파일에 1개만 생성 가능
+	public static void main(String []args) {
+	}
+}
+
+
+class AA{
+	private int x,y;
+	public void f1() {
+		
+	}
+	public void f2() {
+		
+	}
+}
+
+class BB{
+	private int w,h;
+	public void g1() {
+		
+	}
+	public void g2() {
+		
+	}
+}
+
+interface IB{
+	public void g1();
+	public void g2();
+}
+class CC extends A implements IB{
+	private BB ob = new BB();
+
+	@Override
+	public void g1() {
+		// TODO Auto-generated method stub
+		ob.g1();
+	}
+
+	@Override
+	public void g2() {
+		// TODO Auto-generated method stub
+		ob.g2();
+	}
+	
+}
+
+
+
+------------------------------------------------------------
+
+인터페이스끼리의 상속
+
+package practice;
+
+public class A { // public클래스는 1파일에 1개만 생성 가능
+	public static void main(String []args) {
+		Car[] cars = new Car[3];
+		cars[0] = new PassangerCar();
+		cars[1] = new Truck(500);
+		cars[2] = new Pickup(4,2000,100000);
+		for(int i = 0; i<3;i++) {
+			cars[i].showInfo(); // C++같은경우 컴파일시 정적바인딩을 하므로 타입으로 보고 결정하여서 car클래스의 showInfo실행 -> 정적바인딩 그러나 자바의 경우 해당메소드의 결정시기는 실행시기에 그 변수에 어떤객체가 있는지 맞추어서 showInfo가 실행된다.
+			                    // 즉 타입에 맞게 해당하는 showInfo()가 실행된다->동적바인딩
+		}
+	}
+}
+
+interface Car{
+	public void showInfo();
+}
+
+class PassangerCar implements Car{
+	private int seats;
+	public PassangerCar() {
+		seats = 2;
+	}
+	public PassangerCar(int n) {
+		seats = n;
+	}
+	public int getSeats() {return seats;}
+	public void setSeats(int n) {seats = n;}
+	public void showInfo() {System.out.println("적재하중: "+getSeats());}
+	
+}
+interface ITruck extends Car{	//인터페이스에서 인터페이스를 상속받도록
+	public int getPayload();
+	public void setPayload(int w);
+	public void showInfo();
+}
+class Pickup extends PassangerCar implements ITruck{
+
+	private int tow_capacity;//견인능력
+	Truck truck;
+	
+	public Pickup() {
+		super(4);
+		truck = new Truck(1000);
+		setTow_capacity(1000);
+	}
+	
+	public Pickup(int s, int w, int c) {
+		super(s);
+		truck = new Truck(w);
+		setTow_capacity(c);
+		
+	}
+
+	public int getPayload() {
+		
+		return truck.getPayload();
+	}
+
+	public void setPayload(int w) {
+		truck.setPayload(w);
+	}
+	public void showInfo() {
+		System.out.println("좌석 수: "+ getSeats()+"적재하중: "+getPayload()+"견인능력: "+getTow_capacity());
+	}
+
+	public int getTow_capacity() {
+		return tow_capacity;
+	}
+
+	public void setTow_capacity(int tow_capacity) {
+		this.tow_capacity = tow_capacity;
+	}
+	
+}
+class Truck implements Car{
+	private int payload;
+	public Truck() {
+		payload = 100;
+	}
+	public Truck(int w) {
+		payload = w;
+	}
+	public int getPayload() {return payload;}
+	public void setPayload(int w) { payload = w;}
+	public void showInfo() {System.out.println("적재하중: "+ getPayload());}
+	
+}
+
+----------------------------------------------------------------------------------------
+
+<무명클래스로부터 객체를 생성하는 방법>
+package practice;
+
+interface Greeting{//인터페이스를 구현하지않고 바로 실행하기위한 방법, 이름없는 클래스를 정의하는 방법
+	String message();
+}
+
+public class A { // public클래스는 1파일에 1개만 생성 가능
+	public static void main(String []args) {
+		X ob = new X();
+		ob.display(new Greeting(){
+			public String message() {
+				return "xxx";
+			}
+		}); // 정의시 바로 구현을 함으로서 따로 클래스를 만들필요가 없다
+		/*Y g = new Y();
+		ob.display();*/
+		}
+	
+}
+
+class Y implements Greeting{ // 여러번 사용시에는 만드는게 맞으나 한번만 사용할 경우 별도의 클래스를 생성할 필료가 업다
+
+	public String message() {
+		return null;
+	}
+	
+}
+class X{
+	public void display(Greeting g) {
+		System.out.println(g.message());
+	}
+}
+
+
+------------------------------------------------------------------------

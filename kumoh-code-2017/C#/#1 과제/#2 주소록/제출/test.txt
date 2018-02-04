@@ -1,0 +1,9 @@
+F, 0, HYLEE, Daejeon, CSE, D443, Image Processing
+E, 1, UDSAGONG, Daegu, CSE, D124
+F, 2, JWSEOK, Seoul, CSE, D337, Software Engineering
+S, 3, KSAHN, Busan, CSE, 3
+F, 4, SMKIM, Gumi, CSE, D442, Network Communication
+S, 5, SHLEE, Gumi, CSE, 4
+S, 6, YJYUN, Bonghwa, CSE, 3
+S, 7, GELEE, Taebeak, EE, 2
+E, 8, KDHONG, Josun, AA, 1

@@ -1,0 +1,23 @@
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            // string strConn = "Server=localhost;Port=3306;Database=lecture;Uid=HYLee;Pwd=****;";
+            string strConn = "Server=202.31.202.151;Port=3306;Database=address_book;Uid=root;Pwd=root;";
+
+            MySqlConnection conn = new MySqlConnection(strConn);
+            conn.Open();
+
+            string sql = "SELECT * FROM address ORDER BY Name";
+
+            //ExecuteReader를 이용하여 연결 모드로 데이타 가져오기
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            MySqlDataReader rdr = cmd.ExecuteReader();
+            while(rdr.Read())
+            {
+                listBox1.Items.Add(rdr["Name"].ToString() + "" + rdr[1].ToString());
+            }
+
+            rdr.Close();
+            conn.Close();
+        }
+
+localhost로 하는 방법 : cmd -> ipconfig -> ip확인 -> 코드에 입력

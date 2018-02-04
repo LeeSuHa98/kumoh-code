@@ -1,0 +1,48 @@
+* FileReader의 생성자
+
+
+
+FileReader는 파일로부터 입력을 위한 스트림을 생성하는 클래스로 데이터가 입력될 파일의 정보를 인자로 받는다.
+
+
+
+FileReader 의 생성자 
+
+설 명 
+
+FileReader(File file) throws IOException
+
+file로 지정된 파일에 대한 입력 스트림을 생성한다. 
+
+FileReader(FileDescriptor fd) throws IOException
+
+fd로 지정된 FileDescriptor에 대한 입력 스트립을 생성한다.
+
+FileReader(String fileName) throws IOException 
+
+fileName로 지정한 경로의 파일에 대한 입력 스트림을 생성한다. 
+
+
+* Reader의 메소드
+
+Reader 클래스의 메소드                                                설명 
+
+abstract void close() throws IOException                              문자 입력 스트림을 닫는다. 
+
+void mark(int limit) throws IOException                               문자 입력 스트림의 현재 위치를 표시한다. 
+
+ boolean markSupported()                                              문자 스트림이 mark() 메소드가 지정되어 있는지 여부를 반환한다.
+
+int read() throws IOException                                         문자 입력 스트림에서 단일 문자를 읽는다.
+
+int read(char buf[]) throws IOException                               문자 입력 스트림에서 buf[] 크기만큼을 읽어 buf에 저장하고 읽은 문자 수를 반환한다. 
+
+abstract int read(char buf[], int off, int len) throws IOException    문자 입력 스트림에서 len 만큼을 읽어 buf[]의 off 위치에 저장하고 읽은 문자 수를 반환한다. 
+
+ int read(CharBuffer target) throws IOException                       CharBuffer 형인 target에 문자열을 읽어 온다.
+
+boolean ready() throws IOException                                    문자 입력 스트림이 준비되었는지 리턴한다.
+
+void reset() throws IOException                                       문자 입력 스트림을 mark된 위치로 되돌린다. 
+
+long skip(long l) throws IOException                                  주어진 개수 l 만큼의 문자를 건너뛴다. 

@@ -1,0 +1,176 @@
+package database;
+
+import database.DAO ;
+import entity.environment;
+
+/* Import Database Package */
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+/* Mysql DATETIME Type */
+import java.sql.Timestamp;
+
+/* List */
+import java.util.LinkedList;
+import java.util.List;
+
+public class environmentSetDAO extends DAO {
+
+   private environment environmentSet ;
+   
+   
+   private static final String SELECT_ENVIRONMENT_ALL_SET = "SELECT * FROM iotdata.environment" ;
+
+   private static final String SELECT_ENVIRONMENT_SET = "SELECT * FROM iotdata.environment "
+         + "where no >= ? and no < ?" ;
+   
+   private static final String SELECT_ENVIRONMENT_LAST_NO = "SELECT no FROM iotdata.environment "
+         + "order by no desc limit 1" ;
+   
+   /*
+   private static final String SELECT_ENVIRONMENT_ALL_SET = "SELECT * FROM sensoriot.environment" ;
+
+   private static final String SELECT_ENVIRONMENT_SET = "SELECT * FROM sensoriot.environment "
+         + "where no > ?" ;
+   
+   private static final String SELECT_ENVIRONMENT_LAST_NO = "SELECT no FROM sensoriot.environment "
+         + "order by no desc limit 1" ;
+   */
+   public int getLastNo()
+   {
+      int no = 0 ;
+      
+      try
+      {
+         PreparedStatement pstmt = cnn.prepareStatement(SELECT_ENVIRONMENT_LAST_NO);
+         ResultSet rs = pstmt.executeQuery();
+         
+         while(rs.next())
+         {
+            no = rs.getInt("no") ;
+         }
+      }
+      catch (SQLException e) 
+      {
+         e.printStackTrace();
+         System.out.println(e.getMessage());
+      }
+      
+      return no ;
+   }
+   
+   public List<environment> getEnvironmentAllSet()
+   {
+      List<environment> environmentList = new LinkedList<>();
+
+      try 
+      {
+         PreparedStatement pstmt = conn.prepareStatement(SELECT_ENVIRONMENT_ALL_SET);
+         ResultSet rs = pstmt.executeQuery();
+         
+         while(rs.next())
+         {
+            int no = rs.getInt("no") ;
+            String id = rs.getString("id");
+            double t = rs.getDouble("temperature");
+            double h = rs.getDouble("humidity");
+            double i = rs.getDouble("cell") ;
+            double d = rs.getDouble("density");
+            Timestamp timestamp = rs.getTimestamp("time");
+            int month = timestamp.getMonth();
+            int hour = timestamp.getHours();
+            
+            environment environmentData = new environment(no, id, t, h, i, d, timestamp, month, hour) ;               
+            
+            environmentList.add(environmentData) ;
+            
+         }
+         rs.close();
+         pstmt.close();
+      } 
+      catch (SQLException e) 
+      {
+         e.printStackTrace();
+      }
+
+      return environmentList;
+   }
+   
+   public environment getEnvironmentSet()
+   {
+      try
+      {
+         PreparedStatement pstmt = conn.prepareStatement(SELECT_ENVIRONMENT_SET);
+         ResultSet rs = pstmt.executeQuery();
+         
+         while(rs.next())
+         {
+            int no = rs.getInt("no") ;
+            String id = rs.getString("id");
+            double temperature = rs.getDouble("temperature");
+            double humidity = rs.getDouble("humidity");
+            double illumination = rs.getDouble("cell") ;
+            double dustDensity = rs.getDouble("density");
+            Timestamp timestamp = rs.getTimestamp("time");
+            int month = timestamp.getMonth();
+            int hour = timestamp.getHours();
+            
+            environmentSet = new environment(no, id, temperature, humidity, 
+                  illumination, dustDensity, timestamp, month, hour) ;
+         }
+      }
+      catch (SQLException e)
+      {
+         e.printStackTrace();
+         System.out.println(e.getMessage());
+      }
+      
+      return environmentSet;
+   }
+   
+   public List<environment> getEnvironmentLastSet(int lValue, int hValue)
+   {
+      List<environment> environmentList = new LinkedList<>();
+
+      try 
+      {
+         PreparedStatement pstmt = conn.prepareStatement(SELECT_ENVIRONMENT_SET);
+         
+         pstmt.setInt(1, lValue);
+         pstmt.setInt(2, hValue);
+               
+         pstmt.execute() ;
+
+         ResultSet rs = pstmt.executeQuery();
+
+         while(rs.next())
+         {
+            int no = rs.getInt("no") ;
+            String id = rs.getString("id");
+            double temperature = rs.getDouble("temperature");
+            double humidity = rs.getDouble("humidity");
+            double illumination = rs.getDouble("cell") ;
+            double dustDensity = rs.getDouble("density");
+            Timestamp timestamp = rs.getTimestamp("time");
+            int month = timestamp.getMonth();
+            int hour = timestamp.getHours();
+            
+            environment environmentSet = new environment(no, id, temperature, 
+                  humidity, illumination, dustDensity, timestamp, month, hour) ;               
+            
+            environmentList.add(environmentSet) ;
+            
+         }
+         rs.close();
+         pstmt.close();
+      } 
+      catch (SQLException e) 
+      {
+         e.printStackTrace();
+      }
+
+      return environmentList;
+   }
+   
+}

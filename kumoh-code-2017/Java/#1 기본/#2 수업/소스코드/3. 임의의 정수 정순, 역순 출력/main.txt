@@ -1,0 +1,40 @@
+/* 1. 임의의 정수를 임의의 수만큼 입력하고 0 입력시 1.순서대로 2.역순으로 출력
+ex. 임의의 정수를 입력하시오. 12 8 93 34 0
+    정순 : 12 8 93 34
+    역순: 34 93 8 12 */
+
+package part1;
+import java.util.Scanner;
+
+public class main
+{
+	public static void main(String args[])
+	{
+		int count = -1;
+		int input = 1;
+		int[] tempA = new int[100];
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("임의의 정수를 입력하시오 .");
+		while(input != 0)
+		{
+			input = sc.nextInt();
+			tempA[++count] = input;
+		}
+		
+		System.out.println();
+		System.out.println("정순");
+		for(int i = 0; i < count; i++)
+		{
+			System.out.print(tempA[i] + " ");
+		}
+		
+		System.out.println();
+		System.out.println("역순");
+		for(int i = count-1; i >= 0; i--)
+		{
+			System.out.print(tempA[i] + " ");
+		}
+	}
+}

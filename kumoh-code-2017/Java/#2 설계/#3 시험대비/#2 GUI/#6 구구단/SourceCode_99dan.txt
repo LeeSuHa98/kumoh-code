@@ -1,0 +1,46 @@
+package ch06;
+import javax.swing.JOptionPane; // 입력 및 메시지 창 등을 띄울 수 있음.
+
+class gugudan {
+	
+	// 변수 선언
+	private int a1; // 구구단에 사용할 값;
+	private String res1=""; // 구구단 출력
+	
+
+	public void cal(){
+		this.a1 = 1;
+	}
+	
+	public gugudan(int a1){
+		this.a1 = a1;
+	}
+	
+	public String get99dan(){
+		
+		for(int i=1; i<=9; i++){
+			this.res1 += this.a1 + " * " + i + " = " + (this.a1 * i) + "\n";
+		}
+		return res1;
+	}
+	
+} // gugudan class 종료
+
+
+public class New99dan {
+
+	public static void main(String[] args) {
+					
+		gugudan a1 = new gugudan(getNumber());
+		JOptionPane.showMessageDialog(null, a1.get99dan());
+
+	} // main() 메소드 종료
+	
+	
+	// 사용자에게 입력값 받아서 값을 변환
+	public static int getNumber(){
+		int a = Integer.parseInt(JOptionPane.showInputDialog("구하고싶은 구구단 숫자를 입력하세요"));
+		return a;
+	}
+	
+}

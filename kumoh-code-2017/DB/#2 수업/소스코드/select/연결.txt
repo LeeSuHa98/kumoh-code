@@ -1,0 +1,42 @@
+package database;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class DAO 
+{
+   protected Connection conn;
+   
+   public DAO()
+   {
+      try 
+      {
+         Class.forName("com.mysql.jdbc.Driver");
+         //conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/스키마이름","아이디","비밀번호");
+      } 
+      catch (ClassNotFoundException e) 
+      {
+         e.printStackTrace();
+      } 
+      catch (SQLException e) 
+      {
+         e.printStackTrace();
+      }
+   }
+   
+   public void close()
+   {
+      if(conn != null)
+      {
+         try 
+         {
+            conn.close();
+         } 
+         catch (SQLException e) 
+         {
+            e.printStackTrace();
+         }
+      }
+   }
+}

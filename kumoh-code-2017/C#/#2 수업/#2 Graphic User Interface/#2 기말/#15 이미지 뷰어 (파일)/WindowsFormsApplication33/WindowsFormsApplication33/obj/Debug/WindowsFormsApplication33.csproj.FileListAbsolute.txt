@@ -1,0 +1,12 @@
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication33\WindowsFormsApplication33\bin\Debug\WindowsFormsApplication33.exe.config
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication33\WindowsFormsApplication33\bin\Debug\WindowsFormsApplication33.exe
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication33\WindowsFormsApplication33\bin\Debug\WindowsFormsApplication33.pdb
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication33\WindowsFormsApplication33\obj\Debug\WindowsFormsApplication33.csprojResolveAssemblyReference.cache
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication33\WindowsFormsApplication33\obj\Debug\WindowsFormsApplication33.Form1.resources
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication33\WindowsFormsApplication33\obj\Debug\WindowsFormsApplication33.Properties.Resources.resources
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication33\WindowsFormsApplication33\obj\Debug\WindowsFormsApplication33.csproj.GenerateResource.Cache
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication33\WindowsFormsApplication33\obj\Debug\WindowsFormsApplication33.exe
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication33\WindowsFormsApplication33\obj\Debug\WindowsFormsApplication33.pdb
+C:\Users\swk31\Desktop\전공\2017 2학년 (2017)\2학기\C#\수업\#2 Graphic User Interface\#2 기말\#15 이미지 뷰어 (파일)\WindowsFormsApplication33\WindowsFormsApplication33\bin\Debug\WindowsFormsApplication33.exe.config
+C:\Users\swk31\Desktop\전공\2017 2학년 (2017)\2학기\C#\수업\#2 Graphic User Interface\#2 기말\#15 이미지 뷰어 (파일)\WindowsFormsApplication33\WindowsFormsApplication33\obj\Debug\WindowsFormsApplication33.exe
+C:\Users\swk31\Desktop\전공\2017 2학년 (2017)\2학기\C#\수업\#2 Graphic User Interface\#2 기말\#15 이미지 뷰어 (파일)\WindowsFormsApplication33\WindowsFormsApplication33\obj\Debug\WindowsFormsApplication33.pdb

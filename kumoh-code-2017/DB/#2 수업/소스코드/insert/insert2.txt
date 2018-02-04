@@ -1,0 +1,254 @@
+package database;
+
+import database.DAO;
+
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.LinkedList;
+import java.util.List;
+
+import entity.bayesData;
+import entity.classification;
+import entity.extraction;
+import entity.extractionControl;
+
+public class extractionDAO extends DAO {
+
+   private static final String SELECT_ALL_EXTRACTION_DATA = "SELECT * FROM iotdata.extractiondata";
+   
+   private static final String SELECT_EXTRACTION_SET = "SELECT * FROM iotdata.extractiondata"
+         + " where type = ? and month = ? and hour = ? and status = ?" ;
+   
+   private static final String UPDATE_EXTRACT = "UPDATE data.extractiondata set "+
+         "average = ?, variance = ?, learnCount = ? where type = ? and month = ? and hour = ? and status = ?";
+
+   private static final String INSERT_CASE = "INSERT INTO iotdata.extractiondata"
+         + "(type,month,hour,status,average,variance,learnCount) VALUES(?,?,?,?,?,?,?)";
+   
+   private static final String SELECT_ALL_EXTRACTION_CONTROL = "SELECT * FROM iotdata.extractioncontrol";
+   
+   public List<extractionControl> selectAllExtractioncontrol()
+   {
+      List<extractionControl> extractionControlList = new LinkedList<>();
+      
+      try
+      {
+         PreparedStatement pstmt = conn.prepareStatement(SELECT_ALL_EXTRACTION_CONTROL);
+         ResultSet rs = pstmt.executeQuery();
+
+         while(rs.next())
+         {      
+            int no = rs.getInt("no") ;
+            String type = rs.getString("type");
+            String state = rs.getString("state");
+            String control = rs.getString("control");
+            double average = rs.getDouble("average");
+            double variance = rs.getDouble("variance");
+            int learnCount = rs.getInt("learncount");
+            
+            extractionControl extractionControl = new extractionControl(no, type, state, control, average, variance, learnCount);      
+
+            extractionControlList.add(extractionControl) ;
+         }
+         rs.close();
+         pstmt.close();         
+      }
+      catch(SQLException e)
+      {
+         System.out.println(e.getMessage());
+         e.printStackTrace();
+      }
+      
+      return extractionControlList;
+   }
+   
+   public List<extraction> selectAllExtractiondata()
+   {
+      List<extraction> extractionList = new LinkedList<>();
+      
+      try
+      {
+         PreparedStatement pstmt = conn.prepareStatement(SELECT_ALL_EXTRACTION_DATA);
+         ResultSet rs = pstmt.executeQuery();
+
+         while(rs.next())
+         {      
+            int no = rs.getInt("no") ;
+            String type = rs.getString("type");
+            int month = rs.getInt("month");
+            int hour = rs.getInt("hour");
+            String status = rs.getString("state");
+            double average = rs.getDouble("average");
+            double variance = rs.getDouble("variance");
+            int learnCount = rs.getInt("learncount");
+            
+            extraction extraction = new extraction(no, type, month, hour, status, average, variance, learnCount);      
+
+            extractionList.add(extraction) ;
+         }
+         rs.close();
+         pstmt.close();         
+      }
+      catch(SQLException e)
+      {
+         System.out.println(e.getMessage());
+         e.printStackTrace();
+      }
+      
+      return extractionList;
+   }
+   
+   public void selectExtraction(classification extract)
+   {
+      try
+      {
+         PreparedStatement pstmt = conn.prepareStatement(SELECT_EXTRACTION_SET);
+         
+         pstmt.setString(1, extract.getType());
+         pstmt.setInt(2, extract.getMonth());
+         pstmt.setInt(3, extract.getHour());
+         pstmt.setString(4, extract.getStatus());
+         
+         ResultSet rs ;
+
+         rs = pstmt.executeQuery() ;
+
+         while(rs.next())
+         {
+            extract.setAveData(rs.getDouble("average"));
+            extract.setVarData(rs.getDouble("variance"));
+            extract.setCount(rs.getInt("learncount"));
+         }         
+         
+         rs.close();
+         pstmt.close();         
+      }
+      catch(SQLException e)
+      {
+         System.out.println(e.getMessage());
+         e.printStackTrace();
+      }      
+   }
+   
+   public void updateClassify(bayesData[] bayesData) {
+      // TODO Auto-generated method stub
+               
+      try 
+      {
+         PreparedStatement pstmt = conn.prepareStatement(UPDATE_EXTRACT);
+         
+         conn.setAutoCommit(false); 
+         
+         int size = bayesData.length;
+         
+         System.out.println(size);
+
+         for(int i=0; i<size; i++)
+         {
+            /* Low Part */
+            pstmt.setDouble(1, Double.parseDouble(String.format("%.3f",bayesData[i].getlAve())));
+            pstmt.setDouble(2, Double.parseDouble(String.format("%.3f",bayesData[i].getlVar())));
+            pstmt.setInt(3, bayesData[i].low);
+            
+            pstmt.setString(4, bayesData[i].getType());
+            pstmt.setInt(5, bayesData[i].getMonth());
+            pstmt.setInt(6, bayesData[i].getHour());
+            
+            pstmt.setString(7, "LOW");
+            
+            pstmt.addBatch();
+            
+            pstmt.clearParameters();
+            
+            /* Mid Part */
+            pstmt.setDouble(1, Double.parseDouble(String.format("%.3f",bayesData[i].getmAve())));
+            pstmt.setDouble(2, Double.parseDouble(String.format("%.3f",bayesData[i].getmVar())));
+            pstmt.setInt(3, bayesData[i].mid);
+            
+            pstmt.setString(4, bayesData[i].getType());
+            pstmt.setInt(5, bayesData[i].getMonth());
+            pstmt.setInt(6, bayesData[i].getHour());
+            
+            pstmt.setString(7, "MID");
+            
+            pstmt.addBatch();
+
+            /* High Part */
+            pstmt.setDouble(1, Double.parseDouble(String.format("%.3f",bayesData[i].gethAve())));
+            pstmt.setDouble(2, Double.parseDouble(String.format("%.3f",bayesData[i].gethVar())));
+            pstmt.setInt(3, bayesData[i].high);
+            
+            pstmt.setString(4, bayesData[i].getType());
+            pstmt.setInt(5, bayesData[i].getMonth());
+            pstmt.setInt(6, bayesData[i].getHour());
+            
+            pstmt.setString(7, "HIGH");
+            
+            pstmt.addBatch();
+            
+            pstmt.clearParameters();
+            
+            pstmt.clearParameters();
+            
+            if(i==1151)
+            {
+               pstmt.executeBatch();
+               conn.commit();
+               pstmt.clearBatch();
+            }
+         }
+         pstmt.executeBatch();
+         conn.commit();
+         pstmt.clearBatch();         
+         pstmt.close();
+                        
+      }
+      catch(SQLException e)
+      {
+         System.out.println(e.getMessage());
+         e.printStackTrace();
+      }   
+   }
+   
+   public void test() {
+      
+      try 
+      {
+         PreparedStatement pstmt = conn.prepareStatement(INSERT_CASE);
+         
+         //type,month,hour,status,average,variance,learnCount) VALUES(?,?,?,?,?,?,?)"
+
+         //String type[] = {"temperature","humidity","dustDensity","illumination"};
+         String com[] = {"LOW","MID","HIGH"};
+         int count = 0;
+         for(int i = 0; i < 12; i++)
+         {
+            for(int j = 0; j < 24; j++)
+            {
+               for(int k = 0; k < 3; k++)
+               {
+                  pstmt.setString(1, "dustDensity");
+                  pstmt.setInt(2,i+1);
+                  pstmt.setInt(3, j);
+                  pstmt.setString(4, com[k]);
+                  pstmt.setDouble(5, 0.0);
+                  pstmt.setDouble(6, 0.0);
+                  pstmt.setInt(7, 3);
+                  pstmt.execute();
+                  
+                  System.out.println( ++count + "/" + 12*24*4*2);
+                     
+               }
+            }
+         }                        
+      }
+      catch(SQLException e)
+      {
+         System.out.println(e.getMessage());
+         e.printStackTrace();
+      }
+      
+   }
+   
+}

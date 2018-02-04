@@ -1,0 +1,42 @@
+/* 2. 가로와 세로의 정수 값을 입력받아 입력값에 맞는 직사각형을 그리시오 */
+
+package part1;
+import java.util.Scanner;
+
+public class main
+{
+	public static void main(String args[])
+	{
+		Scanner sc = new Scanner(System.in);
+		
+		int width;
+		int height;
+
+		System.out.print("가로 :");
+		width = sc.nextInt();
+		
+		System.out.print("세로 :");
+		height = sc.nextInt();
+		
+
+		for (int i = 0; i < height; i++)
+		{
+			for (int j = 0; j < width; j++)
+			{
+				if (i == 0 || i == height -1)
+				{
+					System.out.print("■");
+				}
+				else if (j == 0 || j == width -1)
+				{
+					System.out.print("■");
+				}
+				else
+				{
+					System.out.print(" ");
+				}
+			}
+			System.out.println();
+		}
+	}
+}

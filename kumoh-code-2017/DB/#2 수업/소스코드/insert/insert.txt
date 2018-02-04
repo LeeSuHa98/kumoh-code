@@ -1,0 +1,160 @@
+package database;
+
+import database.DAO ;
+import entity.learningSet;
+
+/* Import Database Package */
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import java.sql.Timestamp;
+
+import java.util.LinkedList;
+import java.util.List;
+
+public class learningSetDAO extends DAO {
+
+   private static final String SELECT_All_LearningSet = "SELECT * FROM iotdata.";
+
+   private static final String INSERT_RESULT_TO_TLEARNING_SET = "INSERT INTO iotdata.tdata "
+         + "(data, state, time) VALUES (?,?,?)" ;
+   
+   private static final String INSERT_RESULT_TO_HLEARNING_SET = "INSERT INTO iotdata.hdata "
+         + "(data, state, time) VALUES (?,?,?)" ;
+   
+   private static final String INSERT_RESULT_TO_ILEARNING_SET = "INSERT INTO iotdata.idata "
+         + "(data, state, time) VALUES (?,?,?)" ;
+   
+   private static final String INSERT_RESULT_TO_DLEARNING_SET = "INSERT INTO iotdata.ddata "
+         + "(data, state, time) VALUES (?,?,?)" ;
+
+   
+   //"INSERT INTO sensoriotdata.result"
+   //+ "(id,time,type,value,lowProbability,midProbability,highProbability,distinction,degree) VALUES(?,?,?,?,?,?,?,?,?)" ;
+   
+   public List<learningSet> getLearningSet()
+   {
+      List<learningSet> learnList = new LinkedList<>();
+
+      try 
+      {
+         String tableArray[] = { "tdata", "hdata", "idata", "ddata" };
+         String codeArray[] = {"temperature", "humidity", "illumination", "dustDensity"};
+         
+         //PreparedStatement pstmt = conn.prepareStatement(SELECT_All_LearningSet);
+         
+         for(int i = 0; i < 4; i ++)
+         {
+            PreparedStatement pstmt = conn.prepareStatement(SELECT_All_LearningSet + tableArray[i]);
+            ResultSet rs = pstmt.executeQuery();
+            
+            while(rs.next())
+            {      
+               int no = rs.getInt("no") ;
+               Timestamp timestamp = rs.getTimestamp("time");
+               //System.out.println(timestamp);
+               int month = timestamp.getMonth();
+               int hour = timestamp.getHours();
+               
+               double data = rs.getDouble("value") ;
+               String status = rs.getString("state") ;
+               learningSet learn = new learningSet(no, codeArray[i], month + 1, hour, 
+                     data, status);         
+
+               learnList.add(learn) ;
+            }
+            rs.close();
+            pstmt.close();
+         }
+         
+      } 
+      catch (SQLException e) 
+      {
+         e.printStackTrace();
+      }
+
+      return learnList;
+   }
+      
+
+   public void insertToTLearningSet(double value, String status, Timestamp time)
+   {
+      try 
+      {
+         PreparedStatement pstmt = conn.prepareStatement(INSERT_RESULT_TO_TLEARNING_SET);
+         
+         pstmt.setDouble(1, value);
+         pstmt.setString(2, status);
+         pstmt.setTimestamp(3, time);         
+
+         pstmt.execute() ;
+         pstmt.close() ;
+      }         
+      catch(SQLException e)
+      {
+         System.out.println(e.getMessage());
+         e.printStackTrace();
+      }
+   }
+   
+   public void insertToHLearningSet(double value, String status, Timestamp time)
+   {
+      try 
+      {
+         PreparedStatement pstmt = conn.prepareStatement(INSERT_RESULT_TO_HLEARNING_SET);
+         
+         pstmt.setDouble(1, value);
+         pstmt.setString(2, status);
+         pstmt.setTimestamp(3, time);         
+
+         pstmt.execute() ;
+         pstmt.close() ;
+      }         
+      catch(SQLException e)
+      {
+         System.out.println(e.getMessage());
+         e.printStackTrace();
+      }
+   }
+   
+   public void insertToILearningSet(double value, String status, Timestamp time)
+   {
+      try 
+      {
+         PreparedStatement pstmt = conn.prepareStatement(INSERT_RESULT_TO_ILEARNING_SET);
+         
+         pstmt.setDouble(1, value);
+         pstmt.setString(2, status);
+         pstmt.setTimestamp(3, time);         
+
+         pstmt.execute() ;
+         pstmt.close() ;
+      }         
+      catch(SQLException e)
+      {
+         System.out.println(e.getMessage());
+         e.printStackTrace();
+      }
+   }
+   
+   public void insertToDLearningSet(double value, String status, Timestamp time)
+   {
+      try 
+      {
+         PreparedStatement pstmt = conn.prepareStatement(INSERT_RESULT_TO_DLEARNING_SET);
+         
+         pstmt.setDouble(1, value);
+         pstmt.setString(2, status);
+         pstmt.setTimestamp(3, time);         
+
+         pstmt.execute() ;
+         pstmt.close() ;
+      }         
+      catch(SQLException e)
+      {
+         System.out.println(e.getMessage());
+         e.printStackTrace();
+      }
+   }
+}

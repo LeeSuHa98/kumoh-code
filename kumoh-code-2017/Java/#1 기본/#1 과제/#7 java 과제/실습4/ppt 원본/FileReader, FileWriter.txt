@@ -1,0 +1,32 @@
+<FileReader>
+
+
+FileReader 의 생성자 1. FileReader(File file) : file로 부터 읽는 FileReader를 생성한다.
+                     2. FileReader(String name) : name이름의 파일로부터 읽는 FileReader를 생성한다.
+
+FileReader 의 메소드 1. int read() : 스트림에서 next char를 읽어 반환; end of stream 도달 시 -1 반환.
+                     2. int read(char[] buffer) : 배열의 일부분으로 문자들을 읽는다.
+                     3. int read(char[] buffer, int off, int len) :
+                     4. int read(CharBuffer cbuf) : 배열로 문자들을 읽는다.
+                     5. void close() : 스트림 닫기
+                     6. boolean ready() : 스트림이 읽을 준비가 되어있는지 검사
+                     7. long skip (long n) : 입력 스트림로부터 n 바이트분을 스킵 및 파기합니다.
+                     8. boolean markSupported(): 입력스트림이 mark와 reset 메소드를 제공하는지 테스트한다.
+                     9. void mark(int readlimit) : 입력스트임에 현재위치를 표시한다. 
+                    10. void reset() : mark 메소드로 입력스트림을 마지막으로 호출한 시간에 이 스트림을 재설정한다.
+
+<FileWriter>
+
+FileWriter 의 생성자 1. FileWriter(File file) : file이 지정하는 파일에 출력하는 FileWriter를 생성한다.
+                     2. FileWriter(String name) : name이 지정하는 파일에 출력하는 FileWriter를생성한다.
+                     3. FileWriter(File file, boolean append) : FileWriter를 생성하고 append가 true면 file이 지정하는 파일의 마지막부터 
+                                                             데이터를 저장한다.
+                     4. FileWriter(String name, boolean append) : FileWriter를 생성하고 append가 true 면 name이름의 파일의 마지막부터                                                                     데이터를 저장한다.
+
+FileWriter 의 메소드 1. void write(int c) : one char를 스트림 씀
+                     2. void write(char[] buffer) : 지정된 char 배열에서 출력스트림으로 배열 buffer의 길이만큼 출력
+                   3. void write(char[] buf,int off, int len) : 지정된 char[]의 offset위치에서부터 출력스트림으로 length길이만큼 char[]를 출력
+                     4. void write(String s) : 한 문자열을 스트림에 씀
+                     5. void write(String s, int off, int len) : 지정된 문자열의 off위치에서부터 출력스트림으로 length길이만큼 문자열을 출력
+                     6. void close() : 출력스트림을 닫고 스트림과 연관된 어떠한 시스템 자원을 해체
+                     7. void flush() : 출력스트림을 내보내고 버퍼에 저장된 출력바이트들을 출력  

@@ -1,0 +1,11 @@
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication20\WindowsFormsApplication20\bin\Debug\WindowsFormsApplication20.exe.config
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication20\WindowsFormsApplication20\bin\Debug\WindowsFormsApplication20.exe
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication20\WindowsFormsApplication20\bin\Debug\WindowsFormsApplication20.pdb
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication20\WindowsFormsApplication20\bin\Debug\MySql.Data.dll
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication20\WindowsFormsApplication20\bin\Debug\MySql.Data.xml
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication20\WindowsFormsApplication20\obj\Debug\WindowsFormsApplication20.csprojResolveAssemblyReference.cache
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication20\WindowsFormsApplication20\obj\Debug\WindowsFormsApplication20.Form1.resources
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication20\WindowsFormsApplication20\obj\Debug\WindowsFormsApplication20.Properties.Resources.resources
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication20\WindowsFormsApplication20\obj\Debug\WindowsFormsApplication20.csproj.GenerateResource.Cache
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication20\WindowsFormsApplication20\obj\Debug\WindowsFormsApplication20.exe
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication20\WindowsFormsApplication20\obj\Debug\WindowsFormsApplication20.pdb

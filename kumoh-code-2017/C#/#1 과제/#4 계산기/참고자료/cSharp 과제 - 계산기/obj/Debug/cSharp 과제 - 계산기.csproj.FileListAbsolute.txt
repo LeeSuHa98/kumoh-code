@@ -1,0 +1,9 @@
+c:\users\samsung\documents\visual studio 2017\Projects\cSharp 과제 - 계산기\cSharp 과제 - 계산기\bin\Debug\cSharp 과제 - 계산기.exe.config
+c:\users\samsung\documents\visual studio 2017\Projects\cSharp 과제 - 계산기\cSharp 과제 - 계산기\bin\Debug\cSharp 과제 - 계산기.exe
+c:\users\samsung\documents\visual studio 2017\Projects\cSharp 과제 - 계산기\cSharp 과제 - 계산기\bin\Debug\cSharp 과제 - 계산기.pdb
+c:\users\samsung\documents\visual studio 2017\Projects\cSharp 과제 - 계산기\cSharp 과제 - 계산기\obj\Debug\cSharp 과제 - 계산기.csprojResolveAssemblyReference.cache
+c:\users\samsung\documents\visual studio 2017\Projects\cSharp 과제 - 계산기\cSharp 과제 - 계산기\obj\Debug\cSharp_과제___계산기.Form1.resources
+c:\users\samsung\documents\visual studio 2017\Projects\cSharp 과제 - 계산기\cSharp 과제 - 계산기\obj\Debug\cSharp_과제___계산기.Properties.Resources.resources
+c:\users\samsung\documents\visual studio 2017\Projects\cSharp 과제 - 계산기\cSharp 과제 - 계산기\obj\Debug\cSharp 과제 - 계산기.csproj.GenerateResource.Cache
+c:\users\samsung\documents\visual studio 2017\Projects\cSharp 과제 - 계산기\cSharp 과제 - 계산기\obj\Debug\cSharp 과제 - 계산기.exe
+c:\users\samsung\documents\visual studio 2017\Projects\cSharp 과제 - 계산기\cSharp 과제 - 계산기\obj\Debug\cSharp 과제 - 계산기.pdb

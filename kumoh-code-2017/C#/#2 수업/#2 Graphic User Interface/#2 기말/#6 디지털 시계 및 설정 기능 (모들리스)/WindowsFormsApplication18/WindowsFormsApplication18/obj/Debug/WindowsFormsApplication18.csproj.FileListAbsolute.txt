@@ -1,0 +1,10 @@
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication18\WindowsFormsApplication18\bin\Debug\WindowsFormsApplication18.exe.config
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication18\WindowsFormsApplication18\bin\Debug\WindowsFormsApplication18.exe
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication18\WindowsFormsApplication18\bin\Debug\WindowsFormsApplication18.pdb
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication18\WindowsFormsApplication18\obj\Debug\WindowsFormsApplication18.csprojResolveAssemblyReference.cache
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication18\WindowsFormsApplication18\obj\Debug\WindowsFormsApplication18.Form1.resources
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication18\WindowsFormsApplication18\obj\Debug\WindowsFormsApplication18.Properties.Resources.resources
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication18\WindowsFormsApplication18\obj\Debug\WindowsFormsApplication18.csproj.GenerateResource.Cache
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication18\WindowsFormsApplication18\obj\Debug\WindowsFormsApplication18.exe
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication18\WindowsFormsApplication18\obj\Debug\WindowsFormsApplication18.pdb
+C:\Users\swk31\Documents\Visual Studio 2015\Projects\WindowsFormsApplication18\WindowsFormsApplication18\obj\Debug\WindowsFormsApplication18.ClockSetting.resources

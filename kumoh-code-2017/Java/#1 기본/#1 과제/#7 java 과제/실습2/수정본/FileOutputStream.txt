@@ -1,0 +1,50 @@
+② FileOutputStream 
+
+
+
+FileOutputStream 클래스도 OutputStream 클래스의 후손 클래스로 파일로 바이트 단위의 출력을 내보내는 클래스이다.
+
+Sink 스트림의 일종으로 3 개의 생성자가 중복 정의되어 있다.
+ FileInputStream의 생성자와 거의 같은 형태인데 하나 더 있는 생성자의 형식은 append 처리를 위한 논리 변수를 인자로 가지고 있다. 
+이 값이 true로 설정되면 기존에 존재하고 있는 파일의 가장 뒷 부분에 연결하여 출력된다.
+
+
+* FileOutputStream의 생성자
+
+FileOutputStream의 생성자                                         설명 
+
+FileOutputStream(String filepath) throws FileNotFoundException    - filepath로 지정한 파일에 대한 OutputStream을 생성
+
+FileOutputStream(String filepath, boolean append)
+
+throws FileNotFoundException                                      - 지정한 파일로 OutputStream을 생성한다. append 인자로 출력할 때 append 모드를 설정한다. 
+
+FileOutputStream(File fileObj) throws FileNotFoundException       - fileObj로 지정된 파일에 대한 OutputStream을 생성한다. 
+
+FileOutputStream(File fileObj, boolean append)
+
+throws FileNotFoundException                                      - fileObj로 지정된 파일에 대한 OutputStream을 생성한다. append 인자로 출력할 때 append 모드를 설정한다. 
+
+FileOutputStream(FileDescriptor fdObj)
+
+throws NullPointerException                                       - fdObj 로 기존의 접속을 나타내는 파일 시스템의 OutputStream을 생성한다.
+
+
+
+* FileOutputStream의 메소드
+
+FileOutputStream의 메소드                                         설명 
+
+void close() throws IOException                                   - OutputStream을 닫는다. 
+
+void flush() throws IOException                                   - 버퍼에 남은 OutputStream을 출력한다. 
+
+void write(int i) throws IOException                              - 정수 i의 하위 8비트를 출력한다. 
+
+void write(byte buf[]) throws IOException                         - buf의 내용을 출력한다. 
+
+void write(byte buf[], int index, int size) throws IOException    - buf의 index 위치부터 size만큼의 바이트를 출력한다. 
+
+FileChannel getChannel()                                          - OutputStream과 연관된 유일한 FileChannel 객체를 반환한다. 
+
+FileDescriptor getFD()                                            - OutputStream과 연관된 FileDescriptor 객체를 반환한다.

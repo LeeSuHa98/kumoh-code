@@ -1,0 +1,8 @@
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication23\WindowsFormsApplication23\bin\Debug\WindowsFormsApplication23.pdb
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication23\WindowsFormsApplication23\obj\Debug\WindowsFormsApplication23.Properties.Resources.resources
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication23\WindowsFormsApplication23\obj\Debug\WindowsFormsApplication23.csproj.GenerateResource.Cache
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication23\WindowsFormsApplication23\obj\Debug\WindowsFormsApplication23.pdb
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication23\WindowsFormsApplication23\bin\Debug\WindowsFormsApplication23.dll.config
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication23\WindowsFormsApplication23\obj\Debug\WindowsFormsApplication23.myClock.resources
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication23\WindowsFormsApplication23\obj\Debug\WindowsFormsApplication23.dll
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication23\WindowsFormsApplication23\obj\Debug\WindowsFormsApplication23.csprojResolveAssemblyReference.cache

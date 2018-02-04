@@ -1,0 +1,4 @@
+SELECT r.년도, r.학기, r.교과목코드, c.교과목명, c.학점, r.성적등급
+FROM fdd_학부학생 f, cur_교과과정 c, rec_학부성적 r
+WHERE f.학번 = r.학번 AND c.교육과정코드 = r.교육과정코드 AND c.교과목코드 = r.교과목코드 AND c.교과과정년도 = r.년도 AND r.학번 = 20120691
+ORDER BY r.년도 ASC, r.학기 ASC

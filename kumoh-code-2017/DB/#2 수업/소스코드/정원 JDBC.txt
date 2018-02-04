@@ -1,0 +1,204 @@
+import java.sql.*;
+import java.util.Scanner;
+
+public class JDBC{
+   public static void main(String[] args)
+   {
+      try
+      {
+         String id;   // 학생의 학번
+         String name;   // 학생의 이름
+         String year;   // 찾고자 하는 년도
+         String semester;   // 찾고자 하는 학기
+         
+         Class.forName("oracle.jdbc.driver.OracleDriver");
+         // 드라이버 적재
+         
+         Connection conn = DriverManager.getConnection("jdbc:oracle:thin/@localhost:1521:Database", "정원", "1234");
+         // 데이터베이스 접속(url, userName, password) 순.
+         
+         Statement st = conn.createStatement();
+         // statement 객체 생성. (SQL문 실행)
+         
+         ResultSet rs;
+         // resultSet 객체 생성. 여러번 select 해서 결과 내기 위해 객체 선언만 먼저 해줌.
+         
+         Scanner s = new Scanner(System.in);
+         
+         System.out.print("찾고자 하는 학번을 입력하세요 :");
+         id = s.next();
+         
+         rs = st.executeQuery("SELECT 성명 FROM fdd_학부학생 WHERE 학번=" + id);
+         // 찾고자하는 학생의 학번을 이용하여 select문을 던져서 이름을 찾아 온다.
+         
+         rs.next();
+         // 커서를 첫번째 행으로 끌어 온다.
+         
+         name = rs.getString("성명");
+         // 첫행을 읽어 온다.
+         
+         System.out.println("찾고자 하는 년도를 입력하세요 : ");
+         year = s.next();
+         boolean yearCheck = false;
+         
+         if(year == "*")
+            yearCheck = true;
+         
+         System.out.println("찾고자 하는 학기를 입력하세요 : ");
+         semester = s.next();
+         boolean semesterCheck = false;
+         
+         if(semester == "*")
+            semesterCheck = true;
+         
+         
+         if(semesterCheck != yearCheck)   //  하나가  * 이고 하나가 숫자 일때.
+            throw new Exception("잘못된 입력입니다.");
+         
+         if(yearCheck == true && semesterCheck == true)   // 둘다 * 일때.
+         {
+             rs = st.executeQuery("SELECT r.년도, r.학기, r.교과목코드, c.교과목명, c.학점, r.성적등급 " 
+                            + "FROM fdd_학부학생 f, cur_교과과정 c, rec_학부성적 r " 
+                            + "WHERE c.교육과정코드 = r.교육과정코드 AND c.교과목코드 = r.교과목코드 AND c.교과과정년도 = r.년도 AND f.학번 = r.학번 AND f.성명 =" + name + " ORDER BY r.년도 ASC, r.학기 ASC");
+         }
+         
+         else   // 둘다 *가 아닐 때.
+         {
+            rs = st.executeQuery("SELECT r.년도, r.학기, r.교과목코드, c.교과목명, c.학점, r.성적등급 " 
+                   + "FROM fdd_학부학생 f, cur_교과과정 c, rec_학부성적 r " 
+                   + "WHERE c.교육과정코드 = r.교육과정코드 AND c.교과목코드 = r.교과목코드 AND c.교과과정년도 = r.년도 AND f.학번 = r.학번 AND f.성명 =" + name + " AND r.년도 =" + year +" AND r.학기 =" + semester +" ORDER BY r.년도 ASC, r.학기 ASC");
+         }
+         
+         String fetchYear;
+         String fetchSemester;
+         String fetchCode;
+         String fetchName;
+         int fetchScore;
+         String fetchGrade;
+         // 패치 할 변수들.
+         
+         boolean newSemester = true;      // 새로운 학기처리
+         
+         
+         int semesterCredit = 0;   // 학기별 이수 학점
+         int semesterCount = 0;   // 학기별 이수 과목 개수
+         double semesterSum = 0;   // 몇학점 얼마나 받았는지를 저장 해주는 변수
+         
+         int totalCredit = 0;   // 총 이수 학점.
+         int totalCount = 0;      // 총 이수 과목 개수.
+         double totalSum = 0;   // 몇학점 얼마나 받았는지를 저장 해주는 변수
+         
+          System.out.println("\t\t성적표(학번:"+id+", 성명:"+name+")");
+          System.out.println("------------------------------------------------");
+          System.out.println("년도\t학기\t교과목코드\t교과목명\t학점\t성적등급");
+          System.out.println("------------------------------------------------");
+         
+         
+         while(rs.next())   // 좌측 칼럼 부터 하나씩 패치함.
+         {
+            fetchYear = rs.getString("년도");
+            fetchSemester = rs.getString("학기");
+            fetchCode = rs.getString("교과목코드");
+            fetchName = rs.getString("교과목명");
+            fetchScore = rs.getInt("학점");
+            fetchGrade = rs.getString("성적등급");
+            
+            if(newSemester == true)      // 처음 또는 새로운 학기 처리시
+            {
+               if(semesterSum != 0)   // 학기가 바뀔 때, 합산 한 것을 더해 주기 위함.
+                  System.out.printf("\t이수학점 : %d, 평점평균 : %.2f\n", semesterCredit, semesterSum / semesterCount);
+               
+               
+               System.out.print(fetchYear + "\t");
+               System.out.print(fetchSemester + "\t");
+               newSemester = false;
+            }
+            
+            else
+            {
+               System.out.print("\t\t");
+            }
+            
+            
+            System.out.print(fetchCode + "\t");
+            System.out.print(fetchName + "\t");
+            System.out.print(fetchScore + "\t");
+            System.out.println(fetchGrade);
+            
+            
+            if(!(fetchGrade == "U" || fetchGrade == "S"))   // pass fail 이 아닌 경우(학점이 있는 경우)
+            {
+               semesterCredit += fetchScore;
+               totalCredit += fetchScore;
+               semesterSum = semesterSum + conversion(fetchGrade) * fetchScore;
+               totalSum = totalSum + conversion(fetchGrade) * fetchScore;
+            }
+            
+            
+            if(rs.next())   // 다음을 받을 것이 있다면.
+            {
+               if(!rs.getString("년도").equals(fetchYear) || !rs.getString("학기").equals(fetchSemester))
+                  newSemester = true;      // 새로운 년도 또는 학기를 받기 위해 bool 함수를 true로
+               
+               else
+                  newSemester = false;
+               
+               rs.previous();   // 한칸 앞으로더 커서를 갔다놓았으므로 한칸 뒤에 커서를 둔다
+            }
+            
+            else break;   // 다음에 받을 것이 없다면 반복문 탈출
+            
+            
+            semesterCount++;
+            totalCount++;
+            
+         }
+         
+           System.out.printf("\t이수학점 : %d, 평점평균 : %.2f\n", semesterCredit, semesterSum / semesterCount);
+            System.out.println("---------------------------------------------");
+            System.out.printf("총이수학점 : %d, 평점평균: %.2f\n", totalCredit, totalSum / totalCount);
+            System.out.println("---------------------------------------------");
+         
+         conn.close();
+         
+      }
+      
+      catch(SQLException e)   // SQL 오류
+      {
+         while(e != null)
+         {
+            System.out.println("SQL 상태 : " + e.getSQLState());   // 예외 객체의 현 상태를 획득
+            System.out.println("자바 예외 메세지 : " + e.getMessage());   // 예외 객체의 에러 메시지를 출력
+            System.out.println("DBMS 에러 코드 : " + e.getErrorCode());      // 예외 객체의 고유의 예외 코드를 획득.
+            e.getNextException();   // 다음 예외 반환
+         }
+
+      }
+      
+      catch(Exception e)      // 자바 프로그래밍상의 오류
+      {
+         e.printStackTrace();
+      }
+      
+      
+   }
+   
+   public static double conversion(String grade) throws Exception
+   {
+      switch(grade)
+      {
+      case "A+": return 4.5;
+      case "A" : return 4.0;
+      case "B+": return 3.5;
+      case "B" : return 3.0;
+      case "C+": return 2.5;
+      case "C" : return 2.0;
+      case "D+": return 1.5;
+      case "D" : return 1.0;
+      case "F" : return 0.0;
+      default : throw new Exception();
+      }
+   }
+   
+   
+}

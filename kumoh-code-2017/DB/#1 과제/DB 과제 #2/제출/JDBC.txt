@@ -1,0 +1,188 @@
+import java.sql.*;
+import java.util.Scanner;
+
+/*
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+ */
+
+public class DAO
+{
+	public static void main(String[] args) throws Exception
+	{
+		Scanner sc = new Scanner(System.in);
+		// rec_학부성적
+		String recYear;	// 년도
+		String recSemester;	// 학기
+		String recCode;	// 교과목코드
+		String recGrade;	// 성적등급
+		String studentId;	// 학번
+		String studentName;	// 이름
+		// cur_교과과정
+		String curSubjectName;	// 교과목명
+		int curCredit;	// 학점
+
+		try 
+		{
+			Class.forName("com.mysql.jdbc.Driver");		// 드라이버 적재
+			//conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/스키마이름","아이디","비밀번호");
+			// DB 연결
+			Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/scoremanagement?useSSL=false","root","dudrn784");
+			Statement stmt = conn.createStatement();
+
+			System.out.print("학번 : ");
+			studentId = sc.next();
+			ResultSet rs = stmt.executeQuery("SELECT 성명 FROM fdd_학부학생 WHERE 학번 = " + studentId);	// 결과Set 객체
+
+			rs.next();	// 커서를 첫 행으로
+			studentName = rs.getString("성명");	// 첫 행
+
+			System.out.print("년도 : ");
+			recYear = sc.next();
+			
+			boolean isYear = false;
+			if(recYear.equals("*"))	// 년도 == *
+			{
+				isYear = true;
+			}
+
+			System.out.print("학기 : ");
+			recSemester = sc.next();
+
+			boolean isSemester = false;
+			if(recSemester.equals("*"))	// 학기 == *
+			{
+				isSemester = true;
+			}
+			if(isYear != isSemester) throw new Exception("Detection Error");	// 년도,학기 서로 다를 때 에러 발생
+			if(isYear && isSemester) 	// 년도,학기 서로 같을 때
+			{
+				rs = stmt.executeQuery("SELECT r.년도, r.학기, r.교과목코드, c.교과목명, c.학점, r.성적등급 " + "FROM fdd_학부학생 f, cur_교과과정 c, rec_학부성적 r " 
+						+ "WHERE f.학번 = r.학번 AND c.교육과정코드 = r.교육과정코드 AND c.교과목코드 = r.교과목코드 AND c.교과과정년도 = r.년도  AND r.학번 =" + studentId + " ORDER BY r.년도 ASC, r.학기 ASC");
+			}
+			else	// 입력한 해당, 년도 학기만을 Select
+			{
+				rs = stmt.executeQuery("SELECT r.년도, r.학기, r.교과목코드, c.교과목명, c.학점, r.성적등급 " + "FROM fdd_학부학생 f, cur_교과과정 c, rec_학부성적 r "
+						+ "WHERE f.학번 = r.학번 AND c.교육과정코드 = r.교육과정코드 AND c.교과목코드 = r.교과목코드 AND c.교과과정년도 =" + recYear + " AND r.학번 =" + studentId + " AND r.학기 =" + recSemester + " ORDER BY r.년도 ASC, r.학기 ASC");
+			}
+
+			int	sumCredit = 0;	// 과목 이수학점
+			int totalCredit = 0;	// 과목 총 이수학점
+			double sumGrade = 0.0;	// 등급 학점
+			double totalGrade = 0.0;	// 총 등급 학점
+			boolean newSemester = true;	// 새로운 학기
+
+			System.out.println("\t\t성적표(학번: " + studentId + ", 성명: " + studentName + ")");
+			System.out.println("---------------------------------------------------------------");
+			System.out.println("년도\t학기\t교과목코드\t교과목명\t\t학점\t성적등급");
+			System.out.println("---------------------------------------------------------------");
+
+			while(rs.next())	// 왼쪽부터 Column Fetch
+			{
+				recYear = rs.getString("r.년도");
+				recSemester = rs.getString("r.학기");
+				recCode = rs.getString("r.교과목코드");
+				curSubjectName = rs.getString("c.교과목명");
+				curCredit = rs.getInt("c.학점");
+				recGrade = rs.getString("r.성적등급");
+
+				if(newSemester)	// 새로운 학기일 경우
+				{
+					if(sumCredit != 0)	// 이수학점이 존재하면 (0이 아니면)
+					{
+						// 과목 이수학점 : 과목 이수학점, 평점평균 : 등급학점 / 이수학점
+						System.out.printf("\t이수학점 :%d, 평점평균: %.2f\n", sumCredit, sumGrade/sumCredit);
+						sumCredit = 0;	// 이수 학점
+						sumGrade = 0.0;	// 과목 학점
+					}
+					System.out.print(recYear + "\t");
+					System.out.print(recSemester + "\t");
+					newSemester = false;
+				}
+				else
+				{
+					System.out.print("\t\t");
+				}
+
+				System.out.print(recCode + "\t\t");
+				System.out.print(curSubjectName + "\t\t");
+				System.out.print(curCredit + "\t");
+				System.out.print(recGrade + "\n");
+
+
+				sumCredit = sumCredit + curCredit;	// 과목 이수학점 = 현재 과목 이수학점 + 새로운 학점
+				totalCredit = totalCredit + curCredit;	// 과목 총 이수학점 = 현재 과목 총 이수학점 + 새로운 학점
+				sumGrade = sumGrade + GradeCalculator(recGrade) * curCredit;	// 등급 학점 = 현재 등급학점 + 학생 학점 * 새로운 학점
+				totalGrade = totalGrade + GradeCalculator(recGrade) * curCredit;	// 총 등급학점 = 총 등급학점 + 학생 학점 * 새로운 학점
+				
+				if(rs.next())	// 다음 행이 존재하면 커서를 다음으로
+				{
+					if(!rs.getString("년도").equals(recYear) || !rs.getString("학기").equals(recSemester))	// 이미 대상이 존재하면
+					{
+						newSemester = true;	// 새로운 대상을 받기 위한 새로운 학기로 설정
+					}
+					else	// 이미 대상이 존재하지 않으면
+					{
+						newSemester = false;	// 본 학기
+					}
+					rs.previous();	// 커서를 이전으로 되돌리는 procedure
+				}
+				else break;	// 다음 행이 없으므로 break
+
+			}
+			System.out.printf("\t이수학점 :%d, 평점평균: %.2f\n", sumCredit, sumGrade/sumCredit);
+			System.out.println("---------------------------------------------------------------");
+			System.out.printf("총이수학점:%d, 평점평균:%.2f \n", totalCredit, totalGrade/totalCredit);
+			System.out.println("---------------------------------------------------------------");
+
+			if (!conn.isClosed())
+			{
+				try
+				{
+					conn.close();
+				}
+				catch(SQLException e)
+				{
+					e.printStackTrace();
+					System.out.println(e.getMessage());
+				}
+			}
+			sc.close();
+		}
+		catch (SQLException e) 
+		{ 	  
+			while (e != null) 
+			{
+				System.out.println("SQL 상태: " + e.getSQLState());
+				System.out.println("자바 예외 메시지: " + e.getMessage());
+				System.out.println("DBMS 에러 코드: " + e.getErrorCode());
+				e = e.getNextException();	// 다음 예외처리
+			}
+		} 
+		catch (Exception e) 
+		{
+			e.printStackTrace();
+			System.out.println(e.getMessage());
+		}
+	}
+
+	static private double GradeCalculator(String recGrade) throws Exception 
+	{
+		switch (recGrade) 
+		{
+		case "A+": return 4.5;
+		case "A" : return 4.0;
+		case "B+": return 3.5;
+		case "B" : return 3.0;
+		case "C+": return 2.5;
+		case "C" : return 2.0;
+		case "D+": return 1.5;
+		case "D" : return 1.0;
+		case "F" : return 0.0;
+		case "S" : return 0.0;
+		case "U ": return 0.0;
+		default: throw new Exception("Invalid Grade!! Retry!!");
+		}
+	}
+}

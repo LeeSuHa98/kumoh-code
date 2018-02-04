@@ -1,0 +1,86 @@
+2. Call by value vs Call by reference
+
+Call by value와 Call by reference가 무엇인지 설명하기전에, 예제를 한번 짚고 넘어갑시다. 아래 예제에서는 두 매개변수의 값을 교환하는 Swap란 함수가 등장합니다.
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace ConsoleApplication1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int a = 40;
+            int b = 10;
+
+            Console.WriteLine("Swap before: a={0}, b={1}", a, b);
+
+            Swap(a, b);
+
+            Console.WriteLine("Swap after: a={0}, b={1}", a, b);
+        }
+
+        static void Swap(int a, int b)
+        {
+            int temp = b;
+            b = a;
+            a = temp;
+        }
+    }
+}
+
+결과:
+Swap before: a=40, b=10
+Swap after: a=40, b=10
+계속하려면 아무 키나 누르십시오 . . .
+
+먼저, 코드를 보자면 22행에서 Swap란 함수가 등장합니다. Swap 함수의 내용을 보자면 값을 임시로 담아둘 temp란 변수를 선언하고 temp란 변수의 값을 b의 값으로 초기화 시킵니다. 그러고는 b에 a의 값을 담습니다. 그리고 a에는 temp(원래 b의 값)을 담습니다. 즉, a와 b의 값을 서로 바꿔버리는 기능을 한다는 것입니다. 여기서 이렇게 매개변수를 변수의 값으로 가져온 경우를 Call by value(값의 복사에 의한 함수의 호출)이라고 부릅니다. 
+
+다시 12행으로 돌아가, 정수형 변수 a와 b가 선언되었으며 그와 동시에 40과 10으로 각각 초기화 되었습니다. 그러곤 Swap 함수가 실행되기 전의 a, b의 값을 출력한 뒤에 Swap 함수가 실행되고 다시 한번 a, b의 값을 출력합니다. 그러나 Swap 함수가 실행됨에도 불구하고 a와 b의 값은 바뀌지 않습니다. 왜 값이 바뀌지 않았던걸까요?
+
+우리가 메소드로부터 변수를 넘겨줄때부터, 매개변수 a와 b이 변수 a와 b를 가르키는게 아니고, 그저 변수 a와 b의 값을, 매개변수 a와 b로 복사하는것 뿐입니다. 한마디로 말하자면, 매개변수 a와 b, 변수 a와 b는 서로 별개이며, 다른 메모리 공간을 사용합니다. 그저 매개변수 a와 b의 값이 서로 바뀌었을뿐, 변수 a와 b의 값은 그대로인 셈이죠. 그렇다면 변수 a와 b의 값을 바꾸도록 하려면 어떻게 해야할까요? 바로 Call by reference(참조에 의한 호출)로 넘긴다면 가능합니다. Call by reference는 Call by value와는 달리, 변수의 주소값을 매개변수로 보냅니다. 직접 원래의 변수를 참조하는 방법입니다.
+
+한번 위의 예제를 Call by reference로 넘겨보도록 하겠습니다.
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace ConsoleApplication1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int a = 40;
+            int b = 10;
+
+            Console.WriteLine("Swap before: a={0}, b={1}", a, b);
+
+            Swap(ref a, ref b);
+
+            Console.WriteLine("Swap after: a={0}, b={1}", a, b);
+        }
+
+        static void Swap(ref int a, ref int b)
+        {
+            int temp = b;
+            b = a;
+            a = temp;
+        }
+    }
+}
+
+결과:
+Swap before: a=40, b=10
+Swap after: a=10, b=40
+계속하려면 아무 키나 누르십시오 . . .
+
+아까의 예제와 비교해보면 ref라는 새로운 녀석이 등장합니다. ref 키워드는 매개변수를 참조형식으로 사용할때 사용되는 키워드입니다. 메소드의 선언, 호출부분에 ref 키워드를 달아주면 그게 곧 Call by reference로 넘겨주는 방법입니다. 결과를 살펴보면 a와 b의 값이 서로 바뀐것을 확인하실 수 있습니다. 즉, 원본의 데이터의 값이 바뀐것을 알 수 있습니다. 
+
+
+출처: http://blog.eairship.kr/135 [누구나가 다 이해할 수 있는 프로그래밍 첫걸음]

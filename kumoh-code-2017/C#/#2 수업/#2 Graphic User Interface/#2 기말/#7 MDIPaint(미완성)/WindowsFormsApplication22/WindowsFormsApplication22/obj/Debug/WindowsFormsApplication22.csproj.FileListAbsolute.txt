@@ -1,0 +1,10 @@
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication22\WindowsFormsApplication22\bin\Debug\WindowsFormsApplication22.exe.config
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication22\WindowsFormsApplication22\bin\Debug\WindowsFormsApplication22.exe
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication22\WindowsFormsApplication22\bin\Debug\WindowsFormsApplication22.pdb
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication22\WindowsFormsApplication22\obj\Debug\WindowsFormsApplication22.csprojResolveAssemblyReference.cache
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication22\WindowsFormsApplication22\obj\Debug\WindowsFormsApplication22.Form1.resources
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication22\WindowsFormsApplication22\obj\Debug\WindowsFormsApplication22.PaintForm.resources
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication22\WindowsFormsApplication22\obj\Debug\WindowsFormsApplication22.Properties.Resources.resources
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication22\WindowsFormsApplication22\obj\Debug\WindowsFormsApplication22.csproj.GenerateResource.Cache
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication22\WindowsFormsApplication22\obj\Debug\WindowsFormsApplication22.exe
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication22\WindowsFormsApplication22\obj\Debug\WindowsFormsApplication22.pdb

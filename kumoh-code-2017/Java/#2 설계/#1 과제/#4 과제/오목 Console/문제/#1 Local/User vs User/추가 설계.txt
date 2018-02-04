@@ -1,0 +1,6 @@
+main문은 각자가 코딩을 해야하고 코딩에 필요한 추가적인 메소드는 상속클래스를 따로 만들어 추가해야 합니다.
+ 
+예시)
+- OmokBoard클래스의 상속클래스로 MyBoard클래스를 만들어 void display( ) 메소드를 추가.
+- Match클래스의 메소드 bool checkWinningCondition(Position m)이 private 선언이 되었으므로
+  상속클래스 MyMatch클래스 내부에 bool getCheckWinningCondition( ) 메소드를 추가.

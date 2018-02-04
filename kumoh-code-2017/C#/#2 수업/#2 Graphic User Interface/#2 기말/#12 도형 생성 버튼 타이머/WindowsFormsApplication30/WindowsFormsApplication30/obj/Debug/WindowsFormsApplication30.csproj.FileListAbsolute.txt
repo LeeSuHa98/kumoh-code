@@ -1,0 +1,17 @@
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication30\WindowsFormsApplication30\bin\Debug\WindowsFormsApplication30.exe.config
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication30\WindowsFormsApplication30\obj\Debug\WindowsFormsApplication30.Form1.resources
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication30\WindowsFormsApplication30\obj\Debug\WindowsFormsApplication30.Properties.Resources.resources
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication30\WindowsFormsApplication30\obj\Debug\WindowsFormsApplication30.csproj.GenerateResource.Cache
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication30\WindowsFormsApplication30\bin\Debug\WindowsFormsApplication30.exe
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication30\WindowsFormsApplication30\bin\Debug\WindowsFormsApplication30.pdb
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication30\WindowsFormsApplication30\obj\Debug\WindowsFormsApplication30.exe
+c:\users\swk31\documents\visual studio 2015\Projects\WindowsFormsApplication30\WindowsFormsApplication30\obj\Debug\WindowsFormsApplication30.pdb
+C:\Users\swk31\Desktop\전공\2017 2학년 (2017)\2학기\C#\수업\#2 Graphic User Interface\#2 기말\#12 도형 생성 버튼 타이머\WindowsFormsApplication30\WindowsFormsApplication30\bin\Debug\WindowsFormsApplication30.exe.config
+C:\Users\swk31\Desktop\전공\2017 2학년 (2017)\2학기\C#\수업\#2 Graphic User Interface\#2 기말\#12 도형 생성 버튼 타이머\WindowsFormsApplication30\WindowsFormsApplication30\bin\Debug\WindowsFormsApplication30.exe
+C:\Users\swk31\Desktop\전공\2017 2학년 (2017)\2학기\C#\수업\#2 Graphic User Interface\#2 기말\#12 도형 생성 버튼 타이머\WindowsFormsApplication30\WindowsFormsApplication30\bin\Debug\WindowsFormsApplication30.pdb
+C:\Users\swk31\Desktop\전공\2017 2학년 (2017)\2학기\C#\수업\#2 Graphic User Interface\#2 기말\#12 도형 생성 버튼 타이머\WindowsFormsApplication30\WindowsFormsApplication30\obj\Debug\WindowsFormsApplication30.csprojResolveAssemblyReference.cache
+C:\Users\swk31\Desktop\전공\2017 2학년 (2017)\2학기\C#\수업\#2 Graphic User Interface\#2 기말\#12 도형 생성 버튼 타이머\WindowsFormsApplication30\WindowsFormsApplication30\obj\Debug\WindowsFormsApplication30.Form1.resources
+C:\Users\swk31\Desktop\전공\2017 2학년 (2017)\2학기\C#\수업\#2 Graphic User Interface\#2 기말\#12 도형 생성 버튼 타이머\WindowsFormsApplication30\WindowsFormsApplication30\obj\Debug\WindowsFormsApplication30.Properties.Resources.resources
+C:\Users\swk31\Desktop\전공\2017 2학년 (2017)\2학기\C#\수업\#2 Graphic User Interface\#2 기말\#12 도형 생성 버튼 타이머\WindowsFormsApplication30\WindowsFormsApplication30\obj\Debug\WindowsFormsApplication30.csproj.GenerateResource.Cache
+C:\Users\swk31\Desktop\전공\2017 2학년 (2017)\2학기\C#\수업\#2 Graphic User Interface\#2 기말\#12 도형 생성 버튼 타이머\WindowsFormsApplication30\WindowsFormsApplication30\obj\Debug\WindowsFormsApplication30.exe
+C:\Users\swk31\Desktop\전공\2017 2학년 (2017)\2학기\C#\수업\#2 Graphic User Interface\#2 기말\#12 도형 생성 버튼 타이머\WindowsFormsApplication30\WindowsFormsApplication30\obj\Debug\WindowsFormsApplication30.pdb
