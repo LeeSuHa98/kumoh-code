@@ -1,0 +1,23 @@
+C:\Users\D331\Downloads\Omok(Game_grapic)\obj\x86\Debug\Omok.Form1.resources
+C:\Users\D331\Downloads\Omok(Game_grapic)\obj\x86\Debug\Omok.SinglePlayerRegister.resources
+C:\Users\D331\Downloads\Omok(Game_grapic)\obj\x86\Debug\Omok(Game grapic).csproj.GenerateResource.Cache
+C:\Users\D331\Downloads\Omok(Game_grapic)\bin\Debug\Omok(Game grapic).exe
+C:\Users\D331\Downloads\Omok(Game_grapic)\bin\Debug\Omok(Game grapic).pdb
+C:\Users\D331\Downloads\Omok(Game_grapic)\obj\x86\Debug\Omok(Game grapic).exe
+C:\Users\D331\Downloads\Omok(Game_grapic)\obj\x86\Debug\Omok(Game grapic).pdb
+C:\Users\승찬\Desktop\fpl\4학년 2학기\프설 멘토\오목\Omok(Game_grapic) Client\Omok(Game_grapic)\obj\x86\Debug\Omok(Game grapic).exe
+C:\Users\승찬\Desktop\fpl\4학년 2학기\프설 멘토\오목\Omok(Game_grapic) Client\Omok(Game_grapic)\obj\x86\Debug\Omok(Game grapic).pdb
+C:\Users\승찬\Desktop\fpl\4학년 2학기\프설 멘토\오목\Omok(Game_grapic) Client\Omok(Game_grapic)\bin\Debug\Omok(Game grapic).exe
+C:\Users\승찬\Desktop\fpl\4학년 2학기\프설 멘토\오목\Omok(Game_grapic) Client\Omok(Game_grapic)\bin\Debug\Omok(Game grapic).pdb
+C:\Users\승찬\Desktop\fpl\4학년 2학기\프설 멘토\오목\Omok(Game_grapic) Client\Omok(Game_grapic)\obj\x86\Debug\Omok.SinglePlayerRegister.resources
+C:\Users\승찬\Desktop\fpl\4학년 2학기\프설 멘토\오목\Omok(Game_grapic) Client\Omok(Game_grapic)\obj\x86\Debug\Omok(Game grapic).csproj.GenerateResource.Cache
+C:\Users\승찬\Desktop\fpl\4학년 2학기\프설 멘토\오목\Omok(Game_grapic) Client\Omok(Game_grapic)\obj\x86\Debug\Omok(Game grapic).csprojResolveAssemblyReference.cache
+C:\Users\승찬\Desktop\fpl\4학년 2학기\프설 멘토\오목\Omok(Game_grapic) Client\Omok(Game_grapic)\obj\x86\Debug\Omok.Form1.resources
+D:\bmkim\강의\영재교육원\사사과정\작품3단계(오목네트워크버젼)\오목(수정본)\Omok(Game_grapic) Client\Omok(Game_grapic)\obj\x86\Debug\Omok(Game grapic).exe
+D:\bmkim\강의\영재교육원\사사과정\작품3단계(오목네트워크버젼)\오목(수정본)\Omok(Game_grapic) Client\Omok(Game_grapic)\obj\x86\Debug\Omok(Game grapic).pdb
+D:\bmkim\강의\영재교육원\사사과정\작품3단계(오목네트워크버젼)\오목(수정본)\Omok(Game_grapic) Client\Omok(Game_grapic)\bin\Debug\Omok(Game grapic).exe
+D:\bmkim\강의\영재교육원\사사과정\작품3단계(오목네트워크버젼)\오목(수정본)\Omok(Game_grapic) Client\Omok(Game_grapic)\bin\Debug\Omok(Game grapic).pdb
+D:\bmkim\강의\영재교육원\사사과정\작품3단계(오목네트워크버젼)\오목(수정본)\Omok(Game_grapic) Client\Omok(Game_grapic)\obj\x86\Debug\Omok(Game grapic).csprojResolveAssemblyReference.cache
+D:\bmkim\강의\영재교육원\사사과정\작품3단계(오목네트워크버젼)\오목(수정본)\Omok(Game_grapic) Client\Omok(Game_grapic)\obj\x86\Debug\Omok.Form1.resources
+D:\bmkim\강의\영재교육원\사사과정\작품3단계(오목네트워크버젼)\오목(수정본)\Omok(Game_grapic) Client\Omok(Game_grapic)\obj\x86\Debug\Omok.SinglePlayerRegister.resources
+D:\bmkim\강의\영재교육원\사사과정\작품3단계(오목네트워크버젼)\오목(수정본)\Omok(Game_grapic) Client\Omok(Game_grapic)\obj\x86\Debug\Omok(Game grapic).csproj.GenerateResource.Cache
